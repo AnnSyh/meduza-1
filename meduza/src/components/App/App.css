@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  font-family: "Lora-Bold";
+  background-image: url("./../../images/background-lg-img.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid transparent;
+}
+.App__container {
+  height: 100vh;
+}
+@media screen and (max-width: 768px) {
+  .App__container {
+    width: 100%;
+  }
+}

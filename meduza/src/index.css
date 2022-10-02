@@ -1,16 +1,14 @@
 @font-face {
-  font-family: 'Roboto';
-  src: url(./fonts/roboto.woff) format('woff');
+  font-family: "Lora-Bold";
+  src: url(./fonts/Lora-Bold.ttf) format("ttf");
 }
-
 body {
   margin: 0;
-  font-family: 'Roboto';
+  font-family: "Lora-Bold";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }

@@ -1,0 +1,18 @@
+@import 'scss/variables';
+
+@font-face { 
+  font-family: $Lora-bold;
+  src: url(./fonts/Lora-Bold.ttf) format('ttf');
+}
+
+body {
+  margin: 0;
+  font-family: $Lora-bold;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} 

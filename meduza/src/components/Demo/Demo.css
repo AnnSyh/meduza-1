@@ -1,0 +1,44 @@
+.Demo--form,
+.Demo--form > * {
+  width: 100%;
+  font-family: "Lora-Bold";
+  margin: auto;
+}
+
+.Container--form {
+  max-width: 765px;
+  position: relative;
+  top: 270px;
+}
+.Container--form form::after {
+  position: absolute;
+  top: -208px;
+  left: -231px;
+  content: "";
+  width: 269px;
+  height: 368px;
+  background-image: url("./../../images/Artboard%202.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@media screen and (max-width: 870px) {
+  .Container--form form::after {
+    top: -256px;
+    left: 0;
+    width: 100%;
+    height: 225px;
+    background-size: contain;
+  }
+}
+.Container--form h1 {
+  font-family: "Lora-Bold";
+  font-size: 56px;
+  font-weight: 600;
+  color: #215C75;
+}
+@media screen and (max-width: 768px) {
+  .Container--form h1 {
+    font-size: 20px;
+  }
+}
