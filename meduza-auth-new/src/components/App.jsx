@@ -33,7 +33,7 @@ const App = () => {
     if (loggedIn) {
       history.push('/cards');
     }
-  }, [loggedIn])
+  }, [history, loggedIn])
 
   function handleLogin(username, password) {
     return auth.authorize(username, password)

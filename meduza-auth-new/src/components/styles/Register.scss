@@ -27,6 +27,7 @@ body {
 
     & form::after {
       position: absolute;
+      left: 0;
       content: "";
       background-repeat: no-repeat;
       background-position: center;
@@ -39,30 +40,46 @@ body {
         height: 225px;
         background-size: contain;
       }
+
     }
 
     &--left form::after {
-      top: -208px;
-      left: -231px;
+      top: -157px;
+      left: -168px;
       width: 269px;
       height: 368px;
       background-image: url('/src/images/artboard.svg');
+
+      @media screen and(max-width:1100px) {
+        top: -303px;
+        left: calc(50% - 148px);
+      }
     }
 
     &--center form::after {
-      top: -340px;
-      right: 231px;
+      top: -145px;
+      left: -50px;
       width: 269px;
       height: 368px;
       background-image: url('/src/images/artboard-center.svg');
+
+      @media screen and(max-width:1300px) { 
+        top: -340px;
+        left: calc(50% - 148px);
+      }
     }
 
     &--right form::after {
-      top: -208px;
-      right: -180px;
+      top: -292px;
+      left: 979px;
       width: 259px;
       height: 418px;
       background-image: url('/src/images/artboard-right.svg');
+
+      @media screen and(max-width:1300px) {
+        top: -280px;
+        left: calc(50% - 148px);
+      }
     }
 
   }

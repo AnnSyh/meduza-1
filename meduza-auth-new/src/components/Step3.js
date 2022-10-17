@@ -26,7 +26,7 @@ const Step3 = (props) => {
   return (
     <Container className='container__form-img container__form-img--right'>
       <h1>
-        That’s the best age, {state.data.firstName}!
+        That’s the best age, {state.data.firstName}!<br/>
         Are you ready?
       </h1>
       <form

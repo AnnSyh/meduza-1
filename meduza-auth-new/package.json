@@ -1,5 +1,5 @@
 {
-  "name": "crypto-ducks",
+  "name": "meduza-auth-new",
   "version": "0.1.0",
   "homepage": "./",
   "private": true,
@@ -13,16 +13,21 @@
     "react-dom": "^16.13.1",
     "react-hook-form": "^7.37.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^5.0.1",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"    
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "set PORT=4444 & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  "repository": { 
+    "type": "git", 
+    "url": "git+https://github.com/AnnSyh/meduza-1" 
+
+  }, 
   "eslintConfig": {
     "extends": "react-app"
   },
