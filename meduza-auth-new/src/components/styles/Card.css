@@ -1,0 +1,31 @@
+.card-card {
+  border: 2px solid #02FF00;
+  width: 50%;
+  margin-top: 64px;
+}
+.card-card__image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+}
+.card-card__desc {
+  border-top: 2px solid #02FF00;
+  padding: 36px;
+}
+.card-card__name {
+  font-size: 24px;
+}
+@media screen and (max-width: 700px) {
+ .card-card__png {
+   width: 200px;
+ }
+ .card-card {
+   width: 70%;
+ }
+}
+@media screen and (max-width: 400px) {
+ .card-card__png {
+   width: 100px;
+ }
+}

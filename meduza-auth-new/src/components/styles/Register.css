@@ -1,0 +1,141 @@
+@charset "UTF-8";
+body {
+  font-family: "Lora-Bold";
+}
+
+.container__form-img {
+  max-width: 905px;
+  position: relative;
+  top: 270px;
+}
+.container__form-img h1 {
+  font-family: "Lora-Bold";
+  font-size: 56px;
+  font-weight: 600;
+  color: #215C75;
+  z-index: 1;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .container__form-img h1 {
+    font-size: 20px;
+  }
+}
+.container__form-img form::after {
+  position: absolute;
+  content: "";
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@media screen and (max-width: 870px) {
+  .container__form-img form::after {
+    top: -256px;
+    left: 0;
+    width: 100%;
+    height: 225px;
+    background-size: contain;
+  }
+}
+.container__form-img--left form::after {
+  top: -208px;
+  left: -231px;
+  width: 269px;
+  height: 368px;
+  background-image: url("/src/images/artboard.svg");
+}
+.container__form-img--center form::after {
+  top: -340px;
+  right: 231px;
+  width: 269px;
+  height: 368px;
+  background-image: url("/src/images/artboard-center.svg");
+}
+.container__form-img--right form::after {
+  top: -208px;
+  right: -180px;
+  width: 259px;
+  height: 418px;
+  background-image: url("/src/images/artboard-right.svg");
+}
+
+.form-img,
+.form-img > * {
+  width: 100%;
+  margin: auto;
+}
+
+.form-img .error {
+  color: #bf1650;
+}
+.form-img .error::before {
+  display: inline;
+  content: "⚠ ";
+}
+.form-img input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.form-img input[type=submit] {
+  width: 98px;
+  height: 98px;
+  border: none !important;
+  margin-top: 40px;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+  background-image: url("/src/images/btn.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.form-img input[type=submit]::after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: "";
+  width: 98px;
+  height: 98px;
+  background-image: url("/src/images/artboard.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.form-img input[type=submit]:hover {
+  border: none;
+  background-color: transparent;
+}
+.form-img input[type=submit]:active {
+  transition: 0.3s all;
+  transform: translateY(3px);
+  border: 1px solid transparent;
+  opacity: 0.8;
+}
+.form-img input:disabled {
+  opacity: 0.4;
+}
+
+.gallery {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.gallery__item {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, calc(50% - 8px));
+    gap: 16px;
+  }
+}

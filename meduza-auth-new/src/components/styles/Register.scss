@@ -1,0 +1,163 @@
+@import '../styles/variables';
+
+body {
+  font-family: $Lora-bold;
+}
+
+.container {
+
+  &__form-img {
+    // max-width: 865px;
+    max-width: 905px;
+    position: relative;
+    top: 270px;
+
+    & h1 {
+      font-family: $Lora-bold;
+      font-size: $font-size-lg-42pt;
+      font-weight: 600;
+      color: $color-blue-three;
+      z-index: 1;
+      position: relative;
+
+      @media screen and (max-width:768px) {
+        font-size: $font-size-xs-42pt;
+      }
+    }
+
+    & form::after {
+      position: absolute;
+      content: "";
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      @media screen and (max-width:870px) {
+        top: -256px;
+        left: 0;
+        width: 100%;
+        height: 225px;
+        background-size: contain;
+      }
+    }
+
+    &--left form::after {
+      top: -208px;
+      left: -231px;
+      width: 269px;
+      height: 368px;
+      background-image: url('/src/images/artboard.svg');
+    }
+
+    &--center form::after {
+      top: -340px;
+      right: 231px;
+      width: 269px;
+      height: 368px;
+      background-image: url('/src/images/artboard-center.svg');
+    }
+
+    &--right form::after {
+      top: -208px;
+      right: -180px;
+      width: 259px;
+      height: 418px;
+      background-image: url('/src/images/artboard-right.svg');
+    }
+
+  }
+
+}
+
+.form-img,
+.form-img>* {
+  width: 100%;
+  margin: auto;
+}
+
+.form-img {
+
+  .error {
+    color: $color-error;
+
+    &::before {
+      display: inline;
+      content: "⚠ ";
+    }
+  }
+
+  input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid white;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  input[type="submit"] {
+    width: 98px;
+    height: 98px;
+    border: none !important;
+    margin-top: 40px;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+
+    background-image: url('/src/images/btn.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &::after {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      content: "";
+      width: 98px;
+      height: 98px;
+      background-image: url('/src/images/artboard.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  input[type="submit"]:hover {
+    border: none;
+    background-color: transparent;
+  }
+
+  input[type="submit"]:active {
+    transition: 0.3s all;
+    transform: translateY(3px);
+    border: 1px solid transparent;
+    opacity: 0.8;
+  }
+
+  input:disabled {
+    opacity: 0.4;
+  }
+}
+
+.gallery {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 10px;
+
+  &__item {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, calc(100% / 2 - 8px));
+    gap: 16px;
+  }
+}

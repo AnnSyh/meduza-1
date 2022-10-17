@@ -1,0 +1,19 @@
+@font-face {
+  src:
+    /* url('../Lora-Bold.woff2') format('woff2'),
+    url('../Lora-Bold.woff') format('woff'), */
+    url('./Lora-Bold.ttf') format('truetype');
+  font-family: 'Lora-Bold';
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  src:
+    /* url('./OpenSans-Regular.woff2') format('woff2'),
+    url('./OpenSans-Regular.woff') format('woff'), */
+    url('./OpenSans-Regular.ttf') format('truetype');
+  font-family: 'Open-sans';
+  font-style: normal;
+  font-weight: 400;
+}
