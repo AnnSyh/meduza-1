@@ -1,12 +1,24 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  background-color: aqua;
+}
+
 .App {
   text-align: center;
   font-family: "Lora-Bold";
-  background-image: url("/src/images/background-lg-img.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border: 1px solid transparent;
+  height: 100%;
+}
+.App__container {
+  background: url("/src/images/background-lg-img.jpg") top/cover no-repeat;
   height: 100vh;
+}
+.App--circle-of-life {
+  background-image: url("/src/images/Fon-inner.svg");
 }
 
 .formContainer {

@@ -38,9 +38,6 @@ const Step3 = (props) => {
         </Button>
 
       </form>
-
-
-      
     </Container>
   );
 };

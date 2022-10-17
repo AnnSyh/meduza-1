@@ -1,0 +1,58 @@
+@import '../styles/variables';
+
+html {
+  background-color: yellow;
+}
+
+.container__form-question {
+  border: 1px solid red;
+  max-width: 1300px;
+  color: $color-white; 
+  font-size: $font-size-lg-24pt;
+
+  @media screen and(max-width:1200px)  {
+    font-size: $font-size-xs-24pt;
+
+  }
+
+  .logo-img {
+    width: 125px;
+    height: 125px;
+    margin-top: 30px;
+  }
+  
+
+  h1 { 
+    font-size: $font-size-lg-60pt;
+  }
+}
+
+.health-buttons button:first-child{
+  position: relative;
+
+  &::after {
+    content: "I am feeling like a dying horse";
+    position: absolute;
+    top: 77px;
+    left: -19px;
+    font-size: 14px;
+    text-transform: none;
+    line-height: 1.3;
+    width: 100px;
+  }
+}
+
+.health-buttons button:last-child{
+  position: relative;
+
+  &::after {
+    content: 'Very, I am applying to join the Olympics!';
+    position: absolute;
+    top: 77px;
+    left: -19px;
+    font-size: 14px;
+    text-transform: none;
+    line-height: 1.3;
+    width: 100px;
+  }
+}

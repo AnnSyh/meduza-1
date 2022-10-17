@@ -5,7 +5,6 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
 
 import Container from '@material-ui/core/Container';
-
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
@@ -54,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Step2 = (props) => {
   const {
-    register,
     handleSubmit,
     reset
   } = useForm({

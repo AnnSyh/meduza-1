@@ -13,7 +13,8 @@
     "react-dom": "^16.13.1",
     "react-hook-form": "^7.37.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "react-svg-radar-chart": "^1.4.0"
   },
   "scripts": {
     "start": "set PORT=4444 & react-scripts start",
@@ -23,11 +24,10 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "repository": { 
-    "type": "git", 
-    "url": "git+https://github.com/AnnSyh/meduza-1" 
-
-  }, 
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnSyh/meduza-1"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
