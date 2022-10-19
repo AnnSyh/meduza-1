@@ -175,22 +175,24 @@ const Health = props => {
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
 
-  // при клике кнопкеответа сцифрой надо
-  // 1.проставить точкуна диаграмме
-  // 2. запомнить/подсветить выбранный ответ и сабмитить форму
-  // 3. перейти на след  шаг  Family and friends
+  // при клике кнопки ответа с цифрой надо
+  // 1.проставить точку на диаграмме
+  // 2. запомнить/подсветить выбранный ответ и 
+  // 3. сабмитить форму
+  // 4. перейти на след  шаг  Family and friends
 
   return (
-    <Container className='container__form-question'>
+    <Container className='healthContainer container__form-question'>
       <img className='logo-img' src={healthIcon} alt='' />
       <h1>Health</h1>
       <p>How happy are you with your health, wellness, and physical body?</p>
+      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
       <form
         className='form-question'
         onSubmit={handleSubmit(onSubmit)}
       >
         {/* //кнопки */}
-        <div class="health-buttons">
+        <div className="health-buttons">
           <div className={classes.root}>
             <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" >
               1

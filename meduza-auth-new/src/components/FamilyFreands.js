@@ -1,6 +1,7 @@
 import React from 'react';
-import radarChart from "react-svg-radar-chart";
+// import radarChart from "react-svg-radar-chart";
 import { useForm } from "react-hook-form";
+// import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
 
@@ -9,18 +10,18 @@ import './styles/Health.css';
 import Container from '@material-ui/core/Container';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import healthIcon from './../images/Health.svg';
 
-// данные для кнопок (варианты ответов навопросы)
+// данные для кнопок (варианты ответов на вопросы)
 const BootstrapButton = withStyles({
   root: {
-    fontSize: 42,
+    fontSize: 32,
     fontWeight: 'bold',
-    border: '1px solid',
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    border: '1px solid green',
     borderColor: '#ffffff',
     color: '#215C75',
     width: '100%',
-    height: '231px',
     margin: '0',
     '&:hover': {
       backgroundColor: '#ffffff',
@@ -38,23 +39,41 @@ const BootstrapButton = withStyles({
   },
 })(Button);
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(10, calc(100% / 10 - 8px))',
+    gap: '12px',
+    alignItems: 'center',
+    maxWidth: '640px',
+    margin: 'auto auto 80px auto',
+    '& > *': {
+      display: 'flex',
+      alignItem: 'center',
+      justifyContent: 'center',
+    }
+  },
+}));
+
+
+// const keyHealthIcon=`${healthIcon}`
 
 // данные для круговоой диаграммы
 const data = [
-  { battery1: 0.7, design1: 1, useful1: 0.9, speed1: 0.67, weight1: 0.8 },
+  { Health: 0.7, love: 1, money: 0.9, fun: 0.67, friend: 0.8, career: 0.6, growth: 0.5, fun: 0.3 },
   // { battery: 0.6, design: 0.9, useful: 0.8, speed: 0.7, weight: 0.6 }
 ];
 const chartSize = 450;
-const numberOfScales = 4;
+const numberOfScales = 10;
 const scale = value => (
   <circle
     key={`scale-${value}`}
     cx={0}
     cy={0}
     r={((value / numberOfScales) * chartSize) / 2}
-    fill="#FAFAFA"
-    stroke="#999"
-    strokeWidth="0.2"
+    fill="transparent"
+    stroke="#fff"
+    strokeWidth="1"
   />
 );
 const polarToX = (angle, distance) => Math.cos(angle - Math.PI / 2) * distance;
@@ -80,8 +99,8 @@ const shape = columns => (chartData, i) => {
           ];
         })
       )}
-      stroke={`#edc951`}
-      fill={`#edc951`}
+      stroke={`#ffffff`}
+      fill={`rgba(255, 255, 255, 1)`}
       fillOpacity=".5"
     />
   );
@@ -98,8 +117,8 @@ const axis = () => (col, i) => (
       [0, 0],
       [polarToX(col.angle, chartSize / 2), polarToY(col.angle, chartSize / 2)]
     ])}
-    stroke="#555"
-    strokeWidth=".2"
+    stroke="#fff"
+    strokeWidth="2"
   />
 );
 const caption = () => col => (
@@ -108,9 +127,8 @@ const caption = () => col => (
     x={polarToX(col.angle, (chartSize / 2) * 0.95).toFixed(4)}
     y={polarToY(col.angle, (chartSize / 2) * 0.95).toFixed(4)}
     dy={10 / 2}
-    fill="red"
+    fill="#215C75"
     fontWeight="400"
-    textShadow="1px 1px 0 #fff"
   >
     {col.key}
   </text>
@@ -121,7 +139,6 @@ const caption = () => col => (
 const FamilyFreands = props => {
   // форма
   const {
-    register,
     handleSubmit,
     reset
   } = useForm({
@@ -135,6 +152,8 @@ const FamilyFreands = props => {
     props.history.push("./family-freands");
     reset();
   };
+
+  const classes = useStyles();
 
   // круговая диаграмма
   const groups = [];
@@ -151,22 +170,63 @@ const FamilyFreands = props => {
       angle: (Math.PI * 2 * i) / all.length
     };
   });
-  groups.push(<g key={`group-axes`}>{columns.map(axis())}</g>);
-  groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>);
+  groups.push(<g key={`group-axes`}>{columns.map(axis())}</g>); // лучи
+  groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
+  groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
-  groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>);
 
+  // при клике кнопки ответа с цифрой надо
+  // 1.проставить точку на диаграмме
+  // 2. запомнить/подсветить выбранный ответ и 
+  // 3. сабмитить форму
+  // 4. перейти на след  шаг  Family and friends
 
   return (
-    <Container className='container__form-question'>
-      <h1>FamilyFreands</h1>
+    <Container className='healthContainer container__form-question'>
+      <img className='logo-img' src={healthIcon} alt='' />
+      <h1>Family & Friends</h1>
+      <p>How satisfied are you with your social life?</p>
+      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
       <form
-              className='form-question'
-              onSubmit={handleSubmit(onSubmit)}
+        className='form-question'
+        onSubmit={handleSubmit(onSubmit)}
       >
-
-
-
+        {/* //кнопки */}
+        <div className="health-buttons">
+          <div className={classes.root}>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" >
+              1
+            </BootstrapButton>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-2" >
+              2
+            </BootstrapButton>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-3" >
+              3
+            </BootstrapButton>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-4" >
+              4
+            </BootstrapButton>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-5" >
+              5
+            </BootstrapButton>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" >
+              6
+            </BootstrapButton>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-2" >
+              7
+            </BootstrapButton>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-3" >
+              8
+            </BootstrapButton>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-4" >
+              9
+            </BootstrapButton>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-5" >
+              10
+            </BootstrapButton>
+          </div>
+        </div>
+        {/* // диаграма */}
         <svg
           version="1"
           xmlns="http://www.w3.org/2000/svg"

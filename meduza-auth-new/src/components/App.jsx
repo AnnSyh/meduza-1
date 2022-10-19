@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import { StateMachineProvider, createStore } from "little-state-machine";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
+import Step2Right from "./Step2Right";
 import Step3 from "./Step3";
 import Result from "./Result";
 import Health from "./Health";
@@ -126,6 +127,7 @@ const App = () => {
           <StateMachineProvider>
             <Route exact path="/" component={Step1} />
             <Route path="/step2" component={Step2} />
+            <Route path="/step2Right" component={Step2Right} />
             <Route path="/step3" component={Step3} />
             <Route path="/result" component={Result} />
             <Route path="/health" component={Health} />

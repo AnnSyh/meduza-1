@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useForm } from "react-hook-form";
 import { withRouter } from "react-router-dom";
@@ -8,6 +7,7 @@ import updateAction from "./updateAction";
 import Container from '@material-ui/core/Container';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import data from "../data";
 
 const BootstrapButton = withStyles({
   root: {
@@ -52,24 +52,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Step2 = (props) => {
+const Step2Right = (props) => {
   const {
+    register,
     handleSubmit,
     reset
   } = useForm({
-    mode: 'onChange'
+    mode: 'onChange',
+    defaultValues: {
+      radio: "",
+    }
   });
 
-  const { state, actions } = useStateMachine({ updateAction });
+  const { actions, state } = useStateMachine({ updateAction });
 
   const onSubmit = (data) => {
+    console.log('сабмит формы!!!!');
     actions.updateAction(data);
     // props.history.push("./step3");
     props.history.push("./result");
+    alert(JSON.stringify(data));
     reset();
   };
 
-  const classes = useStyles();
+  function handleCardClick(e) {
+    const age = e.target.value
+
+    actions.updateAction(age);
+  }
+
+
 
   return (
     <Container className='container__form-img container__form-img--right'>
@@ -83,24 +95,37 @@ const Step2 = (props) => {
         onSubmit={handleSubmit(onSubmit)}
       >
 
-        <div className={classes.root}>
-          <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" >
-            16-24
-          </BootstrapButton>
-          <BootstrapButton defaultValue={state.data.age} type="submit" id="age-2" >
+        <div className=''>
+
+
+        <input {...register("radio")} type="radio" value="16-24" />
+      <input {...register("radio")} type="radio" value="25-34" />
+      <input {...register("radio")} type="radio" value="35-44" />
+      <input {...register("radio")} type="radio" value="45 +" />
+
+          {/* <input   defaultValue={state.data.age} {...register("age")}/>
+          <input   defaultValue={state.data.age} {...register("age")}/>
+          <input   defaultValue={state.data.age} {...register("age")}/>
+          <input   defaultValue={state.data.age} {...register("age")}/> */}
+
+          {/* 16-24
+          </BootstrapButton> */}
+          {/* <BootstrapButton  {...register("radio")} type="submit">
             25-34
           </BootstrapButton>
-          <BootstrapButton defaultValue={state.data.age} type="submit" id="age-3" >
+          <BootstrapButton  {...register("radio")} type="submit">
             35-44
           </BootstrapButton>
-          <BootstrapButton defaultValue={state.data.age} type="submit" id="age-4" >
+          <BootstrapButton  {...register("radio")} type="submit">
             45 +
-          </BootstrapButton>
+          </BootstrapButton> */}
         </div>
+
+        <input type="submit" />
 
       </form>
     </Container>
   );
 };
 
-export default withRouter(Step2);
+export default withRouter(Step2Right);

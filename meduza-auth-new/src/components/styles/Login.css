@@ -1,5 +1,4 @@
 .container__form-login {
-  border: 1px solid green;
   color: #fff;
 }
 .container__form-login h1 {
@@ -21,6 +20,17 @@
   justify-content: center;
   width: 908px;
   margin: 30px auto;
+  position: relative;
+  margin-bottom: 300px;
+}
+.login::after {
+  position: absolute;
+  content: "";
+  top: 595px;
+  left: calc(50% - 145px);
+  width: 276px;
+  height: 173px;
+  background-image: url("../../images/artboard-login.svg");
 }
 
 .login__welcome {

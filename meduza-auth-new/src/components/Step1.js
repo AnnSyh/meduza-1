@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 const Step1 = (props) => {
   const {
     register,
-    formState: { errors, isValid },
+    formState: { errors },
     handleSubmit,
     reset
   } = useForm({
@@ -19,10 +19,10 @@ const Step1 = (props) => {
   const { actions, state } = useStateMachine({ updateAction });
 
   const onSubmit = (data) => {
-    console.log('onSubmit');
     actions.updateAction(data);
-    props.history.push("./step2");
-    // alert(JSON.stringify(data));
+    // props.history.push("./Step2Right");
+    props.history.push("./Step2");
+    alert(JSON.stringify(data));
     reset();
   };
 
@@ -38,8 +38,8 @@ const Step1 = (props) => {
         <label>
           <input
             placeholder='Name'
-            defaultValue={state.data.firstName}
-            {...register("firstName", {
+            defaultValue={state.data.name}
+            {...register("name", {
               required: 'Поле обязательнок заполнению',
               minLength: {
                 value: 5,
@@ -49,10 +49,10 @@ const Step1 = (props) => {
           />
         </label>
         <div style={{ height: 10 }}>
-          {errors?.firstName && <span className='error' >{errors?.firstName?.message || 'Error!'}</span>}
+          {errors?.name && <span className='error' >{errors?.name?.message || 'Error!'}</span>}
         </div>
 
-        <input type="submit" value='' />
+        <input className="input" type="submit" value='' />
       </form>
     </Container>
   );

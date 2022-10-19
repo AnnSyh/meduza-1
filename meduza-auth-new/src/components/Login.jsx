@@ -89,10 +89,11 @@ const Login = ({ handleLogin }) => {
             />
           </label>
 
-          <div className='d-flex'>
-            <span>
+          <div className='form-img__row'>
+            <label  for="remember-me" className='form-img__remember-me'>
+              <input type="checkbox" id='remember-me'/>
               Remember me
-            </span>
+            </label>
             <Link to="/" className="register__login-link">
               Forgot Password?
             </Link>

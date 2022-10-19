@@ -19,14 +19,15 @@ const Step3 = (props) => {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("./result");
+    // props.history.push("./result");
+    props.history.push("./health");
     reset();
   };
 
   return (
     <Container className='container__form-img container__form-img--center'>
       <h1>
-        That’s the best age, {state.data.firstName}!<br/>
+        That’s the best age, {state.data.name}!<br/>
         Are you ready?
       </h1>
       <form

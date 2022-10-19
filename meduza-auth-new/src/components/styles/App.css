@@ -20,7 +20,10 @@ body,
   justify-content: center;
 }
 .App__container:has(.loginContainer) {
-  background: url("/src/images//Fon-inner.svg") top/cover no-repeat;
+  background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
+}
+.App__container:has(.healthContainer) {
+  background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
 }
 
 .formContainer {
