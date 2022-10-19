@@ -172,9 +172,13 @@ const Health = props => {
   });
   groups.push(<g key={`group-axes`}>{columns.map(axis())}</g>); // лучи
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
-
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
+
+  // при клике кнопкеответа сцифрой надо
+  // 1.проставить точкуна диаграмме
+  // 2. запомнить/подсветить выбранный ответ и сабмитить форму
+  // 3. перейти на след  шаг  Family and friends
 
   return (
     <Container className='container__form-question'>

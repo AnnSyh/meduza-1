@@ -8,30 +8,31 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 
-// данные для кнопок (варианты ответов на вопросы)
+// данные для кнопок 
 const BootstrapButton = withStyles({
   root: {
     fontSize: 32,
     fontWeight: 'bold',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    border: '1px solid green',
+    backgroundColor: '#E9EDF0',
+    border: '1px solid',
     borderColor: '#ffffff',
     color: '#215C75',
-    width: '100%',
-    margin: '0',
-    '&:hover': {
-      backgroundColor: '#ffffff',
-      borderColor: '#ffffff',
-      boxShadow: 'none',
-    },
-    '&:active': {
-      boxShadow: 'none',
-      backgroundColor: '#ffffff',
-      borderColor: '#ffffff',
-    },
-    '&:focus': {
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-    },
+    width: '321px',
+    height: '77px',
+    margin: '30px',
+    borderRadius: '30px',
+    textTransform: 'none',
+    // '&:hover': {
+    //   backgroundColor: '#ffffff',
+    //   borderColor: '#ffffff',
+    // },
+    // '&:active': {
+    //   backgroundColor: '#ffffff',
+    //   borderColor: '#ffffff',
+    // },
+    // '&:focus': {
+    //   boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+    // },
   },
 })(Button);
 
@@ -62,7 +63,7 @@ const Register = ({ handleRegister }) => {
   }
 
   return (
-    <Container className='container__form-question register'>
+    <Container className='container__form-question'>
       <h1>Регистрация</h1>
       <p className="register__error">
         {message}
@@ -114,16 +115,13 @@ const Register = ({ handleRegister }) => {
           />
         </label>
         <div className="register__button-container">
-          <Button type="submit" variant="contained" color="primary"  className="register__link">
-            Зарегистрироваться
-          </Button>
-          <BootstrapButton defaultValue='' type="submit" id="age-1" >
-              1
-            </BootstrapButton>
+          <BootstrapButton defaultValue='' type="submit">
+            Регистрация
+          </BootstrapButton>
         </div>
       </form>
       <div className="register__signin">
-        <p>Уже зарегистрированы?</p>
+        <span>Уже зарегистрированы? </span>
         <Link to="login" className="register__login-link">Войти</Link>
       </div>
     </Container>

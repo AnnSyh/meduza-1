@@ -4,7 +4,36 @@ import { Link, } from 'react-router-dom';
 import './styles/Login.css';
 
 import Container from '@material-ui/core/Container';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+
+// стили для кнопки 
+const BootstrapButton = withStyles({
+  root: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    backgroundColor: '#E9EDF0',
+    border: '1px solid',
+    borderColor: '#ffffff',
+    color: '#215C75',
+    width: '321px',
+    height: '77px',
+    margin: '30px',
+    borderRadius: '30px',
+    textTransform: 'none',
+    // '&:hover': {
+    //   backgroundColor: '#ffffff',
+    //   borderColor: '#ffffff',
+    // },
+    // '&:active': {
+    //   backgroundColor: '#ffffff',
+    //   borderColor: '#ffffff',
+    // },
+    // '&:focus': {
+    //   boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+    // },
+  },
+})(Button);
 
 const Login = ({ handleLogin }) => {
   const [userData, setUserState] = useState({
@@ -31,17 +60,18 @@ const Login = ({ handleLogin }) => {
 
   return (
 
-    <Container className='container__form-img container__form-img--left'>
+    <Container className='container__form-login'>
+      <h1>Welcome to My Life Quest</h1>
+      <span className='lid'>Please sign-in to your account and start the adventure</span>
       <div onSubmit={handleSubmit} className="login">
-
         <p className="login__error">
           {message}
         </p>
-        <form className="login__form">
+        <form className="form-img login__form">
           <label for="username">
             <input id="username"
               required
-              placeholder='Логин'
+              placeholder='Email'
               name="username"
               type="text"
               value={username}
@@ -51,26 +81,35 @@ const Login = ({ handleLogin }) => {
           <label for="password">
             <input id="password"
               required
+              placeholder='Password'
               name="password"
               type="password"
               value={password}
               onChange={handleChange}
             />
           </label>
+
+          <div className='d-flex'>
+            <span>
+              Remember me
+            </span>
+            <Link to="/" className="register__login-link">
+              Forgot Password?
+            </Link>
+
+          </div>
+
           <div className="login__button-container">
-            <Button
-              variant="contained" 
-              color="primary"
+            <BootstrapButton
               type="submit"
-              className="login__link"
-            >Войти</Button>
+            >Login</BootstrapButton>
           </div>
         </form>
 
-        <div className="login__signup">
-          <p>Ещё не зарегистрированы?</p>
-          <Link to="/register" className="signup__link">
-            Зарегистрироваться
+        <div className="register__signin">
+          <span>New on our platform? </span>
+          <Link to="/register" className="register__login-link">
+            Create an account
           </Link>
         </div>
       </div>

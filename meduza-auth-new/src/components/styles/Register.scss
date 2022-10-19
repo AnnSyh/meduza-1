@@ -7,10 +7,11 @@ body {
 .container {
 
   &__form-img {
-    // max-width: 865px;
     max-width: 905px;
     position: relative;
-    top: 270px;
+    padding-top: 270px;
+    padding-bottom: 100px;
+    min-height: 100vh;
 
     & h1 {
       font-family: $Lora-bold;
@@ -44,8 +45,8 @@ body {
     }
 
     &--left form::after {
-      top: -157px;
-      left: -168px;
+      top: 127px;
+      left: -155px;
       width: 269px;
       height: 368px;
       background-image: url('/src/images/artboard.svg');
@@ -57,21 +58,22 @@ body {
     }
 
     &--center form::after {
-      top: -145px;
-      left: -50px;
+      top: -13px;
+      left: calc(50% - 164px);
       width: 269px;
       height: 368px;
       background-image: url('/src/images/artboard-center.svg');
 
-      @media screen and(max-width:1300px) { 
+      @media screen and(max-width:1300px) {
         top: -340px;
         left: calc(50% - 148px);
       }
     }
 
     &--right form::after {
-      top: -292px;
-      left: 979px;
+      top: 168px;
+      left: auto;
+      right: 0;
       width: 259px;
       height: 418px;
       background-image: url('/src/images/artboard-right.svg');
@@ -177,4 +179,17 @@ body {
     grid-template-columns: repeat(2, calc(100% / 2 - 8px));
     gap: 16px;
   }
+}
+
+
+.register__signin {
+  font-family: $open-sans;
+  font-weight: bold;
+  color: #403F3F;
+  font-size: $font-size-lg-22pt;
+}
+
+.register__login-link {
+  color: $color-blue-three;
+  text-decoration: none;
 }

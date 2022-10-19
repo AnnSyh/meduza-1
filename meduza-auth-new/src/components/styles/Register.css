@@ -6,7 +6,9 @@ body {
 .container__form-img {
   max-width: 905px;
   position: relative;
-  top: 270px;
+  padding-top: 270px;
+  padding-bottom: 100px;
+  min-height: 100vh;
 }
 .container__form-img h1 {
   font-family: "Lora-Bold";
@@ -39,8 +41,8 @@ body {
   }
 }
 .container__form-img--left form::after {
-  top: -157px;
-  left: -168px;
+  top: 127px;
+  left: -155px;
   width: 269px;
   height: 368px;
   background-image: url("/src/images/artboard.svg");
@@ -52,8 +54,8 @@ body {
   }
 }
 .container__form-img--center form::after {
-  top: -145px;
-  left: -50px;
+  top: -13px;
+  left: calc(50% - 164px);
   width: 269px;
   height: 368px;
   background-image: url("/src/images/artboard-center.svg");
@@ -65,8 +67,9 @@ body {
   }
 }
 .container__form-img--right form::after {
-  top: -292px;
-  left: 979px;
+  top: 168px;
+  left: auto;
+  right: 0;
   width: 259px;
   height: 418px;
   background-image: url("/src/images/artboard-right.svg");
@@ -157,4 +160,15 @@ body {
     grid-template-columns: repeat(2, calc(50% - 8px));
     gap: 16px;
   }
+}
+.register__signin {
+  font-family: "Open-sans";
+  font-weight: bold;
+  color: #403F3F;
+  font-size: 30px;
+}
+
+.register__login-link {
+  color: #215C75;
+  text-decoration: none;
 }

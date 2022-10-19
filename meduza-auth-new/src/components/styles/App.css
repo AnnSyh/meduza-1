@@ -4,21 +4,23 @@ body,
   height: 100%;
 }
 
-html {
-  background-color: aqua;
-}
-
 .App {
   text-align: center;
   font-family: "Lora-Bold";
   height: 100%;
 }
 .App__container {
+  border: 1px solid transparent;
+  max-width: 100% !important;
   background: url("/src/images/background-lg-img.jpg") top/cover no-repeat;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.App--circle-of-life {
-  background-image: url("/src/images/Fon-inner.svg");
+.App__container:has(.loginContainer) {
+  background: url("/src/images//Fon-inner.svg") top/cover no-repeat;
 }
 
 .formContainer {

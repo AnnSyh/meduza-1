@@ -24,7 +24,7 @@ const Step3 = (props) => {
   };
 
   return (
-    <Container className='container__form-img container__form-img--right'>
+    <Container className='container__form-img container__form-img--center'>
       <h1>
         That’s the best age, {state.data.firstName}!<br/>
         Are you ready?
