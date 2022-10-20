@@ -68,7 +68,7 @@ const Login = ({ handleLogin }) => {
           {message}
         </p>
         <form className="form-img login__form">
-          <label for="username">
+          <label htmlFor="username">
             <input id="username"
               required
               placeholder='Email'
@@ -78,7 +78,7 @@ const Login = ({ handleLogin }) => {
               onChange={handleChange}
             />
           </label>
-          <label for="password">
+          <label htmlFor="password">
             <input id="password"
               required
               placeholder='Password'
@@ -90,7 +90,7 @@ const Login = ({ handleLogin }) => {
           </label>
 
           <div className='form-img__row'>
-            <label  for="remember-me" className='form-img__remember-me'>
+            <label  htmlFor="remember-me" className='form-img__remember-me'>
               <input type="checkbox" id='remember-me'/>
               Remember me
             </label>

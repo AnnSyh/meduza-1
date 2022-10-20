@@ -18,7 +18,7 @@
   flex-direction: column;
   padding: 36px;
   justify-content: center;
-  width: 908px;
+  max-width: 908px;
   margin: 30px auto;
   position: relative;
   margin-bottom: 300px;

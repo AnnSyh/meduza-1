@@ -25,6 +25,14 @@ body,
 .App__container:has(.healthContainer) {
   background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
 }
+.App__container:has(.personal-area) {
+  background: url("/src/images/lk-fon.png") top/cover no-repeat;
+  padding: 0;
+  overflow: hidden;
+}
+.App__container:has(.my-profile) {
+  background: url("/src/images/lk-fon.png") top/cover no-repeat;
+}
 
 .formContainer {
   height: 100vh;

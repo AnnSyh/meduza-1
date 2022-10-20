@@ -3,28 +3,64 @@ const data = {
   "cards": [
     {
     "id": 0,
-    "name": "Уткопёс",
-    "description": "Эта редкая утка несколько раз была замечена в Центральной Европе. Достоверные источники сообщают, что однажды уткопёс был замечен около озера в парке, где он играл со старыми носками. Несколько лет назад редактору National Cryptocards посчастливилось встретить эту утку. «Она была такая милая и дружелюбная! И совсем не страшная. Мне удалось понаблюдать за ней минут 15 или 20, а потом раз! И уткопёс как комета пересёк озеро и исчез во тьме.",
-    "img": "/card-images/card.jpg"
+    "name": "Mission 1",
+    "description": "My Starting Point",
+    "img": "/card-images/card-img.png"
     },
     {
     "id": 1,
-    "name": "Жикря-краф",
-    "description": "Самая высокая криптоутка в истории. В тайных архивах обнаружены обрывистые воспоминания путешественники Василия Жилина об ужасающей встрече с представителем этого вида: «Это было летом 1962 г. Мы разбили лагерь, все уже легли спать, когда из кустов раздалось странное шуршание. Включив фонарик, я увидел... Эта длинная шея... метр, не иначе! Я до сих пор помню это кряканье. Ужасное, ужасное кряканье.",
+    "name": "Mission 2",
+    "description": "My Values",
     "img": "/card-images/card.jpg"
     },
     {
     "id": 2,
-    "name": "Зебрутка",
-    "description": "Эта пугливая красавица была замечена в Центральной Африке. Криптоуктологи установили, что этих величественных зеброуток можно встретить только в безветренную ночь на горе под полной луной в зените.",
-    "img": "/card-images/-card.jpg"
+    "name": "Mission 3",
+    "description": "My Yearnings",
+    "img": "/card-images/card.jpg"
     },
     {
     "id": 3,
-    "name": "Неопознанная летающая утка",
-    "description": "Многие встречали этих уток. Учёные до сих пор не знают, зачем они продолжают посещать нашу планету. Каковы их намерения? Они мирные наблюдатели или злодеи? Возможно, мы никогда не узнаем правды.",
+    "name": "Mission 4",
+    "description": "Fulfilling Career",
     "img": "/card-images/card.jpg"
-    }
+    },
+    {
+    "id": 4,
+    "name": "Mission 5",
+    "description": "Quality of Life",
+    "img": "/card-images/card.jpg"
+    },
+    {
+    "id": 5,
+    "name": "Mission 6",
+    "description": "My Vision Board",
+    "img": "/card-images/card.jpg"
+    },
+    {
+    "id": 6,
+    "name": "Mission 7",
+    "description": "Trends & Inspiration",
+    "img": "/card-images/card.jpg"
+    },
+    {
+    "id": 7,
+    "name": "Mission 8",
+    "description": "Thinking Bigger",
+    "img": "/card-images/card.jpg"
+    },
+    {
+    "id": 8,
+    "name": "Mission 9",
+    "description": "My North Star",
+    "img": "/card-images/card.jpg"
+    },
+    {
+    "id": 9,
+    "name": "Mission 10",
+    "description": "Life Experiments",
+    "img": "/card-images/card.jpg"
+    },
   ]
 }
 

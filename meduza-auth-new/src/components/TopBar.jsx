@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, useHistory } from 'react-router-dom';
-import styles from './styles/NavBar.module.css';
+import './styles/TopBar.css';
 
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 // import LoginIcon from '@material-ui/icons/Login';
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 });
 
 
-function NavBar() {
+function TopBar() {
   const history = useHistory();
   function signOut() {
     localStorage.removeItem('jwt');
@@ -33,35 +33,39 @@ function NavBar() {
   };
 
   return (
-    <div className={styles.navbar}>
-      <ul className={styles.ul}>
+    <div className='top-bar'>
+      <ul>
         <li
-          className={styles.li}
           onChange={handleChange}
           value={value}
           variant="fullWidth"
         >
-          <Link to="cards" className={styles.link}>
+          <Link
+            to="cards"
+            >
             <StyleIcon fontSize='large' />
           </Link>
         </li>
         <li
-          className={styles.li}
           onChange={handleChange}
           value={value}
           variant="fullWidth"
         >
-          <Link to="my-profile" className={styles.link}>
+          <Link
+            to="my-profile"
+            >
             <PersonPinIcon fontSize='large' />
           </Link>
         </li>
         <li
-          className={styles.li}
           onChange={handleChange}
           value={value}
           variant="fullWidth"
         >
-          <span onClick={signOut} className="link navbar__button">
+          <span
+            onClick={signOut}
+            className="link navbar__button"
+          >
             <AllOutSharpIcon fontSize='large' />
           </span>
         </li>
@@ -70,4 +74,4 @@ function NavBar() {
   )
 }
 
-export default NavBar;
+export default TopBar;

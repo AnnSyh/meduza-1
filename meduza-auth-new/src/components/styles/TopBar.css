@@ -1,0 +1,17 @@
+.top-bar {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+  padding-left: 94px;
+}
+
+.top-bar__content {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-bar ul {
+  display: flex;
+  flex-direction: row;
+}

@@ -6,7 +6,7 @@ import './styles/CardList.css';
 function cardList () {
   let { cards } = data;
   return (
-    <div className="card-list">
+    <div className="cards__list">
       {
         cards.map((card) => {
           return (

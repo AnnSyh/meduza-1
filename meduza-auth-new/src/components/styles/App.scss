@@ -10,7 +10,7 @@ body,
 .App {
   text-align: center;
   font-family: "Lora-Bold";
-  height: 100%;
+  height: 100%; 
   
   &__container{
     border: 1px solid transparent; 
@@ -24,12 +24,19 @@ body,
     align-items: center;
     justify-content: center;
 
-    &:has(.loginContainer){
-      background: url('/src/images/Fon-inner.svg') top/cover no-repeat;
+    &:has(.loginContainer) {
+      background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
     }
-
-    &:has(.healthContainer){
-      background: url('/src/images/Fon-inner.svg') top/cover no-repeat;
+    &:has(.healthContainer) {
+      background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
+    }
+    &:has(.personal-area) {
+      background: url("/src/images/lk-fon.png") top/cover no-repeat;
+      padding: 0;
+      overflow: hidden;
+    }
+    &:has(.my-profile) {
+      background: url("/src/images/lk-fon.png") top/cover no-repeat;
     }
   }
 
