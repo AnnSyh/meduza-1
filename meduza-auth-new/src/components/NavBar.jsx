@@ -4,11 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 import styles from './styles/NavBar.module.css';
 
 import PersonPinIcon from '@material-ui/icons/PersonPin';
-// import LoginIcon from '@material-ui/icons/Login';
 import StyleIcon from '@material-ui/icons/Style';
 import AllOutSharpIcon from '@material-ui/icons/AllOutSharp';
-
-import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 
 const useStyles = makeStyles({
   root: {

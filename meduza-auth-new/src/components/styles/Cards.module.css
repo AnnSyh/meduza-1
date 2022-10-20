@@ -1,0 +1,7 @@
+.cards {
+  border: 1px solid violet;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+}

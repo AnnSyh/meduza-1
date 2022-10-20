@@ -1,8 +1,20 @@
 @import '../styles/variables';
 
 .top-bar {
-  border:1px solid violet;
+  position: fixed;
+  top: 0px;
   width: 100%;
+  z-index: 1;
+  align-items: center;
+  justify-content: end;
+  display: flex;
+  height: 80px;
+
+  &__right {
+    align-items: center;
+    justify-content: end;
+    display: flex;
+  }
 
   &__content {
     display: flex;

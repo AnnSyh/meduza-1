@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, } from 'react-router-dom';
-// import * as duckAuth from '../duckAuth.js';
 import './styles/Login.css';
 
 import Container from '@material-ui/core/Container';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+
+import MenuIcon from '@material-ui/icons/Menu';
+import GoogleIcon from '@mui/icons-material/Google';
 
 // стили для кнопки 
 const BootstrapButton = withStyles({
@@ -113,6 +115,15 @@ const Login = ({ handleLogin }) => {
             Create an account
           </Link>
         </div>
+
+        <div className='register__socicons'>
+        <Link to="login" className=''>
+          <GoogleIcon fontSize='large' />
+        </Link>
+
+        </div>
+
+
       </div>
     </Container >
   )

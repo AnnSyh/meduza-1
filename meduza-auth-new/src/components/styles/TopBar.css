@@ -3,14 +3,20 @@
   top: 0px;
   width: 100%;
   z-index: 1;
-  padding-left: 94px;
+  align-items: center;
+  justify-content: end;
+  display: flex;
+  height: 80px;
 }
-
+.top-bar__right {
+  align-items: center;
+  justify-content: end;
+  display: flex;
+}
 .top-bar__content {
   display: flex;
   flex-direction: row;
 }
-
 .top-bar ul {
   display: flex;
   flex-direction: row;
