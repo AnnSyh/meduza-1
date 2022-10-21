@@ -10,7 +10,8 @@ import './styles/Health.css';
 import Container from '@material-ui/core/Container';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import healthIcon from './../images/Health.svg';
+// import healthIcon from './../images/Health.svg';
+import friendImg from './../images/Friend.svg';
 // import IconFamilyFreands from './icons/IconFamilyFreands';
 
 // данные для кнопок (варианты ответов на вопросы)
@@ -176,11 +177,9 @@ const FamilyFreands = props => {
 
   return (
     <Container className='healthContainer container__form-question'>
-      <img className='logo-img' src={healthIcon} alt='' />
+      <img className='logo-img' src={friendImg} alt='' />
       <h1>Family & Friends</h1>
-      {/* <IconFamilyFreands /> */}
       <p>How satisfied are you with your social life?</p>
-      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
       <form
         className='form-question'
         onSubmit={handleSubmit(onSubmit)}

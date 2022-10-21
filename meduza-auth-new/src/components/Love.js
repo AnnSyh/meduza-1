@@ -11,6 +11,7 @@ import Container from '@material-ui/core/Container';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import healthIcon from './../images/Health.svg';
+import loveImg from './../images/Love.svg';
 // import IconFamilyFreands from './icons/IconFamilyFreands';
 
 // данные для кнопок (варианты ответов на вопросы)
@@ -178,7 +179,7 @@ const FamilyFreandsRez = props => {
   
   return (
     <Container className='healthContainer container__form-question'>
-      <img className='logo-img' src={healthIcon} alt='' />
+      <img className='logo-img' src={loveImg} alt='' />
       <h1>Love</h1>
       <p>How’s your romantic life?</p>
       <form
