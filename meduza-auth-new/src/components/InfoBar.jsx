@@ -7,7 +7,7 @@ function InfoBar () {
   
   return (
     <div className="info-bar">
-     InfoBar
+     <h1>My Next Mission</h1>
     </div>
   )
 }

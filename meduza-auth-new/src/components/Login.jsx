@@ -7,7 +7,11 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 import MenuIcon from '@material-ui/icons/Menu';
-import GoogleIcon from '@mui/icons-material/Google';
+
+// meduza-auth-new\node_modules\@mui\icons-material\Google.js
+// import GoogleIcon from '@mui/icons-material/Google';
+// import AbcIcon from '@mui/icons-material/Abc';
+
 
 // стили для кнопки 
 const BootstrapButton = withStyles({
@@ -118,7 +122,8 @@ const Login = ({ handleLogin }) => {
 
         <div className='register__socicons'>
         <Link to="login" className=''>
-          <GoogleIcon fontSize='large' />
+          {/* <MenuIcon fontSize='large' /> */}
+          {/* <svg data-testid="GoogleIcon"></svg> */}
         </Link>
 
         </div>
