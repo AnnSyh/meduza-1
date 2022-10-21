@@ -52,7 +52,7 @@ body {
       background-image: url('/src/images/artboard.svg');
 
       @media screen and(max-width:1100px) {
-        top: -303px;
+        top: -30px;
         left: calc(50% - 148px);
       }
     }
@@ -65,7 +65,7 @@ body {
       background-image: url('/src/images/artboard-center.svg');
 
       @media screen and(max-width:1300px) {
-        top: -340px;
+        top: 0px;
         left: calc(50% - 148px);
       }
     }
@@ -79,7 +79,7 @@ body {
       background-image: url('/src/images/artboard-right.svg');
 
       @media screen and(max-width:1300px) {
-        top: -280px;
+        top: 0px;
         left: calc(50% - 148px);
       }
     }
@@ -95,6 +95,10 @@ body {
 }
 
 .form-img {
+
+  .form-input {
+    display: none;
+  }
 
   .error {
     color: $color-error;

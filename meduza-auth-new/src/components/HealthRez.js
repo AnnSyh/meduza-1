@@ -11,7 +11,6 @@ import Container from '@material-ui/core/Container';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import healthIcon from './../images/Health.svg';
-// import IconFamilyFreands from './icons/IconFamilyFreands';
 
 // данные для кнопок (варианты ответов на вопросы)
 const BootstrapButton = withStyles({
@@ -61,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 
 // данные для круговоой диаграммы
 const data = [
-  { Health: 0.7, friend: 0.5, love: 0, money: 0, fun: 0,  career: 0, growth: 0 },
+  { Health: 0.7, friend: 0, love: 0, money: 0, fun: 0,  career: 0, growth: 0 },
 ];
 const chartSize = 450;
 const numberOfScales = 10;
@@ -99,7 +98,7 @@ const shape = columns => (chartData, i) => {
           ];
         })
       )}
-      stroke={`#ffffff`}
+      stroke={`green`}
       fill={`rgba(255, 255, 255, 1)`}
       fillOpacity=".5"
     />
@@ -122,21 +121,21 @@ const axis = () => (col, i) => (
   />
 );
 const caption = () => col => (
-  <text
-    key={`caption-of-${col.key}`}
-    x={polarToX(col.angle, (chartSize / 2) * 0.95).toFixed(4)}
-    y={polarToY(col.angle, (chartSize / 2) * 0.95).toFixed(4)}
-    dy={10 / 2}
-    fill="#215C75"
-    fontWeight="400"
-  >
-    {col.key}
-  </text>
+    <text
+      key={`caption-of-${col.key}`}
+      x={polarToX(col.angle, (chartSize / 2) * 0.95).toFixed(4)}
+      y={polarToY(col.angle, (chartSize / 2) * 0.95).toFixed(4)}
+      dy={10 / 2}
+      fill="#215C75"
+      fontWeight="400"
+    >
+      {col.key}
+    </text>
 );
 
 // -------------------------------
 
-const FamilyFreands = props => {
+const HealthRez = props => {
   // форма
   const {
     handleSubmit,
@@ -149,7 +148,7 @@ const FamilyFreands = props => {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("./family-friends-rez");
+    props.history.push("./family-freands");
     reset();
   };
 
@@ -174,12 +173,12 @@ const FamilyFreands = props => {
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
+
   return (
     <Container className='healthContainer container__form-question'>
       <img className='logo-img' src={healthIcon} alt='' />
-      <h1>Family & Friends</h1>
-      {/* <IconFamilyFreands /> */}
-      <p>How satisfied are you with your social life?</p>
+      <h1>Health</h1>
+      <p>How happy are you with your health, wellness, and physical body?</p>
       {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
       <form
         className='form-question'
@@ -188,7 +187,7 @@ const FamilyFreands = props => {
         {/* //кнопки */}
         <div className="health-buttons">
           <div className={classes.root}>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" data-text='Does my cat count?'>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" data-text='I am feeling like a dying horse'>
               1
             </BootstrapButton>
             <BootstrapButton defaultValue={state.data.age} type="submit" id="age-2" >
@@ -215,7 +214,7 @@ const FamilyFreands = props => {
             <BootstrapButton defaultValue={state.data.age} type="submit" id="age-4" >
               9
             </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-5" data-text='Great Gatsby would be jealous'>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-5" data-text='Very, I am applying to join the Olympics!'>
               10
             </BootstrapButton>
           </div>
@@ -236,4 +235,4 @@ const FamilyFreands = props => {
   );
 };
 
-export default FamilyFreands;
+export default HealthRez;

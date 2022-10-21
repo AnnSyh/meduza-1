@@ -1,7 +1,6 @@
 import React from 'react';
 // import radarChart from "react-svg-radar-chart";
 import { useForm } from "react-hook-form";
-// import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
 
@@ -11,6 +10,9 @@ import Container from '@material-ui/core/Container';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import healthIcon from './../images/Health.svg';
+
+//нач данные круговоой диаграммы
+import data from './../data-radar';
 
 // данные для кнопок (варианты ответов на вопросы)
 const BootstrapButton = withStyles({
@@ -39,6 +41,7 @@ const BootstrapButton = withStyles({
   },
 })(Button);
 
+// расположение кнопок (вариантов ответов)
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'grid',
@@ -57,12 +60,11 @@ const useStyles = makeStyles((theme) => ({
 
 
 // const keyHealthIcon=`${healthIcon}`
+//нач данные для круговоой диаграммы
+// const data = [
+//   { Health: 0, love: 0, money: 0, fun: 0, friend: 0, career: 0, growth: 0 },
+// ];
 
-// данные для круговоой диаграммы
-const data = [
-  { Health: 0.7, love: 1, money: 0.9, fun: 0.67, friend: 0.8, career: 0.6, growth: 0.5, fun: 0.3 },
-  // { battery: 0.6, design: 0.9, useful: 0.8, speed: 0.7, weight: 0.6 }
-];
 const chartSize = 450;
 const numberOfScales = 10;
 const scale = value => (
@@ -149,7 +151,8 @@ const Health = props => {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("./family-freands");
+    // props.history.push("./family-freands");
+    props.history.push("./health-rez");
     reset();
   };
 
@@ -194,7 +197,7 @@ const Health = props => {
         {/* //кнопки */}
         <div className="health-buttons">
           <div className={classes.root}>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" >
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" data-text='I am feeling like a dying horse'>
               1
             </BootstrapButton>
             <BootstrapButton defaultValue={state.data.age} type="submit" id="age-2" >
@@ -221,7 +224,7 @@ const Health = props => {
             <BootstrapButton defaultValue={state.data.age} type="submit" id="age-4" >
               9
             </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-5" >
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-5" data-text='Very, I am applying to join the Olympics!'>
               10
             </BootstrapButton>
           </div>

@@ -49,7 +49,7 @@ body {
 }
 @media screen and (max-width: 1100px) {
   .container__form-img--left form::after {
-    top: -303px;
+    top: -30px;
     left: calc(50% - 148px);
   }
 }
@@ -62,7 +62,7 @@ body {
 }
 @media screen and (max-width: 1300px) {
   .container__form-img--center form::after {
-    top: -340px;
+    top: 0px;
     left: calc(50% - 148px);
   }
 }
@@ -76,7 +76,7 @@ body {
 }
 @media screen and (max-width: 1300px) {
   .container__form-img--right form::after {
-    top: -280px;
+    top: 0px;
     left: calc(50% - 148px);
   }
 }
@@ -87,6 +87,9 @@ body {
   margin: auto;
 }
 
+.form-img .form-input {
+  display: none;
+}
 .form-img .error {
   color: #bf1650;
 }

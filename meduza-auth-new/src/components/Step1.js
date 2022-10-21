@@ -22,7 +22,7 @@ const Step1 = (props) => {
     actions.updateAction(data);
     // props.history.push("./Step2Right");
     props.history.push("./Step2");
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
     reset();
   };
 

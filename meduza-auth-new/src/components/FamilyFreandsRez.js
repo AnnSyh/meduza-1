@@ -136,9 +136,10 @@ const caption = () => col => (
 
 // -------------------------------
 
-const FamilyFreands = props => {
-  // форма
-  const {
+const FamilyFreandsRez = props => {
+
+   // форма
+   const {
     handleSubmit,
     reset
   } = useForm({
@@ -149,7 +150,7 @@ const FamilyFreands = props => {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("./family-friends-rez");
+    props.history.push("./love");
     reset();
   };
 
@@ -174,6 +175,7 @@ const FamilyFreands = props => {
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
+  
   return (
     <Container className='healthContainer container__form-question'>
       <img className='logo-img' src={healthIcon} alt='' />
@@ -236,4 +238,4 @@ const FamilyFreands = props => {
   );
 };
 
-export default FamilyFreands;
+export default FamilyFreandsRez;

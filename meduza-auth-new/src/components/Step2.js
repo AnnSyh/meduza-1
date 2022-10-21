@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Step2 = (props) => {
   const {
+    register,
     handleSubmit,
     reset
   } = useForm({
@@ -63,11 +64,14 @@ const Step2 = (props) => {
   const { state, actions } = useStateMachine({ updateAction });
 
   const onSubmit = (data) => {
+    reset();
     actions.updateAction(data);
-    // props.history.push("./step3");
-    props.history.push("./result");
+    // alert(JSON.stringify(data));
+    props.history.push("./step3");
+    // props.history.push("./result");
     reset();
   };
+
 
   const classes = useStyles();
 
@@ -78,27 +82,90 @@ const Step2 = (props) => {
         That’s a beautiful name, {state.data.firstName}!<br />
         I am [GUIDE]. How old are you?
       </h1>
-      <form
+      <div
         className='form-img'
         onSubmit={handleSubmit(onSubmit)}
       >
 
         <div className={classes.root}>
-          <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" >
-            16-24
-          </BootstrapButton>
-          <BootstrapButton defaultValue={state.data.age} type="submit" id="age-2" >
-            25-34
-          </BootstrapButton>
-          <BootstrapButton defaultValue={state.data.age} type="submit" id="age-3" >
-            35-44
-          </BootstrapButton>
-          <BootstrapButton defaultValue={state.data.age} type="submit" id="age-4" >
-            45 +
-          </BootstrapButton>
+
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+              className='form-input'
+              placeholder='age-1'
+              name="age"
+              defaultValue={state.data.age}
+              {...register("age")}
+            />
+
+            <BootstrapButton
+              type="submit"
+              value='' 
+            >
+              16-24
+            </BootstrapButton>
+          </form>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+             className='form-input'
+              placeholder='age-2'
+              name="age"
+              defaultValue={state.data.age}
+              {...register("age")}
+            />
+
+            <BootstrapButton
+              type="submit"
+              value='' 
+            >
+              25-34
+            </BootstrapButton>
+          </form>
+
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+             className='form-input'
+              placeholder='age'
+              name="age"
+              defaultValue={state.data.age = 'age-3'}
+              {...register("age")}
+            />
+
+            <BootstrapButton
+              type="submit"
+              value='' 
+            >
+              35-44
+            </BootstrapButton>
+          </form>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+             className='form-input'
+              placeholder='age'
+              name="age"
+              defaultValue={state.data.age = 'age-4'}
+              {...register("age")}
+            />
+
+            <BootstrapButton
+              type="submit"
+              value='' 
+            >
+              45 +
+            </BootstrapButton>
+          </form>
+
         </div>
 
-      </form>
+      </div>
     </Container>
   );
 };

@@ -136,9 +136,10 @@ const caption = () => col => (
 
 // -------------------------------
 
-const FamilyFreands = props => {
-  // форма
-  const {
+const FamilyFreandsRez = props => {
+
+   // форма
+   const {
     handleSubmit,
     reset
   } = useForm({
@@ -149,7 +150,7 @@ const FamilyFreands = props => {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("./family-friends-rez");
+    props.history.push("./love");
     reset();
   };
 
@@ -174,13 +175,12 @@ const FamilyFreands = props => {
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
+  
   return (
     <Container className='healthContainer container__form-question'>
       <img className='logo-img' src={healthIcon} alt='' />
-      <h1>Family & Friends</h1>
-      {/* <IconFamilyFreands /> */}
-      <p>How satisfied are you with your social life?</p>
-      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+      <h1>Love</h1>
+      <p>How’s your romantic life?</p>
       <form
         className='form-question'
         onSubmit={handleSubmit(onSubmit)}
@@ -188,7 +188,7 @@ const FamilyFreands = props => {
         {/* //кнопки */}
         <div className="health-buttons">
           <div className={classes.root}>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" data-text='Does my cat count?'>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" data-text='I’m applying for cat adoption'>
               1
             </BootstrapButton>
             <BootstrapButton defaultValue={state.data.age} type="submit" id="age-2" >
@@ -215,7 +215,7 @@ const FamilyFreands = props => {
             <BootstrapButton defaultValue={state.data.age} type="submit" id="age-4" >
               9
             </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-5" data-text='Great Gatsby would be jealous'>
+            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-5" data-text='Like Romeo & Juliette but with a happy ending'>
               10
             </BootstrapButton>
           </div>
@@ -236,4 +236,4 @@ const FamilyFreands = props => {
   );
 };
 
-export default FamilyFreands;
+export default FamilyFreandsRez;

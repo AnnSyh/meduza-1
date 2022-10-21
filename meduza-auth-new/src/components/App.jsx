@@ -17,7 +17,10 @@ import Step2Right from "./Step2Right";
 import Step3 from "./Step3";
 import Result from "./Result";
 import Health from "./Health";
+import HealthRez from "./HealthRez";
 import FamilyFreands from "./FamilyFreands";
+import FamilyFreandsRez from "./FamilyFreandsRez";
+import Love from "./Love";
 
 createStore({
   data: {}
@@ -131,7 +134,10 @@ const App = () => {
             <Route path="/step3" component={Step3} />
             <Route path="/result" component={Result} />
             <Route path="/health" component={Health} />
+            <Route path="/health-rez" component={HealthRez} />
             <Route path="/family-freands" component={FamilyFreands} />
+            <Route path="/family-friends-rez" component={FamilyFreandsRez} />
+            <Route path="/love" component={Love} />
         </StateMachineProvider>
 
 
