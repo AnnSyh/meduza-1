@@ -1,7 +1,7 @@
 .top-bar {
-  position: fixed;
+  position: absolute;
   top: 0px;
-  width: 100%;
+  width: 99%;
   z-index: 1;
   align-items: center;
   justify-content: end;
@@ -16,6 +16,12 @@
 .top-bar__content {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
+}
+@media screen and (max-width: 1380px) {
+  .top-bar__content {
+    flex-direction: column;
+  }
 }
 .top-bar ul {
   display: flex;

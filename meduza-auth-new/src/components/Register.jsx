@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+
 import './styles/Register.css';
+import './styles/Login.css';
+
 
 import Container from '@material-ui/core/Container';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 
-// данные для кнопок 
+// стили для кнопки 
 const BootstrapButton = withStyles({
   root: {
     fontSize: 32,
@@ -22,17 +25,6 @@ const BootstrapButton = withStyles({
     margin: '30px',
     borderRadius: '30px',
     textTransform: 'none',
-    // '&:hover': {
-    //   backgroundColor: '#ffffff',
-    //   borderColor: '#ffffff',
-    // },
-    // '&:active': {
-    //   backgroundColor: '#ffffff',
-    //   borderColor: '#ffffff',
-    // },
-    // '&:focus': {
-    //   boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-    // },
   },
 })(Button);
 
@@ -63,66 +55,68 @@ const Register = ({ handleRegister }) => {
   }
 
   return (
-    <Container className='container__form-question'>
-      <h1>Регистрация</h1>
+    <Container className='container__form-login'>
+      <h1>Create an account</h1>
       <p className="register__error">
         {message}
       </p>
-      <form
-        className="form-img register__form"
-        onSubmit={handleSubmit}
-        noValidate
-        autoComplete='off'
-      >
-        <label htmlFor="username">
-          <input
-            placeholder='Логин'
-            id="username"
-            name="username"
-            type="text"
-            value={username}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="email">
-          <input
-            placeholder='Email'
-            id="email"
-            name="email"
-            type="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="password">
-          <input
-            placeholder='Пароль'
-            id="password"
-            name="password"
-            type="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="confirmPassword">
-          <input
-            placeholder='Подтвердите пароль'
-            id="confirmPassword"
-            name="confirmPassword"
-            type="password"
-            value={confirmPassword}
-            onChange={handleChange}
-          />
-        </label>
-        <div className="register__button-container">
-          <BootstrapButton defaultValue='' type="submit">
-            Регистрация
-          </BootstrapButton>
+      <div className="login">
+        <form
+          className="form-img register__form"
+          onSubmit={handleSubmit}
+          noValidate
+          autoComplete='off'
+        >
+          <label htmlFor="username">
+            <input
+              placeholder='Логин'
+              id="username"
+              name="username"
+              type="text"
+              value={username}
+              onChange={handleChange}
+            />
+          </label>
+          <label htmlFor="email">
+            <input
+              placeholder='Email'
+              id="email"
+              name="email"
+              type="email"
+              value={email}
+              onChange={handleChange}
+            />
+          </label>
+          <label htmlFor="password">
+            <input
+              placeholder='Пароль'
+              id="password"
+              name="password"
+              type="password"
+              value={password}
+              onChange={handleChange}
+            />
+          </label>
+          <label htmlFor="confirmPassword">
+            <input
+              placeholder='Подтвердите пароль'
+              id="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              value={confirmPassword}
+              onChange={handleChange}
+            />
+          </label>
+          <div className="register__button-container">
+            <BootstrapButton defaultValue='' type="submit">
+              Регистрация
+            </BootstrapButton>
+          </div>
+        </form>
+        <div className="register__signin">
+          <span>Уже зарегистрированы? </span>
+          <Link to="login" className="register__login-link">Войти</Link>
         </div>
-      </form>
-      <div className="register__signin">
-        <span>Уже зарегистрированы? </span>
-        <Link to="login" className="register__login-link">Войти</Link>
       </div>
     </Container>
   )

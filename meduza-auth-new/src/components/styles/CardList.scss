@@ -1,8 +1,21 @@
 @import '../styles/variables';
 
+.cards__list-wrapper {
+	border: 1px solid;
+	margin: 0 10px;
+	padding: 0 40px;
+	border-color: #ffffff;
+	border-radius: 30px;
+	background-color: #E9EDF0;
+
+	h1 {
+		text-align: left;
+		color:$color-blue-three
+	}
+}
 .cards__list {
+	margin: 0;
 	padding: 0;
-    margin: 0;
 	display: grid;
 	gap: 20px;
 }
@@ -13,10 +26,17 @@
 		grid-template-columns: repeat(2, calc(100% / 2 - 10px));
 	}
 }
+
 @media screen and (min-width:768px) {
+	.cards__list {
+		gap: 24px 13px;
+		grid-template-columns: repeat(4, calc(100% / 4 - 11px));
+	}
+}
+
+@media screen and (min-width:991px) {
 	.cards__list {
 		gap: 24px 13px;
 		grid-template-columns: repeat(5, calc(100% / 5 - 11px));
 	}
 }
-

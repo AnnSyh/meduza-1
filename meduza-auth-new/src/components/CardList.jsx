@@ -3,17 +3,21 @@ import Card from './Card.jsx';
 import data from '../data.js';
 import './styles/CardList.css';
 
-function cardList () {
+function cardList() {
   let { cards } = data;
   return (
-    <div className="cards__list">
-      {
-        cards.map((card) => {
-          return (
-            <Card card={card} key={card.id} />
-          )
-        })
-      }
+
+    <div className="cards__list-wrapper">
+      <h1>My Journey</h1>
+      <div className="cards__list">
+        {
+          cards.map((card) => {
+            return (
+              <Card card={card} key={card.id} />
+            )
+          })
+        }
+      </div>
     </div>
   )
 }

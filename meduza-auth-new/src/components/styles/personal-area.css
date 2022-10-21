@@ -6,6 +6,7 @@
   background-color: #F2F2F2;
   background: url("/src/images/lk-fon.png") top/cover no-repeat;
   gap: 20px;
+  align-items: stretch;
 }
 .personal-area__content {
   margin-top: 80px;
@@ -14,4 +15,5 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
+  min-height: calc(100vh - 170px);
 }

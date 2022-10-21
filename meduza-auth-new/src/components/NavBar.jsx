@@ -5,7 +5,7 @@ import styles from './styles/NavBar.module.css';
 
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import StyleIcon from '@material-ui/icons/Style';
-import AllOutSharpIcon from '@material-ui/icons/AllOutSharp';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 
 const useStyles = makeStyles({
   root: {
@@ -59,7 +59,7 @@ function NavBar() {
           variant="fullWidth"
         >
           <span onClick={signOut} className="link navbar__button">
-            <AllOutSharpIcon fontSize='large' />
+            <MeetingRoomIcon fontSize='large' />
           </span>
         </li>
       </ul>

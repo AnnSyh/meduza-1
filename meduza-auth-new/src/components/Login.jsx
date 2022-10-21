@@ -3,11 +3,10 @@ import { Link, } from 'react-router-dom';
 import './styles/Login.css';
 
 import Container from '@material-ui/core/Container';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-import MenuIcon from '@material-ui/icons/Menu';
-
+// import MenuIcon from '@material-ui/icons/Menu';
 // meduza-auth-new\node_modules\@mui\icons-material\Google.js
 // import GoogleIcon from '@mui/icons-material/Google';
 // import AbcIcon from '@mui/icons-material/Abc';
@@ -27,17 +26,6 @@ const BootstrapButton = withStyles({
     margin: '30px',
     borderRadius: '30px',
     textTransform: 'none',
-    // '&:hover': {
-    //   backgroundColor: '#ffffff',
-    //   borderColor: '#ffffff',
-    // },
-    // '&:active': {
-    //   backgroundColor: '#ffffff',
-    //   borderColor: '#ffffff',
-    // },
-    // '&:focus': {
-    //   boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-    // },
   },
 })(Button);
 

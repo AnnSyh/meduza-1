@@ -27,6 +27,9 @@ body,
     &:has(.loginContainer) {
       background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
     }
+    &:has(.registerContainer) {
+      background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
+    }
     &:has(.healthContainer) {
       background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
     }
