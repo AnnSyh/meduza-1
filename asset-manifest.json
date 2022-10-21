@@ -1,20 +1,24 @@
 {
   "files": {
-    "main.css": "./static/css/main.6d08c73f.css",
-    "main.js": "./static/js/main.12bfbfc4.js",
+    "main.css": "./static/css/main.17ff9308.css",
+    "main.js": "./static/js/main.1167c6a8.js",
     "static/media/artboard-center.svg": "./static/media/artboard-center.7da3c445a8c00688ce7e.svg",
     "static/media/artboard.svg": "./static/media/artboard.7da3c445a8c00688ce7e.svg",
+    "static/media/Fon-inner.svg": "./static/media/Fon-inner.4f2659190e247ab9e5c0.svg",
+    "static/media/artboard-login.svg": "./static/media/artboard-login.ecce67acc2ba5ee73714.svg",
     "static/media/background-lg-img.jpg": "./static/media/background-lg-img.3f9dcbfb852fc9fb2f84.jpg",
     "static/media/artboard-right.svg": "./static/media/artboard-right.fda52dbb6594647b78f9.svg",
+    "static/media/lk-fon.png": "./static/media/lk-fon.23a671f2319037e4dcc7.png",
     "static/media/Lora-Bold.ttf": "./static/media/Lora-Bold.df378067bf8c002587b4.ttf",
     "static/media/OpenSans-Regular.ttf": "./static/media/OpenSans-Regular.d7d7b8359eeb9cddfba6.ttf",
+    "static/media/Health.svg": "./static/media/Health.5d5d0bea8a6155ede45d815f41ea7e32.svg",
     "static/media/btn.svg": "./static/media/btn.4a700e7012c92989c29a.svg",
     "index.html": "./index.html",
-    "main.6d08c73f.css.map": "./static/css/main.6d08c73f.css.map",
-    "main.12bfbfc4.js.map": "./static/js/main.12bfbfc4.js.map"
+    "main.17ff9308.css.map": "./static/css/main.17ff9308.css.map",
+    "main.1167c6a8.js.map": "./static/js/main.1167c6a8.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d08c73f.css",
-    "static/js/main.12bfbfc4.js"
+    "static/css/main.17ff9308.css",
+    "static/js/main.1167c6a8.js"
   ]
 }
