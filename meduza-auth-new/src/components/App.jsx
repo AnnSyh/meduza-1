@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
-import Login from './Login';
-import Register from './Register';
-import Cards from './Cards';
-import MyProfile from './MyProfile';
+import Login from './Login/Login';
+import Register from './Register/Register';
+import Cards from './Cards/Cards';
+import MyProfile from './MyProfile/MyProfile';
 import ProtectedRoute from './ProtectedRoute';
 import * as auth from '../auth';
 import './styles/App.css';
@@ -11,16 +11,16 @@ import './styles/App.css';
 import Container from '@material-ui/core/Container';
 
 import { StateMachineProvider, createStore } from "little-state-machine";
-import Step1 from "./Step1";
-import Step2 from "./Step2";
-import Step2Right from "./Step2Right";
-import Step3 from "./Step3";
+import Step1 from "./Step1/Step1";
+import Step2 from "./Step2/Step2";
+import Step2Right from "./Step2/Step2Right";
+import Step3 from "./Step3/Step3";
 import Result from "./Result";
-import Health from "./Health";
-import HealthRez from "./HealthRez";
-import FamilyFreands from "./FamilyFreands";
-import FamilyFreandsRez from "./FamilyFreandsRez";
-import Love from "./Love";
+import Health from "./Health/Health";
+import HealthRez from "./Health/HealthRez";
+import FamilyFreands from "./FamilyFreands/FamilyFreands";
+import FamilyFreandsRez from "./FamilyFreands/FamilyFreandsRez";
+import Love from "./Love/Love";
 
 createStore({
   data: {}
@@ -130,6 +130,9 @@ const App = () => {
           <StateMachineProvider>
             <Route exact path="/" component={Step1} />
             <Route path="/step2" component={Step2} />
+            {/* <Route path="/step2">
+              <Step2 name='step2' />
+            </Route> */}
             <Route path="/step2Right" component={Step2Right} />
             <Route path="/step3" component={Step3} />
             <Route path="/result" component={Result} />
