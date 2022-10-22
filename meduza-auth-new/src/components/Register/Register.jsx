@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 // import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 
-import './../styles/Register.css';
-import './../styles/Login.css';
+import '../styles/style.css';
 
 
 import Container from '@material-ui/core/Container';

@@ -6,7 +6,7 @@ import { useStateMachine } from "little-state-machine";
 // import updateAction from "../updateAction";
 import updateAction from "../updateAction";
 
-import './../styles/Health.css';
+import '../styles/style.css';
 
 import Container from '@material-ui/core/Container';
 import { withStyles, makeStyles } from '@material-ui/core/styles';

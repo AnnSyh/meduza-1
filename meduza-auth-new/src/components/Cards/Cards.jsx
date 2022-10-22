@@ -2,9 +2,7 @@ import React from 'react';
 import NavBar from '../NavBar/NavBar.jsx';
 import CardList from './CardList.jsx';
 
-// import classes from './styles/Cards.module.css';
-import './../styles/personal-area.css';
-import './../styles/Card.css';
+import '../styles/style.css';
 import InfoBar from '../InfoBar/InfoBar';
 import TopBar from '../TopBar/TopBar';
 

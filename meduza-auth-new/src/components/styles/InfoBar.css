@@ -1,9 +1,0 @@
-.info-bar p {
-  text-align: left;
-}
-
-.info-bar__img {
-  width: calc(100% + 80px);
-  margin: 0 -40px;
-  margin-bottom: 30px;
-}

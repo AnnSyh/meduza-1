@@ -5,12 +5,12 @@ import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
-import './../styles/Health.css';
+import '../styles/style.css';
 
 import Container from '@material-ui/core/Container';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import healthIcon from './../../images/Health.svg';
+// import healthIcon from './../../images/Health.svg';
 import loveImg from './../../images/Love.svg';
 // import IconFamilyFreands from './icons/IconFamilyFreands';
 

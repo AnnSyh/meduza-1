@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, } from 'react-router-dom';
-import './../styles/Login.css';
+import '../styles/style.css';
 
 import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';

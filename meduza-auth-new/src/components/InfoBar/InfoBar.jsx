@@ -3,7 +3,7 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 import Card from '../Cards/Card';
 import data from '../../data.js';
-import './../styles/InfoBar.css';
+import '../styles/style.css';
 import nextMission from '../../images/next-mission.png';
 import LockIcon from '@material-ui/icons/Lock';
 import Button from '@material-ui/core/Button';

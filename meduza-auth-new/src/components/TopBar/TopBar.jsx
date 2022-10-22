@@ -1,9 +1,9 @@
 import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import { Link, useHistory } from 'react-router-dom';
-import './../styles/TopBar.css';
+import { withStyles } from '@material-ui/core/styles';
+// import { Link, useHistory } from 'react-router-dom';
+import '../styles/style.css';
 
-import StyleIcon from '@material-ui/icons/Style';
+// import StyleIcon from '@material-ui/icons/Style';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
 
