@@ -1,4 +1,4 @@
-@import '../styles/variables';
+@import './variables';
 
 body {
   font-family: $Lora-bold;
@@ -220,3 +220,16 @@ body {
   color: $color-blue-three;
   text-decoration: none;
 }
+
+.big-btn { 
+  color: #215C75;
+  border: 1px solid;
+  height: 77px;
+  margin: 30px;
+  font-size: 32px;
+  font-weight: bold;
+  border-color: #ffffff;
+  border-radius: 30px;
+  text-transform: none;
+  background-color: #E9EDF0;
+} 

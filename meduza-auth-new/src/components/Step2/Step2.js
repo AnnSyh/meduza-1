@@ -5,52 +5,9 @@ import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
+import '../scss/style.css';
+
 import Container from '@material-ui/core/Container';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-
-const BootstrapButton = withStyles({
-  root: {
-    fontSize: 42,
-    fontWeight: 'bold',
-    border: '1px solid',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    borderColor: '#ffffff',
-    color: '#215C75',
-    width: '100%',
-    height: '231px',
-    margin: '0',
-    '&:hover': {
-      backgroundColor: '#ffffff',
-      borderColor: '#ffffff',
-      boxShadow: 'none',
-    },
-    '&:active': {
-      boxShadow: 'none',
-      backgroundColor: '#ffffff',
-      borderColor: '#ffffff',
-    },
-    '&:focus': {
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-    },
-  },
-})(Button);
-
-const useStyles = makeStyles((theme) => ({
-
-  root: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(2, calc(100% / 2 - 8px))',
-    gap: '12px',
-    alignItems: 'center',
-    maxWidth: '640px',
-    '& > *': {
-      display: 'flex',
-      alignItem: 'center',
-      justifyContent: 'center',
-    }
-  },
-}));
 
 const Step2 = (props) => {
   const {
@@ -64,7 +21,7 @@ const Step2 = (props) => {
   const { state, actions } = useStateMachine({ updateAction });
 
   const onSubmit = (data) => {
-    
+
     reset();
     actions.updateAction(data);
     // alert(JSON.stringify(data));
@@ -80,11 +37,9 @@ const Step2 = (props) => {
     console.log('clickForm.getAttribut("data-form") = ', clickForm.getAttribute('data-form'));
     alert(JSON.stringify(data));
   };
-// debugger
+  // debugger
   // console.log('props.name = ',props.name);
 
-
-  const classes = useStyles();
 
   return (
     <Container className='container__form-img container__form-img--right'>
@@ -93,12 +48,8 @@ const Step2 = (props) => {
         That’s a beautiful name, {state.data.firstName}!<br />
         I am [GUIDE]. How old are you?
       </h1>
-      <div
-        className='form-img'
-      >
-
-        <div className={classes.root}>
-
+      <div className='form-img'>
+        <div className='step2-buttons'>
           <form
             data-form='age-1'
             onSubmit={handleSubmit(onSubmit)}
@@ -110,12 +61,12 @@ const Step2 = (props) => {
               defaultValue={state.data.age}
               {...register("age")}
             />
-
-            <BootstrapButton
+            <button
+              className='beautiful-button'
               type="submit"
             >
               16-24
-            </BootstrapButton>
+            </button>
           </form>
           <form
             data-form='age-2'
@@ -129,11 +80,12 @@ const Step2 = (props) => {
               {...register("age")}
             />
 
-            <BootstrapButton
+            <button
+              className='beautiful-button'
               type="submit"
             >
               25-34
-            </BootstrapButton>
+            </button>
           </form>
 
           <form
@@ -148,11 +100,12 @@ const Step2 = (props) => {
               {...register("age")}
             />
 
-            <BootstrapButton
+            <button
+              className='beautiful-button'
               type="submit"
             >
-              35-44
-            </BootstrapButton>
+              24-44
+            </button>
           </form>
           <form
             data-form='age-4'
@@ -166,11 +119,12 @@ const Step2 = (props) => {
               {...register("age")}
             />
 
-            <BootstrapButton
+            <button
+              className='beautiful-button'
               type="submit"
             >
               45 +
-            </BootstrapButton>
+            </button>
           </form>
 
         </div>

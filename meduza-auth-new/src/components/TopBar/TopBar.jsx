@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 // import { Link, useHistory } from 'react-router-dom';
-import '../styles/style.css';
+import '../scss/style.css';
 
 // import StyleIcon from '@material-ui/icons/Style';
 import MenuIcon from '@material-ui/icons/Menu';

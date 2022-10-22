@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from '../NavBar/NavBar.jsx';
 import CardList from './CardList.jsx';
 
-import '../styles/style.css';
+import '../scss/style.css';
 import InfoBar from '../InfoBar/InfoBar';
 import TopBar from '../TopBar/TopBar';
 

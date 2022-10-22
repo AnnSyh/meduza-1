@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card.jsx';
 import data from '../../data.js';
-import '../styles/style.css';
+import '../scss/style.css';
 
 function cardList() {
   let { cards } = data;

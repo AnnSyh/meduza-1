@@ -3,7 +3,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 import LockIcon from '@material-ui/icons/Lock';
 import Button from '@material-ui/core/Button';
-import '../styles/style.css';
+// import '../scss/style.css';
+import '../scss/style.css';
 
 // стили для кнопки 
 const BootstrapButton = withStyles({

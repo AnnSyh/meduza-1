@@ -1,33 +1,14 @@
 import React, { useState } from 'react';
 import { Link, } from 'react-router-dom';
-import '../styles/style.css';
+import '../scss/style.css';
 
 import Container from '@material-ui/core/Container';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 
 // import MenuIcon from '@material-ui/icons/Menu';
 // meduza-auth-new\node_modules\@mui\icons-material\Google.js
 // import GoogleIcon from '@mui/icons-material/Google';
 // import AbcIcon from '@mui/icons-material/Abc';
 
-
-// стили для кнопки 
-const BootstrapButton = withStyles({
-  root: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    backgroundColor: '#E9EDF0',
-    border: '1px solid',
-    borderColor: '#ffffff',
-    color: '#215C75',
-    width: '321px',
-    height: '77px',
-    margin: '30px',
-    borderRadius: '30px',
-    textTransform: 'none',
-  },
-})(Button);
 
 const Login = ({ handleLogin }) => {
   const [userData, setUserState] = useState({
@@ -84,8 +65,8 @@ const Login = ({ handleLogin }) => {
           </label>
 
           <div className='form-img__row'>
-            <label  htmlFor="remember-me" className='form-img__remember-me'>
-              <input type="checkbox" id='remember-me'/>
+            <label htmlFor="remember-me" className='form-img__remember-me'>
+              <input type="checkbox" id='remember-me' />
               Remember me
             </label>
             <Link to="/" className="register__login-link">
@@ -95,9 +76,8 @@ const Login = ({ handleLogin }) => {
           </div>
 
           <div className="login__button-container">
-            <BootstrapButton
-              type="submit"
-            >Login</BootstrapButton>
+            <button className='big-btn'
+            >Login</button>
           </div>
         </form>
 
@@ -109,10 +89,10 @@ const Login = ({ handleLogin }) => {
         </div>
 
         <div className='register__socicons'>
-        <Link to="login" className=''>
-          {/* <MenuIcon fontSize='large' /> */}
-          {/* <svg data-testid="GoogleIcon"></svg> */}
-        </Link>
+          <Link to="login" className=''>
+            {/* <MenuIcon fontSize='large' /> */}
+            {/* <svg data-testid="GoogleIcon"></svg> */}
+          </Link>
 
         </div>
 

@@ -2,31 +2,10 @@ import React, { useState } from 'react';
 // import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 
-import '../styles/style.css';
+import '../scss/style.css';
 
 
 import Container from '@material-ui/core/Container';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-
-
-// стили для кнопки 
-const BootstrapButton = withStyles({
-  root: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    backgroundColor: '#E9EDF0',
-    border: '1px solid',
-    borderColor: '#ffffff',
-    color: '#215C75',
-    width: '321px',
-    height: '77px',
-    margin: '30px',
-    borderRadius: '30px',
-    textTransform: 'none',
-  },
-})(Button);
-
 
 
 const Register = ({ handleRegister }) => {
@@ -107,9 +86,9 @@ const Register = ({ handleRegister }) => {
             />
           </label>
           <div className="register__button-container">
-            <BootstrapButton defaultValue='' type="submit">
+            <button className='big-btn' defaultValue='' type="submit">
               Регистрация
-            </BootstrapButton>
+            </button>
           </div>
         </form>
         <div className="register__signin">

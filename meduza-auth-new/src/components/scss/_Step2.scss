@@ -1,0 +1,77 @@
+@import './variables';
+
+.beautiful-button {
+  color: $color-blue-three;
+  width: 100%;
+  border: 1px solid;
+  height: 231px;
+  margin: 0;
+  font-size: 42px;
+  font-weight: bold;
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  &--small {
+    font-size: 32px;
+    height: auto;
+    min-width: 64px;
+    line-height: 1.75;
+    border-radius: 4px;
+  }
+
+  &:hover {
+    box-shadow: none;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    cursor: pointer;
+
+    &:active {
+      box-shadow: none;
+      border-color: #ffffff;
+      background-color: #ffffff;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .5);
+
+    }
+
+  }
+}
+.step2-buttons { 
+  gap: 12px;
+  display: grid;
+  max-width: 640px;
+  align-items: center;
+  grid-template-columns: repeat(2, calc(100% / 2 - 8px));
+
+  @media screen and (max-width:420px) {
+    grid-template-columns: repeat(1, calc(100% - 8px));
+    gap: 10px;
+  }
+}
+
+.health-buttons {
+  gap: 12px;
+  margin: auto auto 80px auto;
+  display: grid;
+  max-width: 640px;
+  align-items: center;
+  grid-template-columns: repeat(10, calc(100% / 10 - 8px));
+
+  @media screen and (max-width:690px) {
+    grid-template-columns: repeat(5, calc(100% / 5 - 8px));
+    gap: 10px;
+  }
+  @media screen and (max-width:430px) {
+    grid-template-columns: repeat(2, calc(100% / 2 - 8px));
+    gap: 10px;
+  }
+
+  & > div {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

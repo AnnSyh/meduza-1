@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
-import '../styles/style.css';
+import '../scss/style.css';
 
 import Container from '@material-ui/core/Container';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
@@ -13,55 +13,9 @@ import Button from '@material-ui/core/Button';
 import healthIcon from './../../images/Health.svg';
 // import IconFamilyFreands from './icons/IconFamilyFreands';
 
-// данные для кнопок (варианты ответов на вопросы)
-const BootstrapButton = withStyles({
-  root: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    border: '1px solid green',
-    borderColor: '#ffffff',
-    color: '#215C75',
-    width: '100%',
-    margin: '0',
-    '&:hover': {
-      backgroundColor: '#ffffff',
-      borderColor: '#ffffff',
-      boxShadow: 'none',
-    },
-    '&:active': {
-      boxShadow: 'none',
-      backgroundColor: '#ffffff',
-      borderColor: '#ffffff',
-    },
-    '&:focus': {
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-    },
-  },
-})(Button);
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(10, calc(100% / 10 - 8px))',
-    gap: '12px',
-    alignItems: 'center',
-    maxWidth: '640px',
-    margin: 'auto auto 80px auto',
-    '& > *': {
-      display: 'flex',
-      alignItem: 'center',
-      justifyContent: 'center',
-    }
-  },
-}));
-
-
-// const keyHealthIcon=`${healthIcon}`
-
 // данные для круговоой диаграммы
 const data = [
-  { Health: 0.7, friend: 0.5, love: 0, money: 0, fun: 0,  career: 0, growth: 0 },
+  { Health: 0.7, friend: 0.5, love: 0, money: 0, fun: 0, career: 0, growth: 0 },
 ];
 const chartSize = 450;
 const numberOfScales = 10;
@@ -138,8 +92,8 @@ const caption = () => col => (
 
 const FamilyFreandsRez = props => {
 
-   // форма
-   const {
+  // форма
+  const {
     handleSubmit,
     reset
   } = useForm({
@@ -154,7 +108,6 @@ const FamilyFreandsRez = props => {
     reset();
   };
 
-  const classes = useStyles();
 
   // круговая диаграмма
   const groups = [];
@@ -175,7 +128,7 @@ const FamilyFreandsRez = props => {
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
-  
+
   return (
     <Container className='healthContainer container__form-question'>
       <img className='logo-img' src={healthIcon} alt='' />
@@ -189,49 +142,49 @@ const FamilyFreandsRez = props => {
       >
         {/* //кнопки */}
         <div className="health-buttons">
-          <div className={classes.root}>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" data-text='Does my cat count?'>
-              1
-            </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-2" >
-              2
-            </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-3" >
-              3
-            </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-4" >
-              4
-            </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-5" >
-              5
-            </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-1" >
-              6
-            </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-2" >
-              7
-            </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-3" >
-              8
-            </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-4" >
-              9
-            </BootstrapButton>
-            <BootstrapButton defaultValue={state.data.age} type="submit" id="age-5" data-text='Great Gatsby would be jealous'>
-              10
-            </BootstrapButton>
-          </div>
+          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-1" data-text='Does my cat count?'>
+            1
+          </button>
+          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-2" >
+            2
+          </button>
+          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-3" >
+            3
+          </button>
+          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-4" >
+            4
+          </button>
+          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-5" >
+            5
+          </button>
+          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-1" >
+            6
+          </button>
+          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-2" >
+            7
+          </button>
+          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-3" >
+            8
+          </button>
+          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-4" >
+            9
+          </button>
+          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-5" data-text='Great Gatsby would be jealous'>
+            10
+          </button>
         </div>
         {/* // диаграма */}
-        <svg
-          version="1"
-          xmlns="http://www.w3.org/2000/svg"
-          width={chartSize}
-          height={chartSize}
-          viewBox={`0 0 ${chartSize} ${chartSize}`}
-        >
-          <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
-        </svg>
+        <div className='radar'>
+          <svg
+            version="1"
+            xmlns="http://www.w3.org/2000/svg"
+            width={chartSize}
+            height={chartSize}
+            viewBox={`0 0 ${chartSize} ${chartSize}`}
+          >
+            <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
+          </svg>
+        </div>
       </form>
 
     </Container>

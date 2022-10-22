@@ -6,7 +6,7 @@ import Cards from './Cards/Cards';
 import MyProfile from './MyProfile/MyProfile';
 import ProtectedRoute from './ProtectedRoute';
 import * as auth from '../auth';
-import './styles/style.css';
+import './scss/style.css';
 
 import Container from '@material-ui/core/Container';
 
