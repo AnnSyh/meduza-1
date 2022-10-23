@@ -129,7 +129,8 @@ const App = () => {
 
           <StateMachineProvider>
             <Route exact path="/" component={Step1} />
-            <Route path="/step2" component={Step2} />
+            {/* <Route path="/step2" component={Step2} /> */}
+            <Route path="/step2" render={ () => <Step2 /> } />
             {/* <Route path="/step2">
               <Step2 name='step2' />
             </Route> */}
