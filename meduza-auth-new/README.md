@@ -6,7 +6,8 @@
 
 ##### Структура проекта:
 - /step1,/step2,/step3 - нач вход
-- /health, /health-rez, /family-freands, /family-friends-rez, /love  - стр опроса с диаграмой
+- /health, /health, /family-freands, /love, /career, /money, /fun, /growth  - стр опроса с диаграмой (рабочий ваниант радиобатаны (красивые кнопочки не работают))
+- /Celebration, .....  - стр опроса без диаграмы
 - /login, /register  - авторизация/регистрация
 - /cards, /my-profile - стр личного кабинета
 
