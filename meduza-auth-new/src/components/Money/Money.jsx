@@ -1,23 +1,19 @@
 import React from 'react';
 // import radarChart from "react-svg-radar-chart";
 import { useForm } from "react-hook-form";
+// import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 import '../scss/style.css';
 
 import Container from '@material-ui/core/Container';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import healthIcon from './../../images/Health.svg';
+// import { withStyles, makeStyles } from '@material-ui/core/styles';
+// import Button from '@material-ui/core/Button';
+// import healthIcon from './../../images/Health.svg';
+import moneyImg from './../../images/Money.svg';
+// import IconFamilyFreands from './icons/IconFamilyFreands';
 
-
-// const keyHealthIcon=`${healthIcon}`
-
-// данные для круговоой диаграммы
-const data = [
-  { Health: 0.7, friend: 0, love: 0, money: 0, fun: 0, career: 0, growth: 0 },
-];
 const chartSize = 450;
 const numberOfScales = 10;
 const scale = value => (
@@ -54,7 +50,7 @@ const shape = columns => (chartData, i) => {
           ];
         })
       )}
-      stroke={`green`}
+      stroke={`#ffffff`}
       fill={`rgba(255, 255, 255, 1)`}
       fillOpacity=".5"
     />
@@ -91,9 +87,11 @@ const caption = () => col => (
 
 // -------------------------------
 
-const HealthRez = props => {
+const Money = props => {
+
   // форма
   const {
+    register,
     handleSubmit,
     reset
   } = useForm({
@@ -104,10 +102,14 @@ const HealthRez = props => {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("./family-freands");
+    props.history.push("./fun");
     reset();
   };
 
+  // данные для круговоой диаграммы
+  const data = [
+    { Health: (state.data.health / 10), friend: (state.data.freand / 10), love: (state.data.love / 10), career: (state.data.career / 10), money: 0, fun: 0,  growth: 0 },
+  ];
 
   // круговая диаграмма
   const groups = [];
@@ -128,47 +130,89 @@ const HealthRez = props => {
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
+  const CheckboxRadio = (props) => {
+    return (
+      <div className="form-check">
+        <label htmlFor={props.id}>
+          <input
+            {...register('money', { required: true })}
+            type="radio"
+            name="money"
+            value={props.id}
+            className="form-check-input"
+            id={props.id}
+
+          />
+          {props.id}
+        </label>
+      </div>
+    )
+  }
+
 
   return (
     <Container className='healthContainer container__form-question'>
-      <img className='logo-img' src={healthIcon} alt='' />
-      <h1>Health</h1>
-      <p>How happy are you with your health, wellness, and physical body?</p>
-      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+      <img className='logo-img' src={moneyImg} alt='' />
+      <h1>Money</h1>
+      <p>How comfortable are you with your financial situation?</p>
+
+      {/* <pre>{JSON.stringify(state, null, 2)}</pre>
+      <p>state.data.health = {state.data.health}</p>
+      <p>state.data.freand = {state.data.freand}</p>
+      <p>state.data.love = {state.data.love}</p>
+      <p>state.data.career = {state.data.career}</p> */}
+
+
       <form
         className='form-question'
-        onSubmit={handleSubmit(onSubmit)}
+        onChange={handleSubmit(onSubmit)}
       >
+
+        <div className='health-checks'>
+
+          <CheckboxRadio id='1' />
+          <CheckboxRadio id='2' />
+          <CheckboxRadio id='3' />
+          <CheckboxRadio id='4' />
+          <CheckboxRadio id='5' />
+          <CheckboxRadio id='6' />
+          <CheckboxRadio id='7' />
+          <CheckboxRadio id='8' />
+          <CheckboxRadio id='9' />
+          <CheckboxRadio id='10' />
+
+        </div>
+
         {/* //кнопки */}
-        <div className="health-buttons">
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-1" data-text='I am feeling like a dying horse'>
+        <div className='health-buttons'>
+          <button className="beautiful-button beautiful-button--small" type="submit" id="age-1" data-text='I’m applying for cat adoption'>
             1
           </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-2" >
+          <button className="beautiful-button beautiful-button--small" type="submit" id="age-2" >
             2
           </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-3" >
+          <button className="beautiful-button beautiful-button--small" type="submit" id="age-3" >
             3
           </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-4" >
+          <button className="beautiful-button beautiful-button--small" type="submit" id="age-4" >
             4
           </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-5" >
+          <button className="beautiful-button beautiful-button--small" type="submit" id="age-5" >
             5
           </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-1" >
+          <button className="beautiful-button beautiful-button--small" type="submit" id="age-1" >
             6
           </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-2" >
+          <button className="beautiful-button beautiful-button--small" type="submit" id="age-2" >
             7
           </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-3" >
+          <button className="beautiful-button beautiful-button--small" type="submit" id="age-3" >
             8
           </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-4" >
+          <button className="beautiful-button beautiful-button--small" type="submit" id="age-4" >
             9
           </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-5" data-text='Very, I am applying to join the Olympics!'>
+          <button className="beautiful-button beautiful-button--small" type="submit" id="age-5" data-text='Like Romeo & Juliette but with a happy ending'>
             10
           </button>
         </div>
@@ -190,4 +234,4 @@ const HealthRez = props => {
   );
 };
 
-export default HealthRez;
+export default Money;

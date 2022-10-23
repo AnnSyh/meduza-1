@@ -14,12 +14,6 @@ import Container from '@material-ui/core/Container';
 import loveImg from './../../images/Love.svg';
 // import IconFamilyFreands from './icons/IconFamilyFreands';
 
-// const keyHealthIcon=`${healthIcon}`
-
-// данные для круговоой диаграммы
-const data = [
-  { Health: 0.7, friend: 0.5, love: 0, money: 0, fun: 0, career: 0, growth: 0 },
-];
 const chartSize = 450;
 const numberOfScales = 10;
 const scale = value => (
@@ -93,10 +87,11 @@ const caption = () => col => (
 
 // -------------------------------
 
-const FamilyFreandsRez = props => {
+const Love = props => {
 
   // форма
   const {
+    register,
     handleSubmit,
     reset
   } = useForm({
@@ -107,9 +102,14 @@ const FamilyFreandsRez = props => {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("./love");
+    props.history.push("./career");
     reset();
   };
+
+  // данные для круговоой диаграммы
+  const data = [
+    { Health: (state.data.health / 10), friend: (state.data.freand / 10), love: 0, money: 0, fun: 0, career: 0, growth: 0 },
+  ];
 
   // круговая диаграмма
   const groups = [];
@@ -130,16 +130,57 @@ const FamilyFreandsRez = props => {
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
+  const CheckboxRadio = (props) => {
+    return (
+      <div className="form-check">
+        <label htmlFor={props.id}>
+          <input
+            {...register('love', { required: true })}
+            type="radio"
+            name="love"
+            value={props.id}
+            className="form-check-input"
+            id={props.id}
+
+          />
+          {props.id}
+        </label>
+      </div>
+    )
+  }
+
 
   return (
     <Container className='healthContainer container__form-question'>
       <img className='logo-img' src={loveImg} alt='' />
       <h1>Love</h1>
       <p>How’s your romantic life?</p>
+
+      {/* <pre>{JSON.stringify(state, null, 2)}</pre>
+      <p>state.data.health = {state.data.health}</p>
+      <p>state.data.freand = {state.data.freand}</p> */}
+
+
       <form
         className='form-question'
-        onSubmit={handleSubmit(onSubmit)}
+        onChange={handleSubmit(onSubmit)}
       >
+
+        <div className='health-checks'>
+
+          <CheckboxRadio id='1' />
+          <CheckboxRadio id='2' />
+          <CheckboxRadio id='3' />
+          <CheckboxRadio id='4' />
+          <CheckboxRadio id='5' />
+          <CheckboxRadio id='6' />
+          <CheckboxRadio id='7' />
+          <CheckboxRadio id='8' />
+          <CheckboxRadio id='9' />
+          <CheckboxRadio id='10' />
+
+        </div>
+
         {/* //кнопки */}
         <div className='health-buttons'>
           <button className="beautiful-button beautiful-button--small" type="submit" id="age-1" data-text='I’m applying for cat adoption'>
@@ -191,4 +232,4 @@ const FamilyFreandsRez = props => {
   );
 };
 
-export default FamilyFreandsRez;
+export default Love;

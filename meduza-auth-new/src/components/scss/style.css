@@ -154,6 +154,12 @@ body,
     grid-template-columns: repeat(5, calc(20% - 11px));
   }
 }
+.health-checks {
+  display: flex;
+  max-width: 50%;
+  margin: 30px auto;
+}
+
 .radar svg {
   width: 100%;
 }

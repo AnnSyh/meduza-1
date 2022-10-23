@@ -1,5 +1,11 @@
 @import './variables';
 
+.health-checks {
+  display: flex;
+  max-width: 50%;
+  margin: 30px auto;
+}
+
 
 .radar svg {
   width:100%;

@@ -13,14 +13,19 @@ import Container from '@material-ui/core/Container';
 import { StateMachineProvider, createStore } from "little-state-machine";
 import Step1 from "./Step1/Step1";
 import Step2 from "./Step2/Step2";
-import Step2Right from "./Step2/Step2Right";
+import Step2Design from "./Step2/Step2Design";
 import Step3 from "./Step3/Step3";
 import Result from "./Result";
+// шаги опроса
 import Health from "./Health/Health";
-import HealthRez from "./Health/HealthRez";
 import FamilyFreands from "./FamilyFreands/FamilyFreands";
-import FamilyFreandsRez from "./FamilyFreands/FamilyFreandsRez";
 import Love from "./Love/Love";
+import Career from "./Career/Career";
+import Money from "./Money/Money";
+import Fun from "./Fun/Fun";
+import Growth from "./Growth/Growth";
+import Celebration from "./Celebration/Celebration";
+// import Step4Email from "./Step4Email/Step4Email";
 
 createStore({
   data: {}
@@ -134,14 +139,19 @@ const App = () => {
             {/* <Route path="/step2">
               <Step2 name='step2' />
             </Route> */}
-            <Route path="/step2Right" component={Step2Right} />
+            <Route path="/Step2Design" component={Step2Design} />
             <Route path="/step3" component={Step3} />
             <Route path="/result" component={Result} />
             <Route path="/health" component={Health} />
-            <Route path="/health-rez" component={HealthRez} />
             <Route path="/family-freands" component={FamilyFreands} />
-            <Route path="/family-friends-rez" component={FamilyFreandsRez} />
             <Route path="/love" component={Love} />
+            <Route path="/career" component={Career} />
+            <Route path="/money" component={Money} />
+            <Route path="/fun" component={Fun} />
+            <Route path="/growth" component={Growth} />
+            <Route path="/celebration" component={Celebration} />
+            {/* <Route path="/your-email" component={Step4Email} /> */}
+            {/* <Route path="/thanks" component={Step5Thanks} /> */}
         </StateMachineProvider>
 
 

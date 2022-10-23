@@ -9,17 +9,13 @@ import updateAction from "../updateAction";
 import '../scss/style.css';
 
 import Container from '@material-ui/core/Container';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+// import { withStyles, makeStyles } from '@material-ui/core/styles';
+// import Button from '@material-ui/core/Button';
 // import healthIcon from './../images/Health.svg';
 import friendImg from './../../images/Friend.svg';
 // import IconFamilyFreands from './icons/IconFamilyFreands';
 
 
-// данные для круговоой диаграммы
-const data = [
-  { Health: 0.7, friend: 0.5, love: 0, money: 0, fun: 0, career: 0, growth: 0 },
-];
 const chartSize = 450;
 const numberOfScales = 10;
 const scale = value => (
@@ -56,7 +52,7 @@ const shape = columns => (chartData, i) => {
           ];
         })
       )}
-      stroke={`#ffffff`}
+      stroke={`green`}
       fill={`rgba(255, 255, 255, 1)`}
       fillOpacity=".5"
     />
@@ -96,6 +92,7 @@ const caption = () => col => (
 const FamilyFreands = props => {
   // форма
   const {
+    register,
     handleSubmit,
     reset
   } = useForm({
@@ -106,9 +103,14 @@ const FamilyFreands = props => {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("./family-friends-rez");
+    props.history.push("./love");
     reset();
   };
+
+  // данные для круговоой диаграммы
+const data = [
+  { Health: (state.data.health / 10), friend: 0, love: 0, money: 0, fun: 0, career: 0, growth: 0 },
+];
 
 
   // круговая диаграмма
@@ -130,15 +132,56 @@ const FamilyFreands = props => {
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
+  const CheckboxRadio = (props) => {
+    return (
+      <div className="form-check">
+      <label htmlFor={props.id}>
+        <input
+          {...register('freand', { required: true })}
+          type="radio"
+          name="freand"
+          value={props.id}
+          className="form-check-input"
+          id={props.id}
+          
+        />
+        {props.id}
+      </label>
+    </div>
+    )
+}
+
+
   return (
     <Container className='healthContainer container__form-question'>
       <img className='logo-img' src={friendImg} alt='' />
       <h1>Family & Friends</h1>
       <p>How satisfied are you with your social life?</p>
+
+      {/* <pre>{JSON.stringify(state, null, 2)}</pre>
+      <p>state.data.health = {state.data.health}</p> */}
+
+
       <form
         className='form-question'
-        onSubmit={handleSubmit(onSubmit)}
+        onChange={handleSubmit(onSubmit)}
       >
+
+        <div className='health-checks'>
+
+          <CheckboxRadio id='1' />
+          <CheckboxRadio id='2' />
+          <CheckboxRadio id='3' />
+          <CheckboxRadio id='4' />
+          <CheckboxRadio id='5' />
+          <CheckboxRadio id='6' />
+          <CheckboxRadio id='7' />
+          <CheckboxRadio id='8' />
+          <CheckboxRadio id='9' />
+          <CheckboxRadio id='10' />
+
+        </div>
+
         {/* //кнопки */}
         <div className="health-buttons">
           <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-1" data-text='Does my cat count?'>

@@ -18,24 +18,39 @@ const Step2 = (props) => {
     mode: 'onChange'
   });
 
-  const { state, actions } = useStateMachine({ updateAction });
+  const { actions, state } = useStateMachine({ updateAction });
 
   const onSubmit = (data) => {
-
-    reset();
-    actions.updateAction(data);
-    // alert(JSON.stringify(data));
-    // alert(JSON.stringify(props));
-    // alert(JSON.stringify(props.history));
-    // props.history.push("./step3");
-    props.history.push("./result");
-    reset();
+    console.log('data = ', data);
   };
 
-  const onClick = (e, data) => {
+
+  // const onSubmit = (data,e) => {
+  //   console.log('onSubmit');
+
+  //   reset();
+  //   actions.updateAction(data);
+  //   // alert(JSON.stringify(data));
+  //   // alert(JSON.stringify(props));
+  //   // alert(JSON.stringify(props.history));
+  //   // props.history.push("./step3");
+  //   props.history.push("./result");
+  //   reset();
+  // };
+
+  const onClick = (e) => {
+    console.log('onClick');
+
     const clickForm = e.target.parentNode.closest('form');
-    console.log('clickForm.getAttribut("data-form") = ', clickForm.getAttribute('data-form'));
-    alert(JSON.stringify(data));
+    const  age = clickForm.getAttribute('data-form');
+
+    console.log('age = ', age);
+    // alert(JSON.stringify(register));
+
+    // register({ ...age });
+    // alert(JSON.stringify(register));
+    // {...register("age")}
+
   };
   // debugger
   // console.log('props.name = ',props.name);
@@ -57,8 +72,7 @@ const Step2 = (props) => {
           >
             <input
               className='form-input'
-              name="age"
-              defaultValue={state.data.age}
+              defaultValue='age-1'
               {...register("age")}
             />
             <button
@@ -75,8 +89,7 @@ const Step2 = (props) => {
           >
             <input
               className='form-input'
-              name="age"
-              defaultValue={state.data.age}
+              defaultValue='age-2'
               {...register("age")}
             />
 
@@ -95,8 +108,7 @@ const Step2 = (props) => {
           >
             <input
               className='form-input'
-              name="age"
-              defaultValue={state.data.age}
+              defaultValue='age-3'
               {...register("age")}
             />
 
@@ -114,8 +126,7 @@ const Step2 = (props) => {
           >
             <input
               className='form-input'
-              name="age"
-              defaultValue={state.data.age}
+              defaultValue='age-4'
               {...register("age")}
             />
 
