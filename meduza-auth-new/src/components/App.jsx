@@ -11,20 +11,21 @@ import './scss/style.css';
 import Container from '@material-ui/core/Container';
 
 import { StateMachineProvider, createStore } from "little-state-machine";
-import Step1 from "./Step1/Step1";
-import Step2 from "./Step2/Step2";
-import Step2Design from "./Step2/Step2Design";
-import Step3 from "./Step3/Step3";
+// стр вопросов
+import Step1 from "./Questions/Step1";
+import Step2 from "./Questions/Step2";
+import Step3 from "./Questions/Step3";
 import Result from "./Result";
 // шаги опроса
-import Health from "./Health/Health";
-import FamilyFreands from "./FamilyFreands/FamilyFreands";
-import Love from "./Love/Love";
-import Career from "./Career/Career";
-import Money from "./Money/Money";
-import Fun from "./Fun/Fun";
-import Growth from "./Growth/Growth";
-import Celebration from "./Celebration/Celebration";
+import Health from "./Interview/Health";
+import FamilyFreands from "./Interview/FamilyFreands";
+import Love from "./Interview/Love";
+import Career from "./Interview/Career";
+import Money from "./Interview/Money";
+import Fun from "./Interview/Fun";
+import Growth from "./Interview/Growth";
+// стр вопросов
+import Celebration from "./Questions/Celebration";
 // import Step4Email from "./Step4Email/Step4Email";
 
 createStore({
@@ -134,14 +135,12 @@ const App = () => {
 
           <StateMachineProvider>
             <Route exact path="/" component={Step1} />
-            {/* <Route path="/step2" component={Step2} /> */}
-            <Route path="/step2" render={ () => <Step2 /> } />
-            {/* <Route path="/step2">
-              <Step2 name='step2' />
-            </Route> */}
-            <Route path="/Step2Design" component={Step2Design} />
+            <Route path="/step2" component={Step2} />
+            {/* <Route path="/step2" render={ () => <Step2 /> } /> */}
+            {/* <Route path="/step2"><Step2 name='step2' /></Route> */}
             <Route path="/step3" component={Step3} />
             <Route path="/result" component={Result} />
+            
             <Route path="/health" component={Health} />
             <Route path="/family-freands" component={FamilyFreands} />
             <Route path="/love" component={Love} />
@@ -149,6 +148,7 @@ const App = () => {
             <Route path="/money" component={Money} />
             <Route path="/fun" component={Fun} />
             <Route path="/growth" component={Growth} />
+
             <Route path="/celebration" component={Celebration} />
             {/* <Route path="/your-email" component={Step4Email} /> */}
             {/* <Route path="/thanks" component={Step5Thanks} /> */}
