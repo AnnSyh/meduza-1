@@ -24,8 +24,8 @@ const Step2 = (props) => {
   const onSubmit = (data) => {
     console.log('data = ', data);
     actions.updateAction(data);
-    // props.history.push("./Step3");
-    props.history.push("./Result");
+    props.history.push("./Step3");
+    // props.history.push("./Result");
     reset();
   };
 
