@@ -131,22 +131,24 @@ const Health = props => {
 
 
   const CheckboxRadio = (props) => {
-      return (
-        <div className="form-check">
+    return (
+      <div
+        className="form_radio_btn"
+        data-text-first="I am feeling like a dying horse"
+        data-text-last="Very, I am applying to join the Olympics!"
+      >
+        <input
+          {...register('health', { required: true })}
+          type="radio"
+          name="health"
+          value={props.id}
+          id={props.id}
+        />
         <label htmlFor={props.id}>
-          <input
-            {...register('health', { required: true })}
-            type="radio"
-            name="health"
-            value={props.id}
-            className="form-check-input"
-            id={props.id}
-            
-          />
           {props.id}
         </label>
       </div>
-      )
+    )
   }
 
 
@@ -161,55 +163,16 @@ const Health = props => {
         onChange={handleSubmit(onSubmit)}
       >
         <div className='health-checks'>
-
           <CheckboxRadio id='1' />
           <CheckboxRadio id='2' />
           <CheckboxRadio id='3' />
-          <CheckboxRadio id='4'/>
-          <CheckboxRadio id='5'/>
-          <CheckboxRadio id='6'/>
-          <CheckboxRadio id='7'/>
-          <CheckboxRadio id='8'/>
-          <CheckboxRadio id='9'/>
-          <CheckboxRadio id='10'/>
-     
-        </div>
-
-
-
-
-        {/* //кнопки */}
-        <div className="health-buttons">
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-1" data-text='I am feeling like a dying horse'>
-            1
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-2" >
-            2
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-3" >
-            3
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-4" >
-            4
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-5" >
-            5
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-1" >
-            6
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-2" >
-            7
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-3" >
-            8
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-4" >
-            9
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-5" data-text='Very, I am applying to join the Olympics!'>
-            10
-          </button>
+          <CheckboxRadio id='4' />
+          <CheckboxRadio id='5' />
+          <CheckboxRadio id='6' />
+          <CheckboxRadio id='7' />
+          <CheckboxRadio id='8' />
+          <CheckboxRadio id='9' />
+          <CheckboxRadio id='10' />
         </div>
         {/* // диаграма */}
         <div className='radar'>

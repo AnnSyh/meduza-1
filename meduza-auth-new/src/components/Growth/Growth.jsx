@@ -130,19 +130,22 @@ const Growth = props => {
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
+
   const CheckboxRadio = (props) => {
     return (
-      <div className="form-check">
+      <div
+        className="form_radio_btn"
+        data-text-first="I forgot what a book looks like 😳"
+        data-text-last="Dalai Lama would quote me"
+      >
+        <input
+          {...register('growth', { required: true })}
+          type="radio"
+          name="growth"
+          value={props.id}
+          id={props.id}
+        />
         <label htmlFor={props.id}>
-          <input
-            {...register('growth', { required: true })}
-            type="radio"
-            name="growth"
-            value={props.id}
-            className="form-check-input"
-            id={props.id}
-
-          />
           {props.id}
         </label>
       </div>
@@ -153,7 +156,7 @@ const Growth = props => {
   return (
     <Container className='healthContainer container__form-question'>
       <img className='logo-img' src={growthImg} alt='' />
-      <h1>growth</h1>
+      <h1>Growth</h1>
       <p>How satisfied are you with your personal growth?</p>
 
       {/* <pre>{JSON.stringify(state, null, 2)}</pre>
@@ -169,9 +172,7 @@ const Growth = props => {
         className='form-question'
         onChange={handleSubmit(onSubmit)}
       >
-
         <div className='health-checks'>
-
           <CheckboxRadio id='1' />
           <CheckboxRadio id='2' />
           <CheckboxRadio id='3' />
@@ -182,41 +183,6 @@ const Growth = props => {
           <CheckboxRadio id='8' />
           <CheckboxRadio id='9' />
           <CheckboxRadio id='10' />
-
-        </div>
-
-        {/* //кнопки */}
-        <div className='health-buttons'>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-1" data-text='I’m applying for cat adoption'>
-            1
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-2" >
-            2
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-3" >
-            3
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-4" >
-            4
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-5" >
-            5
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-1" >
-            6
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-2" >
-            7
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-3" >
-            8
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-4" >
-            9
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-5" data-text='Like Romeo & Juliette but with a happy ending'>
-            10
-          </button>
         </div>
         {/* // диаграма */}
         <div className='radar'>

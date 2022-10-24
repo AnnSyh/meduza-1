@@ -108,9 +108,9 @@ const FamilyFreands = props => {
   };
 
   // данные для круговоой диаграммы
-const data = [
-  { Health: (state.data.health / 10), friend: 0, love: 0, money: 0, fun: 0, career: 0, growth: 0 },
-];
+  const data = [
+    { Health: (state.data.health / 10), friend: 0, love: 0, money: 0, fun: 0, career: 0, growth: 0 },
+  ];
 
 
   // круговая диаграмма
@@ -134,22 +134,24 @@ const data = [
 
   const CheckboxRadio = (props) => {
     return (
-      <div className="form-check">
-      <label htmlFor={props.id}>
+      <div
+        className="form_radio_btn"
+        data-text-first="Does my cat count?"
+        data-text-last="Great Gatsby would be jealous"
+      >
         <input
           {...register('freand', { required: true })}
           type="radio"
           name="freand"
           value={props.id}
-          className="form-check-input"
           id={props.id}
-          
         />
-        {props.id}
-      </label>
-    </div>
+        <label htmlFor={props.id}>
+          {props.id}
+        </label>
+      </div>
     )
-}
+  }
 
 
   return (
@@ -166,9 +168,7 @@ const data = [
         className='form-question'
         onChange={handleSubmit(onSubmit)}
       >
-
         <div className='health-checks'>
-
           <CheckboxRadio id='1' />
           <CheckboxRadio id='2' />
           <CheckboxRadio id='3' />
@@ -179,41 +179,6 @@ const data = [
           <CheckboxRadio id='8' />
           <CheckboxRadio id='9' />
           <CheckboxRadio id='10' />
-
-        </div>
-
-        {/* //кнопки */}
-        <div className="health-buttons">
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-1" data-text='Does my cat count?'>
-            1
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-2" >
-            2
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-3" >
-            3
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-4" >
-            4
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-5" >
-            5
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-1" >
-            6
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-2" >
-            7
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-3" >
-            8
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-4" >
-            9
-          </button>
-          <button className="beautiful-button beautiful-button--small" defaultValue={state.data.age} type="submit" id="age-5" data-text='Great Gatsby would be jealous'>
-            10
-          </button>
         </div>
         {/* // диаграма */}
         <div className='radar'>

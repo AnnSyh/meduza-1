@@ -132,17 +132,19 @@ const Career = props => {
 
   const CheckboxRadio = (props) => {
     return (
-      <div className="form-check">
+      <div
+        className="form_radio_btn"
+        data-text-first="Please cancel Mondays"
+        data-text-last="I wouldn’t quit my job for a billion dollars!"
+      >
+        <input
+          {...register('career', { required: true })}
+          type="radio"
+          name="career"
+          value={props.id}
+          id={props.id}
+        />
         <label htmlFor={props.id}>
-          <input
-            {...register('career', { required: true })}
-            type="radio"
-            name="career"
-            value={props.id}
-            className="form-check-input"
-            id={props.id}
-
-          />
           {props.id}
         </label>
       </div>
@@ -154,7 +156,7 @@ const Career = props => {
     <Container className='healthContainer container__form-question'>
       <img className='logo-img' src={careerImg} alt='' />
       <h1>Career</h1>
-      <p>How’s your romantic life?</p>
+      <p>How happy and fulfilled are you professionally?</p>
 
       {/* <pre>{JSON.stringify(state, null, 2)}</pre>
       <p>state.data.health = {state.data.health}</p>
@@ -166,9 +168,7 @@ const Career = props => {
         className='form-question'
         onChange={handleSubmit(onSubmit)}
       >
-
         <div className='health-checks'>
-
           <CheckboxRadio id='1' />
           <CheckboxRadio id='2' />
           <CheckboxRadio id='3' />
@@ -179,41 +179,6 @@ const Career = props => {
           <CheckboxRadio id='8' />
           <CheckboxRadio id='9' />
           <CheckboxRadio id='10' />
-
-        </div>
-
-        {/* //кнопки */}
-        <div className='health-buttons'>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-1" data-text='I’m applying for cat adoption'>
-            1
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-2" >
-            2
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-3" >
-            3
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-4" >
-            4
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-5" >
-            5
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-1" >
-            6
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-2" >
-            7
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-3" >
-            8
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-4" >
-            9
-          </button>
-          <button className="beautiful-button beautiful-button--small" type="submit" id="age-5" data-text='Like Romeo & Juliette but with a happy ending'>
-            10
-          </button>
         </div>
         {/* // диаграма */}
         <div className='radar'>
