@@ -29,21 +29,22 @@ const Step1 = (props) => {
   return (
     <Container className='container__form-img container__form-img--left'>
       <h1>Hey, good looking, first things first, how should I call you?</h1>
-      <form 
-      onSubmit={handleSubmit(onSubmit)}
-      className='form-img'
-      noValidate
-      autoComplete='off'
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className='form-img'
+        noValidate
+        autoComplete='off'
       >
         <label>
           <input
+            type="text"
             placeholder='Name'
             defaultValue={state.data.name}
             {...register("name", {
-              required: 'Поле обязательнок заполнению',
+              required: 'Required field',
               minLength: {
                 value: 5,
-                message: 'мин кол-во символов 5'
+                message: 'min characters 5'
               }
             })}
           />

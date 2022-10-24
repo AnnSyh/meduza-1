@@ -411,6 +411,11 @@ body {
     font-size: 20px;
   }
 }
+.container__form-img .lid {
+  color: #215C75;
+  font-size: 30px;
+  margin-bottom: 80px;
+}
 .container__form-img form::after {
   position: absolute;
   left: 0;
@@ -504,7 +509,9 @@ body {
   width: 27px;
   height: 27px;
 }
-.form-img input {
+.form-img input[type=text],
+.form-img input[type=email],
+.form-img input[type=password] {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -513,6 +520,9 @@ body {
   padding: 20px 15px;
   margin-bottom: 30px;
   font-size: 14px;
+}
+.form-img input[type=email] {
+  margin-bottom: 0;
 }
 .form-img .input[type=submit] {
   width: 98px;
@@ -551,6 +561,13 @@ body {
 }
 .form-img input:disabled {
   opacity: 0.4;
+}
+.form-img .checkbox-text {
+  color: #215C75;
+  font-size: 21px;
+}
+.form-img .checkbox-text input {
+  margin-right: 15px;
 }
 
 .gallery {

@@ -26,6 +26,12 @@ body {
       }
     }
 
+    & .lid {
+      color: $color-blue-three;
+      font-size: $font-size-lg-22pt;
+      margin-bottom: 80px;
+    }
+
     & form::after {
       position: absolute;
       left: 0;
@@ -132,7 +138,10 @@ body {
     }
   }
 
-  input { 
+  input[type="text"] , 
+  input[type="email"],
+  input[type="password"]
+   {  
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -141,7 +150,11 @@ body {
     padding: 20px 15px;
     margin-bottom: 30px;
     font-size: 14px;
-  }  
+  } 
+  
+  input[type="email"] {
+    margin-bottom: 0;
+  }
 
   .input[type="submit"] {        
     width: 98px;
@@ -186,6 +199,16 @@ body {
   input:disabled {
     opacity: 0.4;
   }
+
+  .checkbox-text {
+    color: $color-blue-three;
+    font-size: $font-size-xs-16pt;
+
+    input {
+      margin-right: 15px;
+    }
+  }
+
 }
 
 .gallery {

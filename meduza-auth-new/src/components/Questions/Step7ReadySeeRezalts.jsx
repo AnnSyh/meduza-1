@@ -7,8 +7,9 @@ import updateAction from "../updateAction";
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 
-const Celebration = (props) => {
+const Step7ReadySeeRezalts = (props) => {
   const {
+    register,
     handleSubmit,
     reset
   } = useForm({
@@ -19,14 +20,16 @@ const Celebration = (props) => {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("./your-email");
+    props.history.push("./rezalt");
+    // props.history.push("./rezalts");
     reset();
   };
 
   return (
-    <Container className='container__form-img container__form-img--center'>
+    <Container className='container__form-img container__form-img--left'>
       <h1>
-        Lorem Ipsum Celebration blabla
+        Woo-hoo, your report is here. Are you<br />
+        ready to see the results?
       </h1>
       {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
       <form
@@ -34,11 +37,11 @@ const Celebration = (props) => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <Button type="submit" variant="contained" color="primary">
-          Awesome!
+        I am ready!
         </Button>
       </form>
     </Container>
   );
 };
 
-export default withRouter(Celebration);
+export default withRouter(Step7ReadySeeRezalts);

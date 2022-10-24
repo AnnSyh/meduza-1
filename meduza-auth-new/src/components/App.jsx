@@ -26,7 +26,10 @@ import Fun from "./Interview/Fun";
 import Growth from "./Interview/Growth";
 // стр вопросов
 import Celebration from "./Questions/Celebration";
-// import Step4Email from "./Step4Email/Step4Email";
+import Step4Email from "./Questions/Step4Email";
+import Step5Password from "./Questions/Step5Password";
+import Step6BasedCity from "./Questions/Step6BasedCity";
+import Step7ReadySeeRezalts from "./Questions/Step7ReadySeeRezalts";
 
 createStore({
   data: {}
@@ -150,8 +153,10 @@ const App = () => {
             <Route path="/growth" component={Growth} />
 
             <Route path="/celebration" component={Celebration} />
-            {/* <Route path="/your-email" component={Step4Email} /> */}
-            {/* <Route path="/thanks" component={Step5Thanks} /> */}
+            <Route path="/your-email" component={Step4Email} />
+            <Route path="/password" component={Step5Password} />
+            <Route path="/based-city" component={Step6BasedCity} />
+            <Route path="/ready-see-rezalts" component={Step7ReadySeeRezalts} />
         </StateMachineProvider>
 
 

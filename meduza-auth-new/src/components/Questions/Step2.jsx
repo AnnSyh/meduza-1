@@ -42,7 +42,7 @@ const Step2 = (props) => {
           id={props.id}
         />
         <label htmlFor={props.id}>
-          {props.id}
+          {props.age}
         </label>
       </div>
     )
@@ -60,10 +60,10 @@ const Step2 = (props) => {
           onChange={handleSubmit(onSubmit)}
         >
           <div className='age-checks'>
-            <CheckboxRadio id='1' />
-            <CheckboxRadio id='2' />
-            <CheckboxRadio id='3' />
-            <CheckboxRadio id='4' />
+            <CheckboxRadio id='1' age='16-24'/>
+            <CheckboxRadio id='2' age='25-34' />
+            <CheckboxRadio id='3' age='35-44' />
+            <CheckboxRadio id='4' age='45 +' />
           </div>
         </form>
       </div>

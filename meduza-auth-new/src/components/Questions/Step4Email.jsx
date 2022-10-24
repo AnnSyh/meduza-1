@@ -9,57 +9,72 @@ import Container from '@material-ui/core/Container';
 const Step4Email = (props) => {
   const {
     register,
-    formState: { errors },
     handleSubmit,
+    formState: { errors },
     reset
-  } = useForm({
-    mode: 'onChange'
-  });
+  } = useForm();
 
-  const { actions, state } = useStateMachine({ updateAction });
-
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     actions.updateAction(data);
-    // props.history.push("./Step5Thanks");
+    // await login(data.email);
+    props.history.push("./password");
     // alert(JSON.stringify(data));
     reset();
   };
 
+  const { actions, state } = useStateMachine({ updateAction });
+
   return (
     <Container className='container__form-img container__form-img--left'>
-      <h1>Great job, [NAME]!</h1>
-      <h1>How can we stay in touch?</h1>
-      <div className="lid">
-        We will send you your Wheel of Life results in case you want to come back to it.
-      </div>
+      <h1>
+        Great job, {state.data.name}!<br />
+        How can we stay in touch?
+      </h1>
+      <div className="lid">We will send you your Wheel of Life results in case you want to come back to it.</div>
+      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='form-img'
         noValidate
         autoComplete='off'
       >
-        <label>
-          <input
-            placeholder='email'
-            defaultValue={state.data.email}
-            {...register("email", {
-              required: 'Поле обязательнок заполнению',
-              minLength: {
-                value: 5,
-                message: 'мин кол-во символов 5'
-              }
-            })}
-          />
-        </label>
-        <div style={{ height: 10 }}>
-          {errors?.email && <span className='error' >{errors?.name?.message || 'Error!'}</span>}
+        <div className="form-inner">
+          <label>
+            <input
+              id="email"
+              defaultValue={state.data.email}
+              aria-invalid={errors.email ? "true" : "false"}
+              {...register("email", {
+                required: 'Required field',
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: "Entered value does not match email format"
+                }
+              })}
+              type="email"
+              placeholder="example@mail.com"
+            />
+          </label>
+
+          <div style={{ display: "flex", justifyContent: 'space-between', marginTop: '20px' }}>
+            <label className="checkbox-text">
+              <input
+                name="subscribe"
+                type="checkbox" {...register("subscribe")}
+                id="subscribe"
+              />
+              Subscribe to our newsletter
+            </label>
+            <div style1={{ height: 10 }}>
+              {errors?.email && <span className='error' >{errors?.email?.message || 'Error!'}</span>}
+            </div>
+
+          </div>
         </div>
-        <input type="checkbox">
-          Subscribe to our newsletter
-        </input>
 
         <input className="input" type="submit" value='' />
       </form>
+
     </Container>
   );
 };
