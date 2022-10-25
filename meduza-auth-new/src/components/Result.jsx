@@ -5,13 +5,29 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
 
 import './scss/style.css';
+import classes from './Result.module.css';
 
 import imgDownload from '../images/Download.svg';
 import imgShare from '../images/Share.svg';
 import imgPrint from '../images/Print.svg';
 
-// import Container from '@material-ui/core/Container';
+// ------------------------------------------------
+// import { makeStyles } from '@material-ui/core/styles';
+// const useStyles = makeStyles({
+//   root: {
+//     // fontFamily: "Lora-Bold",
+//     width: '100%',
+//     maxWidth: 500,
+//   },
+// });
 
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+
+import Typography from '@material-ui/core/Typography';
+
+
+// ------------------------------------
 const chartSize = 450;
 const numberOfScales = 10;
 const scale = value => (
@@ -82,10 +98,11 @@ const caption = () => col => (
     {col.key}
   </text>
 );
-
 // -------------------------------
 
 const Result = props => {
+  // const classesPage = useStyles();
+
   const {
     reset
   } = useForm({
@@ -126,36 +143,9 @@ const Result = props => {
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
-
-  return (
-    <div className='container__two-columns'>
-
-      <div className='img'>
-        {/* // диаграма */}
-        <div className='radar'>
-          <svg
-            version="1"
-            xmlns="http://www.w3.org/2000/svg"
-            width={chartSize}
-            height={chartSize}
-            viewBox={`0 0 ${chartSize} ${chartSize}`}
-          >
-            <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
-          </svg>
-        </div>
-        <div className='radar-info'>
-          <h1> {state.data.name}’s Wheel of Life</h1>
-          <div className='data'>Date: [dd.mm.yy]</div>
-        </div>
-        <div className='radar-icon'>
-        <Link to='/'><img src={imgDownload} alt="" /></Link>
-        <Link to='/'><img src={imgShare} alt="" /></Link>
-        <Link to='/'><img src={imgPrint} alt="" /></Link>
-        </div>
-      </div>
-      <div className='txt'>
-        <h2>You are on the horse, keep it up!</h2>
-        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+  const TextBlock = () => {
+    return (
+      <>
         <p>
           Congratulations, {state.data.name}! Your wheel is nice and round, with all areas of your life in balance.
         </p>
@@ -179,20 +169,73 @@ const Result = props => {
         <p>
           {state.data.name}, you took the assessment, which was the first step of your journey. In the next step, you will define your personal values, which are the foundation for designing life on your terms.
         </p>
+      </>
+    )
+  }
 
-        {/* <Link to="/" className="register__login-link">
-        Let’s do it!
-            </Link> */}
+  const WeelListIcon = (props) => {
+    return (
+      <List className={classes.radarIcons}>
+        <ListItem>
+          <Link className='radar-icon__link' to='/'><img src={imgDownload} alt="" /></Link>
+        </ListItem>
+        <ListItem>
+          <Link className='radar-icon__link' to='/'><img src={imgShare} alt="" /></Link>
+        </ListItem>
+        <ListItem>
+          <Link className='radar-icon__link' to='/'><img src={imgPrint} alt="" /></Link>
+        </ListItem>
+      </List>
+    )
+  }
 
-        <Link to='/' type="submit" className="btn-big-round-blue btn-big-round-blue--link">
-          Let’s do it!
-        </Link>
+  const CurentDate = (props) => {
+    const Data = new Date();
+    const Year = Data.getFullYear();
+    const Month = Data.getMonth();
+    const Day = Data.getDate();
+
+    return (
+      <p className={classes.date}>Date: {Day}.{Month}.{Year}</p>
+    )
+  }
+
+  return (
+    <div className='container__two-columns'>
+
+      <div className='img'>
+        {/* // диаграма */}
+        <div className='radar'>
+          <svg
+            version="1"
+            xmlns="http://www.w3.org/2000/svg"
+            width={chartSize}
+            height={chartSize}
+            viewBox={`0 0 ${chartSize} ${chartSize}`}
+          >
+            <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
+          </svg>
+        </div>
+        <div className='radar-info'>
+          <h1 className={classes.h1Color}> {state.data.name}’s Wheel of Life</h1>
+          <CurentDate />
+        </div>
+        <WeelListIcon />
 
       </div>
 
-
-
-
+      <div className='txt'>
+        <div className={classes.root}>
+          <Typography variant="h1" component="h2">
+            You are on the horse, keep it up!
+          </Typography>
+        </div>
+        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+        <TextBlock />
+        <Link to='/' type="submit" className="btn-big-round-blue btn-big-round-blue--link">
+          Let’s do it!
+        </Link>
+      </div>
     </div>
   );
 };

@@ -15,7 +15,7 @@ body {
 
     display: flex !important;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
 
     & h1 {
@@ -128,22 +128,21 @@ body {
     .img,
     .txt {
       flex: 1;
-      height: 100vh;
     }
 
-    .img { border: 1px solid red;
+    .img { 
       position: relative;
+      display: flex;
+      flex-direction: column;
 
       .radar-icon {
         position: absolute;
         bottom: 0;
         right: 15px;
-
       }
     }
 
     .txt {
-      width: 100%;
       background-color: rgba(239, 239, 239, 0.8);
       padding: 80px 30px;
 

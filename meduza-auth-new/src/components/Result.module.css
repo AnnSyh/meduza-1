@@ -1,0 +1,26 @@
+.root {
+  font-family: "Lora-Bold"  !important;
+}
+.root h2{
+  font-family: "Lora-Bold"  !important;
+}
+
+.radarIcons {
+  display: flex;
+  max-width: 250px;
+  margin-left: auto !important;
+  margin-top: auto !important;
+}
+
+.date {
+  font-family: 'Open-sans';
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+h1.h1Color {
+  color: #fff;
+  margin-bottom: 0;
+}
+
