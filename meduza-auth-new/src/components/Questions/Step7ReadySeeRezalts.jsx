@@ -5,7 +5,6 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 
 const Step7ReadySeeRezalts = (props) => {
   const {
@@ -36,9 +35,9 @@ const Step7ReadySeeRezalts = (props) => {
         className='Step3-form'
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Button type="submit" variant="contained" color="primary">
+        <button type="submit" className="btn-big-round-blue">
         I am ready!
-        </Button>
+        </button>
       </form>
     </Container>
   );

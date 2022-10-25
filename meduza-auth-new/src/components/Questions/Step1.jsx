@@ -27,34 +27,39 @@ const Step1 = (props) => {
   };
 
   return (
-    <Container className='container__form-img container__form-img--left'>
-      <h1>Hey, good looking, first things first, how should I call you?</h1>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className='form-img'
-        noValidate
-        autoComplete='off'
-      >
-        <label>
-          <input
-            type="text"
-            placeholder='Name'
-            defaultValue={state.data.name}
-            {...register("name", {
-              required: 'Required field',
-              minLength: {
-                value: 5,
-                message: 'min characters 5'
-              }
-            })}
-          />
-        </label>
-        <div style={{ height: 10 }}>
-          {errors?.name && <span className='error' >{errors?.name?.message || 'Error!'}</span>}
-        </div>
+    <Container 
+      className='container__form-img container__form-img--left'>
 
-        <input className="input" type="submit" value='' />
-      </form>
+      <div>
+        <h1>Hey, good looking, first things <br/>first, how should I call you?</h1>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className='form-img'
+          noValidate
+          autoComplete='off'
+        >
+          <label>
+            <input
+              type="text"
+              placeholder='Name'
+              defaultValue={state.data.name}
+              {...register("name", {
+                required: 'Required field',
+                minLength: {
+                  value: 5,
+                  message: 'min characters 5'
+                }
+              })}
+            />
+          </label>
+          <div style={{ height: 10 }}>
+            {errors?.name && <span className='error' >{errors?.name?.message || 'Error!'}</span>}
+          </div>
+
+          <input className="btn-big-round" type="submit" value='' />
+        </form>
+      </div>
+
     </Container>
   );
 };

@@ -5,7 +5,6 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 
 const Celebration = (props) => {
   const {
@@ -24,19 +23,23 @@ const Celebration = (props) => {
   };
 
   return (
-    <Container className='container__form-img container__form-img--center'>
-      <h1>
-        Lorem Ipsum Celebration blabla
-      </h1>
-      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
-      <form
-        className='Step3-form'
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <Button type="submit" variant="contained" color="primary">
-          Awesome!
-        </Button>
-      </form>
+    <Container
+      className=' container__form-img container__form-img--center'
+    >
+      <div style={{paddingTop:'310px'}}>
+        <h1>
+          Lorem Ipsum Celebration blabla
+        </h1>
+        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+        <form
+          className='form-img'
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <button type="submit" className="btn-big-round-blue">
+            Awesome!
+          </button>
+        </form>
+      </div>
     </Container>
   );
 };

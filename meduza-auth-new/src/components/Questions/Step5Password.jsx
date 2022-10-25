@@ -26,40 +26,42 @@ const Step5Password = (props) => {
 
   return (
     <Container className='container__form-img container__form-img--left'>
-      <h1>
-        Thanks, {state.data.name}!<br />
-        Please create a 52 character password
-      </h1>
-      <div className="lid">He-he, just kidding! A simple 7-character password would do, or you can sign-in with Google if you like. It will help us save your progress!</div>
-      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className='form-img'
-        noValidate
-        autoComplete='off'
-      >
-        <div className="form-inner">
-          <label>
-            <input
-              id="password"
-              aria-invalid={errors.password ? "true" : "false"}
-              {...register("password", {
-                required: "required",
-                minLength: {
-                  value: 7,
-                  message: "min length is 7"
-                }
-              })}
-              type="password"
-              placeholder="password"
-            />
-            {errors?.password && <span className='error' >{errors?.password?.message || 'Error!'}</span>}
+      <div>
+        <h1>
+          Thanks, {state.data.name}!<br />
+          Please create a 52 character password
+        </h1>
+        <div className="lid">He-he, just kidding! A simple 7-character password would do, or you can sign-in with Google if you like. It will help us save your progress!</div>
+        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className='form-img'
+          noValidate
+          autoComplete='off'
+        >
+          <div className="form-inner">
+            <label>
+              <input
+                id="password"
+                aria-invalid={errors.password ? "true" : "false"}
+                {...register("password", {
+                  required: "required",
+                  minLength: {
+                    value: 7,
+                    message: "min length is 7"
+                  }
+                })}
+                type="password"
+                placeholder="password"
+              />
+              {errors?.password && <span className='error' >{errors?.password?.message || 'Error!'}</span>}
 
-          </label>
-        </div>
+            </label>
+          </div>
 
-        <input className="input" type="submit" value='' />
-      </form>
+          <input className="btn-big-round" type="submit" value='' />
+        </form>
+      </div>
 
     </Container>
   );

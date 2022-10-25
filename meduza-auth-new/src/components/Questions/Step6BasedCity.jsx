@@ -24,43 +24,43 @@ const Step6BasedCity = (props) => {
 
   return (
     <Container className='container__form-img container__form-img--left'>
-      <h1>
-        Great! I won’t tell anyone.<br />
-        By the way, where are you based, {state.data.name}?
-      </h1>
-
-      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
-
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className='form-img'
-        noValidate
-        autoComplete='off'
-      >
-        <div className="form-inner">
-          <label>
-            <input
-              type="text"
-              placeholder="City"
-              id="city"
-              defaultValue={state.data.city}
-              aria-invalid={errors.city ? "true" : "false"}
-              {...register("city", {
-                required: 'Required field',
-                pattern: {
-                  value: /^[A-zА-яЁё]+$/,
-                  message: "Entered value does not match city format"
-                }
-              })}
-            />
-          </label>
-          <div style={{ height: 10 }}>
-            {errors?.city && <span className='error' >{errors?.city?.message || 'Error!'}</span>}
+      <div>
+        <h1>
+          Great! I won’t tell anyone.<br />
+          By the way, where are you based, {state.data.name}?
+        </h1>
+        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className='form-img'
+          noValidate
+          autoComplete='off'
+        >
+          <div className="form-inner">
+            <label>
+              <input
+                type="text"
+                placeholder="City"
+                id="city"
+                defaultValue={state.data.city}
+                aria-invalid={errors.city ? "true" : "false"}
+                {...register("city", {
+                  required: 'Required field',
+                  pattern: {
+                    value: /^[A-zА-яЁё]+$/,
+                    message: "Entered value does not match city format"
+                  }
+                })}
+              />
+            </label>
+            <div style={{ height: 10 }}>
+              {errors?.city && <span className='error' >{errors?.city?.message || 'Error!'}</span>}
+            </div>
           </div>
-        </div>
 
-        <input className="input" type="submit" value='' />
-      </form>
+          <input className="btn-big-round" type="submit" value='' />
+        </form>
+      </div>
 
     </Container>
   );

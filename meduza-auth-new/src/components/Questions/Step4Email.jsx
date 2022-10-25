@@ -26,54 +26,57 @@ const Step4Email = (props) => {
 
   return (
     <Container className='container__form-img container__form-img--left'>
-      <h1>
-        Great job, {state.data.name}!<br />
-        How can we stay in touch?
-      </h1>
-      <div className="lid">We will send you your Wheel of Life results in case you want to come back to it.</div>
-      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className='form-img'
-        noValidate
-        autoComplete='off'
-      >
-        <div className="form-inner">
-          <label>
-            <input
-              id="email"
-              defaultValue={state.data.email}
-              aria-invalid={errors.email ? "true" : "false"}
-              {...register("email", {
-                required: 'Required field',
-                pattern: {
-                  value: /\S+@\S+\.\S+/,
-                  message: "Entered value does not match email format"
-                }
-              })}
-              type="email"
-              placeholder="example@mail.com"
-            />
-          </label>
-
-          <div style={{ display: "flex", justifyContent: 'space-between', marginTop: '20px' }}>
-            <label className="checkbox-text">
+      <div>
+        <h1>
+          Great job, {state.data.name}!<br />
+          How can we stay in touch?
+        </h1>
+        <div className="lid">We will send you your Wheel of Life results in case you want to come back to it.</div>
+        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className='form-img'
+          noValidate
+          autoComplete='off'
+        >
+          <div className="form-inner">
+            <label>
               <input
-                name="subscribe"
-                type="checkbox" {...register("subscribe")}
-                id="subscribe"
+                id="email"
+                defaultValue={state.data.email}
+                aria-invalid={errors.email ? "true" : "false"}
+                style={{ marginBottom: '0' }}
+                {...register("email", {
+                  required: 'Required field',
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Entered value does not match email format"
+                  }
+                })}
+                type="email"
+                placeholder="example@mail.com"
               />
-              Subscribe to our newsletter
             </label>
-            <div style1={{ height: 10 }}>
-              {errors?.email && <span className='error' >{errors?.email?.message || 'Error!'}</span>}
+
+            <div style={{ display: "flex", justifyContent: 'space-between', marginTop: '20px' }}>
+              <label className="checkbox-text">
+                <input
+                  name="subscribe"
+                  type="checkbox" {...register("subscribe")}
+                  id="subscribe"
+                />
+                Subscribe to our newsletter
+              </label>
+              <div style1={{ height: 10 }}>
+                {errors?.email && <span className='error' >{errors?.email?.message || 'Error!'}</span>}
+              </div>
+
             </div>
-
           </div>
-        </div>
 
-        <input className="input" type="submit" value='' />
-      </form>
+          <input className="btn-big-round"  type="submit" value='' />
+        </form>
+      </div>
 
     </Container>
   );

@@ -5,7 +5,6 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 
 const Step3 = (props) => {
   const {
@@ -25,23 +24,27 @@ const Step3 = (props) => {
   };
 
   return (
-    <Container className='container__form-img container__form-img--center'>
-      <h1>
-        That’s the best age, {state.data.name}!<br/>
-        Are you ready?
-      </h1>
-      <form
-        className='Step3-form'
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <Button type="submit" variant="contained" color="primary">
-          Let’s do it!
-        </Button>
+    <Container
+      className='container__form-img container__form-img--center'
+    >
+      <div style={{paddingTop:'240px'}}>
+        <h1>
+          That’s the best age, {state.data.name}!<br />
+          Are you ready?
+        </h1>
+        <form
+          className='form-img'
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <button type="submit" className="btn-big-round-blue">
+            Let’s do it!
+          </button>
 
-      </form>
+        </form>
+      </div>
 
 
-      
+
     </Container>
   );
 };

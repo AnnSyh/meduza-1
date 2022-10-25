@@ -51,21 +51,23 @@ const Step2 = (props) => {
 
   return (
     <Container className='container__form-img container__form-img--right'>
-      <h1>
-        That’s a beautiful name, {state.data.firstName}!<br />
-        I am [GUIDE]. How old are you?
-      </h1>
-      <div className='form-img'>
-        <form
-          onChange={handleSubmit(onSubmit)}
-        >
-          <div className='age-checks'>
-            <CheckboxRadio id='1' age='16-24'/>
-            <CheckboxRadio id='2' age='25-34' />
-            <CheckboxRadio id='3' age='35-44' />
-            <CheckboxRadio id='4' age='45 +' />
-          </div>
-        </form>
+      <div style={{paddingTop:'240px'}}>
+        <h1>
+          That’s a beautiful name, {state.data.name}!<br />
+          I am [GUIDE]. How old are you?
+        </h1>
+        <div className='form-img'>
+          <form
+            onChange={handleSubmit(onSubmit)}
+          >
+            <div className='age-checks'>
+              <CheckboxRadio id='1' age='16-24'/>
+              <CheckboxRadio id='2' age='25-34' />
+              <CheckboxRadio id='3' age='35-44' />
+              <CheckboxRadio id='4' age='45 +' />
+            </div>
+          </form>
+        </div>
       </div>
     </Container>
   );

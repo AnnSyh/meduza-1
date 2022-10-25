@@ -13,16 +13,12 @@ body,
   height: 100%; 
   
   &__container{
-    border: 1px solid transparent; 
+    // border: 1px solid transparent; 
+    display: flex !important;
     max-width: 100% !important;
     background: url('/src/images/background-lg-img.jpg') top/cover no-repeat;
-    min-height: 100vh;
-
-
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     &:has(.loginContainer) {
       background: url("/src/images/Fon-inner.svg") top/cover no-repeat;

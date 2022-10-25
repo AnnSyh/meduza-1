@@ -9,9 +9,12 @@ body {
   &__form-img {
     max-width: 905px;
     position: relative;
-    padding-top: 270px;
-    padding-bottom: 100px;
     min-height: 100vh;
+
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     & h1 {
       font-family: $Lora-bold;
@@ -50,9 +53,9 @@ body {
 
     }
 
-    &--left form::after {
-      top: 127px;
-      left: -155px;
+    &--left form::after { 
+      top: -330px;
+      left: -290px;
       width: 269px;
       height: 368px;
       background-image: url('/src/images/artboard.svg');
@@ -64,11 +67,23 @@ body {
     }
 
     &--center form::after {
-      top: -13px;
-      left: calc(50% - 164px);
+      top: -517px;
+      left: calc(50% - 134px);
       width: 269px;
-      height: 368px;
+      height: 339px;
       background-image: url('/src/images/artboard-center.svg');
+
+      @media screen and(max-width:1300px) {
+        top: 0px;
+        left: calc(50% - 148px);
+      }
+    }
+    &--center-celebration form::after {
+      top: -13px;
+      left: calc(50% - 130px);
+      width: 295px;
+      height: 337px;
+      background-image: url('/src/images/artboard-center-celebration.svg');
 
       @media screen and(max-width:1300px) {
         top: 0px;
@@ -77,9 +92,9 @@ body {
     }
 
     &--right form::after {
-      top: 168px;
+      top: -400px;
       left: auto;
-      right: 0;
+      right: -210px;
       width: 259px;
       height: 418px;
       background-image: url('/src/images/artboard-right.svg');
@@ -98,16 +113,20 @@ body {
 .form-img>* {
   width: 100%;
   margin: auto;
+  
 }
 
-.form-img {  
+.form-img { 
+  position: relative;
 
   .form-input { 
     display: none;
   }
 
   .error {
+    position: absolute;
     color: $color-error;
+    left: calc(50% - 70px);
 
     &::before {
       display: inline;
@@ -152,37 +171,8 @@ body {
     font-size: 14px;
   } 
   
-  input[type="email"] {
-    margin-bottom: 0;
-  }
 
-  .input[type="submit"] {        
-    width: 98px;
-    height: 98px;
-    border: none !important;
-    margin-top: 40px;
-    background-color: transparent;
-    position: relative;
-    cursor: pointer;
 
-    background-image: url('/src/images/btn.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
-    &::after {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      content: "";
-      width: 98px;
-      height: 98px;
-      background-image: url('/src/images/artboard.svg');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
 
   input[type="submit"]:hover {
     border: none;
@@ -244,6 +234,25 @@ body {
   text-decoration: none;
 }
 
+//---кнопки----------
+
+  // круглая кнопка '>'
+
+  .btn-big-round {        
+    width: 98px;
+    height: 98px;
+    border: none !important;
+    margin-top: 40px;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+    background-image: url('/src/images/btn.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+  }
+
 .big-btn { 
   color: #215C75;
   border: 1px solid;
@@ -256,3 +265,17 @@ body {
   text-transform: none;
   background-color: #E9EDF0;
 } 
+
+.btn-big-round-blue {
+  font-size: $font-size-lg-24pt;
+  color: #fff;
+  width: 369px;
+  height: 80px;
+  margin: 50px;
+  font-weight: bold;
+  border-radius: 44px;
+  text-transform: none;
+  background-color: #3E809D;
+  border: none;
+  cursor: pointer;
+}
