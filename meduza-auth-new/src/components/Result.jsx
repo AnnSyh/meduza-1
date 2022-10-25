@@ -1,10 +1,14 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-// import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
 
 import './scss/style.css';
+
+import imgDownload from '../images/Download.svg';
+import imgShare from '../images/Share.svg';
+import imgPrint from '../images/Print.svg';
 
 // import Container from '@material-ui/core/Container';
 
@@ -99,7 +103,7 @@ const Result = props => {
       career: (state.data.career / 10),
       money: (state.data.money / 10),
       fun: (state.data.fun / 10),
-      growth:(state.data.growth / 10)
+      growth: (state.data.growth / 10)
     },
   ];
 
@@ -139,21 +143,51 @@ const Result = props => {
             <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
           </svg>
         </div>
+        <div className='radar-info'>
+          <h1> {state.data.name}’s Wheel of Life</h1>
+          <div className='data'>Date: [dd.mm.yy]</div>
+        </div>
+        <div className='radar-icon'>
+        <Link to='/'><img src={imgDownload} alt="" /></Link>
+        <Link to='/'><img src={imgShare} alt="" /></Link>
+        <Link to='/'><img src={imgPrint} alt="" /></Link>
+        </div>
       </div>
       <div className='txt'>
         <h2>You are on the horse, keep it up!</h2>
         {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
         <p>
-          
+          Congratulations, {state.data.name}! Your wheel is nice and round, with all areas of your life in balance.
         </p>
         <p>
-
+          Most people struggle to maintain such balance, which is completely normal. While you are in a great place, think about what helped you to achieve that.
+        </p>
+        <p>
+          You might draw some useful insights for the future you, in case something goes out of balance.
+        </p>
+        <h3>Recommendation</h3>
+        <p>
+          While you are in a good place right now, we recommend checking in with yourself regularly to see if anything needs re-calibrating. You can come back to this tool and do the test again, or simply do a mental check-in.
+        </p>
+        <p>
+          {state.data.name}, you strike me as a person who likes to grow and improve, and probably wondering, how can you make your scores even higher? The best way to do it is by mindfully and intentionally designing your life.
+        </p>
+        <p>
+          Don’t worry, we have designed a powerful tool to help you do that — Life Strategy Quest. It is an interactive online quest to help you understand yourself even better and gain clarity of thought in a simple and structured way.
+        </p>
+        <h3>Your next step</h3>
+        <p>
+          {state.data.name}, you took the assessment, which was the first step of your journey. In the next step, you will define your personal values, which are the foundation for designing life on your terms.
         </p>
 
-          <button type="submit" className="btn-big-round-blue">
-            Let"s do it!
-          </button>
-          
+        {/* <Link to="/" className="register__login-link">
+        Let’s do it!
+            </Link> */}
+
+        <Link to='/' type="submit" className="btn-big-round-blue btn-big-round-blue--link">
+          Let’s do it!
+        </Link>
+
       </div>
 
 

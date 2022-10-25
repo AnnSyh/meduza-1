@@ -522,10 +522,27 @@ body {
   flex: 1;
   height: 100vh;
 }
+.container__two-columns .img {
+  border: 1px solid red;
+  position: relative;
+}
+.container__two-columns .img .radar-icon {
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+}
 .container__two-columns .txt {
   width: 100%;
   background-color: rgba(239, 239, 239, 0.8);
   padding: 80px 30px;
+}
+.container__two-columns .txt h1, .container__two-columns .txt h2, .container__two-columns .txt h3, .container__two-columns .txt p {
+  text-align: left;
+}
+.container__two-columns .txt h3 {
+  color: #215C75;
+  font-size: 32px;
+  margin: 0;
 }
 
 .form-img,
@@ -671,6 +688,14 @@ body {
   background-color: #3E809D;
   border: none;
   cursor: pointer;
+}
+.btn-big-round-blue--link {
+  display: inline-block;
+  padding: 15px 35px;
+  margin: 0;
+  height: auto;
+  text-decoration: none;
+  margin-top: 30px;
 }
 
 .beautiful-button {
