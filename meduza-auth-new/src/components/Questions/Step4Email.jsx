@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
+import styles from './Step4Email.module.css';
+
 import Container from '@material-ui/core/Container';
 
 const Step4Email = (props) => {
@@ -25,8 +27,10 @@ const Step4Email = (props) => {
   const { actions, state } = useStateMachine({ updateAction });
 
   return (
-    <Container className='container__form-img container__form-img--left'>
-      <div>
+    <Container 
+    className={'container__form-img ' + styles.formImg}
+    >
+      <div style={{marginTop: '310px'}}>
         <h1>
           Great job, {state.data.name}!<br />
           How can we stay in touch?

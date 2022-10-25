@@ -6,6 +6,8 @@ body {
 
 .container {
 
+
+  &__two-columns, 
   &__form-img {
     max-width: 905px;
     position: relative;
@@ -53,46 +55,50 @@ body {
 
     }
 
-    &--left form::after { 
+    &--left form::after {  
       top: -330px;
       left: -290px;
       width: 269px;
       height: 368px;
-      background-image: url('/src/images/artboard.svg');
+      background-image: url('/src/images/artboard.svg'); 
 
       @media screen and(max-width:1100px) {
-        top: -30px;
+        top: -580px;
+        left: calc(50% - 148px);
+      }
+      @media screen and(max-width:768px) {
+        top: -440px;
         left: calc(50% - 148px);
       }
     }
 
     &--center form::after {
-      top: -517px;
+      top: -520px;
       left: calc(50% - 134px);
       width: 269px;
       height: 339px;
       background-image: url('/src/images/artboard-center.svg');
 
-      @media screen and(max-width:1300px) {
-        top: 0px;
+      @media screen and(max-width:768px) {
+        top:-420px; 
         left: calc(50% - 148px);
       }
     }
     &--center-celebration form::after {
-      top: -13px;
+      top: -520px;
       left: calc(50% - 130px);
       width: 295px;
       height: 337px;
       background-image: url('/src/images/artboard-center-celebration.svg');
 
       @media screen and(max-width:1300px) {
-        top: 0px;
+        top: -420px;
         left: calc(50% - 148px);
       }
     }
 
-    &--right form::after {
-      top: -400px;
+    &--right form::after { 
+      top: -400px; 
       left: auto;
       right: -210px;
       width: 259px;
@@ -100,11 +106,36 @@ body {
       background-image: url('/src/images/artboard-right.svg');
 
       @media screen and(max-width:1300px) {
-        top: 0px;
+        top: -430px; 
         left: calc(50% - 148px);
+      }
+      @media screen and(max-width:768px) {
+        top: -300px;
       }
     }
 
+  }
+
+  &__two-columns {
+    flex-direction: column;
+    min-width: 100%;
+
+    @media screen and (min-width:991px) {
+      flex-direction: row;
+      
+    }
+
+    .img,
+    .txt {
+      flex: 1;
+      height: 100vh;
+    }
+
+    .txt {
+      width: 100%;
+      background-color: rgba(239, 239, 239, 0.8);
+      padding: 80px 30px;
+    }
   }
 
 }
@@ -269,7 +300,8 @@ body {
 .btn-big-round-blue {
   font-size: $font-size-lg-24pt;
   color: #fff;
-  width: 369px;
+  width: auto;
+  padding: 0 35px;
   height: 80px;
   margin: 50px;
   font-weight: bold;

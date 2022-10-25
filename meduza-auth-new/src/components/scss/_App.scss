@@ -37,6 +37,9 @@ body,
     &:has(.my-profile) {
       background: url("/src/images/lk-fon.png") top/cover no-repeat;
     }
+    &:has(.container__two-columns) {
+      background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
+    }
   }
 
 }

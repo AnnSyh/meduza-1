@@ -1,0 +1,22 @@
+.formImg form::after {  
+  top: -448px;
+  left: -34px;
+  width: 269px;
+  height: 368px;
+  background-image: url("/src/images/artboard.svg"); 
+}
+
+@media screen and (max-width: 1300px){ 
+  .formImg form::after {  
+    top: -606px; 
+    left: calc(50% - 148px);
+  }
+
+}
+@media screen and (max-width: 768px){ 
+  .formImg form::after {  
+    top: -450px; 
+    left: calc(50% - 148px);
+  }
+
+}

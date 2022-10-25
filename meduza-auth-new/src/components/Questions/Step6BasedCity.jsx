@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
+import styles from './Step6BasedCity.module.css';
+
 import Container from '@material-ui/core/Container';
 
 const Step6BasedCity = (props) => {
@@ -23,8 +25,10 @@ const Step6BasedCity = (props) => {
   const { actions, state } = useStateMachine({ updateAction });
 
   return (
-    <Container className='container__form-img container__form-img--left'>
-      <div>
+    <Container
+      className={'container__form-img ' + styles.formImg}
+    >
+      <div style={{marginTop: '310px'}}>
         <h1>
           Great! I won’t tell anyone.<br />
           By the way, where are you based, {state.data.name}?
