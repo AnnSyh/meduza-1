@@ -26,7 +26,7 @@ const Celebration = (props) => {
     <Container
       className=' container__form-img container__form-img--center'
     >
-      <div style={{paddingTop:'310px'}}>
+      <div className='form-img--wrapper' style={{paddingTop:'310px'}}>
         <h1>
           Lorem Ipsum Celebration blabla
         </h1>

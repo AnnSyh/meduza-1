@@ -51,7 +51,7 @@ const Step2 = (props) => {
 
   return (
     <Container className='container__form-img container__form-img--right'>
-      <div style={{paddingTop:'240px'}}>
+      <div className='form-img--wrapper' style={{paddingTop:'240px'}}>
         <h1>
           That’s a beautiful name, {state.data.name}!<br />
           I am [GUIDE]. How old are you?

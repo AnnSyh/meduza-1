@@ -15,7 +15,7 @@ import { StateMachineProvider, createStore } from "little-state-machine";
 import Step1 from "./Questions/Step1";
 import Step2 from "./Questions/Step2";
 import Step3 from "./Questions/Step3";
-import Result from "./Result";
+import Result from "./results/Result";
 // шаги опроса
 import Health from "./Interview/Health";
 import FamilyFreands from "./Interview/FamilyFreands";
@@ -30,6 +30,10 @@ import Step4Email from "./Questions/Step4Email";
 import Step5Password from "./Questions/Step5Password";
 import Step6BasedCity from "./Questions/Step6BasedCity";
 import Step7ReadySeeRezalts from "./Questions/Step7ReadySeeRezalts";
+// стр результатов
+import StepYourPriorities from "./results/StepYourPriorities";
+import StepYourPrioritiesDetail from "./results/StepYourPrioritiesDetail";
+
 
 createStore({
   data: {}
@@ -157,6 +161,8 @@ const App = () => {
             <Route path="/password" component={Step5Password} />
             <Route path="/based-city" component={Step6BasedCity} />
             <Route path="/ready-see-rezalts" component={Step7ReadySeeRezalts} />
+            <Route path="/your-priorities" component={StepYourPriorities} />
+            <Route path="/your-priorities-detail" component={StepYourPrioritiesDetail} />
         </StateMachineProvider>
 
 

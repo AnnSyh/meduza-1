@@ -30,7 +30,7 @@ const Step4Email = (props) => {
     <Container 
     className={'container__form-img ' + styles.formImg}
     >
-      <div style={{marginTop: '310px'}}>
+      <div className='form-img--wrapper' style={{marginTop: '310px'}}>
         <h1>
           Great job, {state.data.name}!<br />
           How can we stay in touch?

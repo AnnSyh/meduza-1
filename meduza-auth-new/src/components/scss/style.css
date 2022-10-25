@@ -553,6 +553,12 @@ body {
 .form-img {
   position: relative;
 }
+.form-img--wrapper {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: auto;
+}
 .form-img .form-input {
   display: none;
 }

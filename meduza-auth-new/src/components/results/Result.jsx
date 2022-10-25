@@ -2,24 +2,15 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
-import updateAction from "./updateAction";
+import updateAction from "../updateAction";
 
-import './scss/style.css';
+import '../scss/style.css';
 import classes from './Result.module.css';
 
-import imgDownload from '../images/Download.svg';
-import imgShare from '../images/Share.svg';
-import imgPrint from '../images/Print.svg';
-
+import imgDownload from '../../images/Download.svg';
+import imgShare from '../../images/Share.svg';
+import imgPrint from '../../images/Print.svg';
 // ------------------------------------------------
-// import { makeStyles } from '@material-ui/core/styles';
-// const useStyles = makeStyles({
-//   root: {
-//     // fontFamily: "Lora-Bold",
-//     width: '100%',
-//     maxWidth: 500,
-//   },
-// });
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -102,12 +93,6 @@ const caption = () => col => (
 
 const Result = props => {
   // const classesPage = useStyles();
-
-  const {
-    reset
-  } = useForm({
-    mode: 'onChange'
-  });
 
   const { state } = useStateMachine(updateAction);
 
@@ -232,7 +217,7 @@ const Result = props => {
         </div>
         {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
         <TextBlock />
-        <Link to='/' type="submit" className="btn-big-round-blue btn-big-round-blue--link">
+        <Link to='/your-priorities' type="submit" className="btn-big-round-blue btn-big-round-blue--link">
           Let’s do it!
         </Link>
       </div>

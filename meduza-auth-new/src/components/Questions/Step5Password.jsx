@@ -15,9 +15,9 @@ const Step5Password = (props) => {
     formState: { errors },
     reset
   } = useForm();
+  
   const onSubmit = async (data) => {
     console.log('onSubmit');
-
     actions.updateAction(data);
     props.history.push("./based-city");
     // alert(JSON.stringify(data));
@@ -30,7 +30,7 @@ const Step5Password = (props) => {
     <Container 
       className={'container__form-img ' + styles.formImg}
     >
-      <div style={{marginTop: '310px'}}>
+      <div className='form-img--wrapper' style={{marginTop: '310px'}}>
         <h1>
           Thanks, {state.data.name}!<br />
           Please create a 52 character password

@@ -28,7 +28,7 @@ const Step6BasedCity = (props) => {
     <Container
       className={'container__form-img ' + styles.formImg}
     >
-      <div style={{marginTop: '310px'}}>
+      <div className='form-img--wrapper' style={{marginTop: '310px'}}>
         <h1>
           Great! I won’t tell anyone.<br />
           By the way, where are you based, {state.data.name}?

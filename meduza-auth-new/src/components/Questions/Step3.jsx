@@ -27,7 +27,7 @@ const Step3 = (props) => {
     <Container
       className='container__form-img container__form-img--center'
     >
-      <div style={{paddingTop:'240px'}}>
+      <div className='form-img--wrapper' style={{paddingTop:'240px'}}>
         <h1>
           That’s the best age, {state.data.name}!<br />
           Are you ready?

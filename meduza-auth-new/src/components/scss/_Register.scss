@@ -169,6 +169,11 @@ body {
 .form-img { 
   position: relative;
 
+  &--wrapper {
+    max-width: fit-content;
+    margin: auto;
+  }
+
   .form-input { 
     display: none;
   }

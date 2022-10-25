@@ -30,7 +30,7 @@ const Step7ReadySeeRezalts = (props) => {
     <Container
       className={'container__form-img ' + styles.formImg}
     >
-      <div style={{ paddingTop: '320px' }}>
+      <div className='form-img--wrapper' style={{ paddingTop: '320px' }}>
         <h1>
           Woo-hoo, your report is here. Are you<br />
           ready to see the results?

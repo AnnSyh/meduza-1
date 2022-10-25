@@ -30,7 +30,7 @@ const Step1 = (props) => {
     <Container 
       className='container__form-img container__form-img--left'>
 
-      <div style={{paddingTop:'320px'}}>
+      <div className='form-img--wrapper' style={{paddingTop:'320px'}}>
         <h1>Hey, good looking, first things <br/>first, how should I call you?</h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
