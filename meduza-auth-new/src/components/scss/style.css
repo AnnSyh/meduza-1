@@ -10,6 +10,7 @@ body,
   text-align: center;
   font-family: "Lora-Bold";
   height: 100%;
+  overflow-x: hidden;
 }
 .App__container {
   display: flex !important;
@@ -37,6 +38,14 @@ body,
 }
 .App__container:has(.container__two-columns) {
   background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
+}
+.App__container h2 {
+  color: #215C75;
+  font-size: 56px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-align: left;
+  margin: 0;
 }
 
 .formContainer {
