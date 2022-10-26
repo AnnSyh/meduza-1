@@ -5,7 +5,7 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 import '../scss/style.css';
-import classes from './StepYourPriorities.modules.css';
+import classes from './StepYourPriorities.module.css';
 
 import imgDownload from '../../images/Download.svg';
 import imgShare from '../../images/Share.svg';
@@ -90,11 +90,73 @@ const caption = () => col => (
 );
 // -------------------------------
 
-const StepYourPriorities = props => {
+const StepYourPriorities = (prop) => {
   // const classesPage = useStyles();
 
 
   const { state } = useStateMachine(updateAction);
+  const interview = ["health", "freand", "love", "career", "money", "fun", "growth"];
+
+  //выбрать данные из диаграммы с оценкой > 7
+  function More7() {
+    const rez = [];
+    const obj = state.data;
+
+    for (let key in obj) {
+      if (Number(obj[key]) >= 7) {
+        // console.log('interview.length = ', interview.length)
+        // console.log('key = ', key)
+
+        for (let i = 0; i < interview.length; i++) {
+          // console.log('interview[i] = ', interview[i])
+          // console.log('condition = ', (key === interview[i]))
+
+          if (key === interview[i]) {
+            // console.log('key = ', key)
+            rez.push(key)
+          }
+        }
+      }
+    }
+    console.log('rez = ', rez)
+
+    return (rez.join(', '))
+  }
+
+  //выбрать данные из диаграммы с оценкой < 7
+  function Less7() {
+    const rez = [];
+    const obj = state.data;
+
+    for (let key in obj) {
+      if (Number(obj[key]) < 7) {
+        // console.log('interview.length = ', interview.length)
+        // console.log('key = ', key)
+
+        for (let i = 0; i < interview.length; i++) {
+          // console.log('interview[i] = ', interview[i])
+          // console.log('condition = ', (key === interview[i]))
+
+          if (key === interview[i]) {
+            // console.log('key = ', key)
+            rez.push(key)
+          }
+        }
+      }
+    }
+    // console.log('rez = ', rez)
+    console.log('rez.length = ', rez.length)
+
+    // return (rez.join(', '))
+
+
+    // for (let i = 0; i < rez.length; i++) {
+    //   console.log('rez['+ i + '] = ', rez[i]);
+    // }
+
+     return (rez.join(', '))
+
+  }
 
   // данные для круговоой диаграммы
   const data = [
@@ -132,19 +194,24 @@ const StepYourPriorities = props => {
     return (
       <>
         <p>
-        {state.data.name}, let’s start by acknowledging what’s going right in your life. 
-        It sounds like [AREA 1=SCORE 7+], [AREA 2=SCORE 7+], [AREA 1=SCORE 7+] have scored 
-        quite high. You should give yourself credit.
+          {state.data.name}, let’s start by acknowledging what’s going right in your life.
+          It sounds like:
+          <span className='uppercase'>
+            <More7 />
+          </span>
+          {/* [AREA 1=SCORE 7+], [AREA 2=SCORE 7+], [AREA 1=SCORE 7+]  */}
+          have scored
+          quite high. You should give yourself credit.
         </p>
         <p>
-        Most people struggle to maintain their life in balance at all times, so it’s completely normal that some areas of your life scored a little lower.
+          Most people struggle to maintain their life in balance at all times, so it’s completely normal that some areas of your life scored a little lower.
         </p>
         <p>
-        The good news is that you now have clarity of what needs your attention. Sometimes we feel down or not quite fulfilled without even understanding what needs fixing. 
-When you know what to focus on, it is a lot easier to fix it.
+          The good news is that you now have clarity of what needs your attention. Sometimes we feel down or not quite fulfilled without even understanding what needs fixing.
+          When you know what to focus on, it is a lot easier to fix it.
         </p>
         <h3>Let’s look at each area in more detail</h3>
-        
+
       </>
     )
   }
@@ -193,7 +260,7 @@ When you know what to focus on, it is a lot easier to fix it.
           </svg>
         </div>
         <div className='radar-info'>
-          <h1 className={classes.h1Color}> Time to re-assess your priorities</h1>
+          <h1 className={classes.h1Color}>1111 Time to re-assess your priorities</h1>
           <CurentDate />
         </div>
         <WeelListIcon />
@@ -206,11 +273,15 @@ When you know what to focus on, it is a lot easier to fix it.
             You are on the horse, keep it up!
           </Typography>
         </div>
-        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+
+        <pre>{JSON.stringify(state, null, 2)}</pre>
+
         <TextBlock />
-        <Link to='/your-priorities-detail' type="submit" className="btn-big-round-blue btn-big-round-blue--link">
-          Let’s do it!
-        </Link>
+
+        <span className='uppercase'>
+          <Less7 />
+        </span>
+
       </div>
     </div>
   );

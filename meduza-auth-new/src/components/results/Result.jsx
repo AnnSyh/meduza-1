@@ -158,11 +158,22 @@ const Result = props => {
     )
   }
 
+//   var pathToFile = "....";
+//   downloadFile(file) {
+//     location.href = pathToFile + file;
+// }
+
   const WeelListIcon = (props) => {
     return (
       <List className={classes.radarIcons}>
+        {/* <ListItem>
+          <a className='radar-icon__link' href='http://localhost:4444/static/media/Download.ebe3e41ea8d01502009fd3355d5d3bbd.svg' download>
+            Скачать
+            </a>
+        </ListItem> */}
+        {/* <Link to="/files/myfile.pdf" target="_blank" download>Download</Link> */}
         <ListItem>
-          <Link className='radar-icon__link' to='/'><img src={imgDownload} alt="" /></Link>
+          <Link className='radar-icon__link' to='/' ><img src={imgDownload} alt="" /></Link>
         </ListItem>
         <ListItem>
           <Link className='radar-icon__link' to='/'><img src={imgShare} alt="" /></Link>
