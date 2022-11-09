@@ -24,3 +24,41 @@ h1.h1Color {
   margin-bottom: 0;
 }
 
+.less7Ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 215px);
+  gap: 20px;
+  margin: 30px auto;
+  width: 450px;
+  padding: 0;
+
+}
+.less7Ul li:not([class]) {
+  display: none;
+}
+
+.less7Ul li {
+  display: flex;
+  width: 215px;
+  height: 240px;
+  border-radius: 3px;
+  background-color: #E3ECF4;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.detailImg {
+  width: 130px;
+}
+.detailTitle {
+  font-size: 32px;
+  color: #215C75;
+  text-transform: capitalize;
+}
+
+

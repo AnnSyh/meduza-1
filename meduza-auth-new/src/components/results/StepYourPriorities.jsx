@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
@@ -15,6 +16,9 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 
 import Typography from '@material-ui/core/Typography';
+
+import careerImg from './../../images/Career.svg';
+import healthImg from './../../images/Health.svg';
 
 
 // ------------------------------------
@@ -123,10 +127,21 @@ const StepYourPriorities = (prop) => {
     return (rez.join(', '))
   }
 
+
   //выбрать данные из диаграммы с оценкой < 7
   function Less7() {
     const rez = [];
     const obj = state.data;
+
+
+    function handleCardClick(e) {
+      console.log('card click!!!!');
+
+      const contentDetailClass = e.target.getAttribute('class')
+      document.getElementById(contentDetailClass).classList.toggle('d-block');
+
+    }
+
 
     for (let key in obj) {
       if (Number(obj[key]) < 7) {
@@ -144,17 +159,32 @@ const StepYourPriorities = (prop) => {
         }
       }
     }
-    // console.log('rez = ', rez)
-    console.log('rez.length = ', rez.length)
 
-    // return (rez.join(', '))
-
-
-    // for (let i = 0; i < rez.length; i++) {
-    //   console.log('rez['+ i + '] = ', rez[i]);
-    // }
-
-     return (rez.join(', '))
+    return (<div className='list-details'>
+      <ul className={classes.less7Ul}>
+        <li className={rez[0]} onClick={handleCardClick}>
+          <span className={classes.detailTitle}>{rez[0]}</span>
+        </li>
+        <li className={rez[1]} onClick={handleCardClick}>
+          <span className={classes.detailTitle}>{rez[1]}</span>
+        </li>
+        <li className={rez[2]} onClick={handleCardClick}>
+          <span className={classes.detailTitle}>{rez[2]}</span>
+        </li>
+        <li className={rez[3]} onClick={handleCardClick}>
+          <span className={classes.detailTitle}>{rez[3]}</span>
+        </li>
+        <li className={rez[4]} onClick={handleCardClick}>
+          <span className={classes.detailTitle}>{rez[4]}</span>
+        </li>
+        <li className={rez[5]} onClick={handleCardClick}>
+          <span className={classes.detailTitle}>{rez[5]}</span>
+        </li>
+        <li className={rez[6]} onClick={handleCardClick}>
+          <span className={classes.detailTitle}>{rez[6]}</span>
+        </li>
+      </ul>
+    </div>)
 
   }
 
@@ -239,50 +269,69 @@ const StepYourPriorities = (prop) => {
     const Day = Data.getDate();
 
     return (
-      <p className={classes.date}>Date: {Day}.{Month}.{Year}</p>
+      <p className={classes.date}>Date: {Day}.{Month + 1}.{Year}</p>
     )
   }
 
   return (
-    <div className='container__two-columns'>
-
-      <div className='img'>
-        {/* // диаграма */}
-        <div className='radar'>
-          <svg
-            version="1"
-            xmlns="http://www.w3.org/2000/svg"
-            width={chartSize}
-            height={chartSize}
-            viewBox={`0 0 ${chartSize} ${chartSize}`}
-          >
-            <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
-          </svg>
+    <div style={{ flexDirection: 'column' }}>
+      <div className='container__two-columns'>
+        <div className='img'>
+          {/* // диаграма */}
+          <div className='radar'>
+            <svg
+              version="1"
+              xmlns="http://www.w3.org/2000/svg"
+              width={chartSize}
+              height={chartSize}
+              viewBox={`0 0 ${chartSize} ${chartSize}`}
+            >
+              <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
+            </svg>
+          </div>
+          <div className='radar-info'>
+            <h1 className={classes.h1Color}>
+            [NAME]’s Wheel of Life
+              {/* Time to re-assess your priorities */}
+              </h1>
+            <CurentDate />
+          </div>
+          <WeelListIcon />
         </div>
-        <div className='radar-info'>
-          <h1 className={classes.h1Color}>1111 Time to re-assess your priorities</h1>
-          <CurentDate />
-        </div>
-        <WeelListIcon />
-
-      </div>
-
-      <div className='txt'>
-        <div className={classes.root}>
-          <Typography variant="h1" component="h2">
-            You are on the horse, keep it up!
-          </Typography>
-        </div>
-
-        <pre>{JSON.stringify(state, null, 2)}</pre>
-
-        <TextBlock />
-
-        <span className='uppercase'>
+        <div className='txt'>
+          <div className={classes.root}>
+            <Typography variant="h1" component="h2">
+            Time to re-assess your priorities
+            </Typography>
+          </div>
+          {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+          <TextBlock />
           <Less7 />
-        </span>
-
+        </div>
       </div>
+
+      <div id='health' className='detail__content content--health'>
+        health
+      </div>
+      <div id='freand' className='detail__content content--freand'>
+        Freand
+      </div>
+      <div id='love' className='detail__content content--love'>
+        love
+      </div>
+      <div id='career' className='detail__content content--career'>
+        career
+      </div>
+      <div id="money" className='detail__content content--money'>
+        money
+      </div>
+      <div id="fun" className='detail__content content--fun'>
+        Fun
+      </div>
+      <div id="growth" className='detail__content content--growth'>
+        Growth
+      </div>
+
     </div>
   );
 };

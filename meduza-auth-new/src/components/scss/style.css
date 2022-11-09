@@ -406,7 +406,6 @@ body {
 }
 
 .container__two-columns, .container__form-img {
-  max-width: 905px;
   position: relative;
   min-height: 100vh;
   display: flex !important;
@@ -810,4 +809,58 @@ body {
 .top-bar ul {
   display: flex;
   flex-direction: row;
+}
+
+li.growth::after,
+li.career::after,
+li.freand::after,
+li.fun::after,
+li.money::after,
+li.health::after,
+li.love::after {
+  position: absolute;
+  content: "";
+  width: 150px;
+  height: 150px;
+  background-image: url(../../images/Health.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: calc(50% - 92px);
+}
+
+li.health::after {
+  background-image: url(../../images/Health.svg);
+}
+
+li.love::after {
+  background-image: url(../../images/Love.svg);
+}
+
+li.money::after {
+  background-image: url(../../images/Money.svg);
+}
+
+li.fun::after {
+  background-image: url(../../images/Fun.svg);
+}
+
+li.freand::after {
+  background-image: url(../../images/Friend.svg);
+}
+
+li.career::after {
+  background-image: url(../../images/Career.svg);
+}
+
+li.growth::after {
+  background-image: url(../../images/Growth.svg);
+}
+
+.detail__content {
+  border: 1px solid red;
+  display: none;
+}
+
+.d-block {
+  display: block !important;
 }
