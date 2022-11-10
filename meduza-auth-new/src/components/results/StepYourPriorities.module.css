@@ -34,9 +34,6 @@ h1.h1Color {
   padding: 0;
 
 }
-.less7Ul li:not([class]) {
-  display: none;
-}
 
 .less7Ul li {
   display: flex;
@@ -60,5 +57,4 @@ h1.h1Color {
   color: #215C75;
   text-transform: capitalize;
 }
-
 

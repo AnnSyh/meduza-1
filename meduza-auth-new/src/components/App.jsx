@@ -18,7 +18,7 @@ import Step3 from "./Questions/Step3";
 import Result from "./results/Result";
 // шаги опроса
 import Health from "./Interview/Health";
-import FamilyFreands from "./Interview/FamilyFreands";
+import Familyfriends from "./Interview/Familyfriends";
 import Love from "./Interview/Love";
 import Career from "./Interview/Career";
 import Money from "./Interview/Money";
@@ -149,7 +149,7 @@ const App = () => {
             <Route path="/result" component={Result} />
             
             <Route path="/health" component={Health} />
-            <Route path="/family-freands" component={FamilyFreands} />
+            <Route path="/family-friends" component={Familyfriends} />
             <Route path="/love" component={Love} />
             <Route path="/career" component={Career} />
             <Route path="/money" component={Money} />

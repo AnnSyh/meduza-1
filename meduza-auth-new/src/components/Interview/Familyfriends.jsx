@@ -13,7 +13,7 @@ import Container from '@material-ui/core/Container';
 // import Button from '@material-ui/core/Button';
 // import healthIcon from './../images/Health.svg';
 import friendImg from './../../images/Friend.svg';
-// import IconFamilyFreands from './icons/IconFamilyFreands';
+// import IconFamilyfriends from './icons/IconFamilyfriends';
 
 
 const chartSize = 450;
@@ -89,7 +89,7 @@ const caption = () => col => (
 
 // -------------------------------
 
-const FamilyFreands = props => {
+const Familyfriends = props => {
   // форма
   const {
     register,
@@ -140,9 +140,9 @@ const FamilyFreands = props => {
         data-text-last="Great Gatsby would be jealous"
       >
         <input
-          {...register('freand', { required: true })}
+          {...register('friend', { required: true })}
           type="radio"
-          name="freand"
+          name="friend"
           value={props.id}
           id={props.id}
         />
@@ -198,4 +198,4 @@ const FamilyFreands = props => {
   );
 };
 
-export default FamilyFreands;
+export default Familyfriends;

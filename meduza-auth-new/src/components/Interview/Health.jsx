@@ -105,7 +105,7 @@ const Health = props => {
 
   const onSubmit = (data) => {
     actions.updateAction(data);
-    props.history.push("./family-freands");
+    props.history.push("./family-friends");
     reset();
   };
 

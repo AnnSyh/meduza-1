@@ -813,7 +813,7 @@ body {
 
 li.growth::after,
 li.career::after,
-li.freand::after,
+li.friend::after,
 li.fun::after,
 li.money::after,
 li.health::after,
@@ -844,7 +844,7 @@ li.fun::after {
   background-image: url(../../images/Fun.svg);
 }
 
-li.freand::after {
+li.friend::after {
   background-image: url(../../images/Friend.svg);
 }
 
@@ -863,4 +863,8 @@ li.growth::after {
 
 .d-block {
   display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
 }

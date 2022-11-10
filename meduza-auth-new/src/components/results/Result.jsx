@@ -100,7 +100,7 @@ const Result = props => {
   const data = [
     {
       Health: (state.data.health / 10),
-      friend: (state.data.freand / 10),
+      friend: (state.data.friend / 10),
       love: (state.data.love / 10),
       career: (state.data.career / 10),
       money: (state.data.money / 10),

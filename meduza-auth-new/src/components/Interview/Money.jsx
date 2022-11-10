@@ -12,7 +12,7 @@ import Container from '@material-ui/core/Container';
 // import Button from '@material-ui/core/Button';
 // import healthIcon from './../../images/Health.svg';
 import moneyImg from './../../images/Money.svg';
-// import IconFamilyFreands from './icons/IconFamilyFreands';
+// import IconFamilyfriends from './icons/IconFamilyfriends';
 
 const chartSize = 450;
 const numberOfScales = 10;
@@ -108,7 +108,7 @@ const Money = props => {
 
   // данные для круговоой диаграммы
   const data = [
-    { Health: (state.data.health / 10), friend: (state.data.freand / 10), love: (state.data.love / 10), career: (state.data.career / 10), money: 0, fun: 0,  growth: 0 },
+    { Health: (state.data.health / 10), friend: (state.data.friend / 10), love: (state.data.love / 10), career: (state.data.career / 10), money: 0, fun: 0,  growth: 0 },
   ];
 
   // круговая диаграмма
@@ -160,7 +160,7 @@ const Money = props => {
 
       {/* <pre>{JSON.stringify(state, null, 2)}</pre>
       <p>state.data.health = {state.data.health}</p>
-      <p>state.data.freand = {state.data.freand}</p>
+      <p>state.data.friend = {state.data.friend}</p>
       <p>state.data.love = {state.data.love}</p>
       <p>state.data.career = {state.data.career}</p> */}
 

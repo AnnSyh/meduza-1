@@ -97,9 +97,8 @@ const caption = () => col => (
 const StepYourPriorities = (prop) => {
   // const classesPage = useStyles();
 
-
   const { state } = useStateMachine(updateAction);
-  const interview = ["health", "freand", "love", "career", "money", "fun", "growth"];
+  const interview = ["health", "friend", "love", "career", "money", "fun", "growth"];
 
   //выбрать данные из диаграммы с оценкой > 7
   function More7() {
@@ -127,21 +126,65 @@ const StepYourPriorities = (prop) => {
     return (rez.join(', '))
   }
 
-
   //выбрать данные из диаграммы с оценкой < 7
   function Less7() {
     const rez = [];
     const obj = state.data;
 
+    console.log('obj = ', obj);
 
     function handleCardClick(e) {
       console.log('card click!!!!');
 
-      const contentDetailClass = e.target.getAttribute('class')
-      document.getElementById(contentDetailClass).classList.toggle('d-block');
+      console.log('e.target = ', e.target);
+
+      const currentClass = e.target.getAttribute('class')
+      const contentTabs = document.querySelectorAll('.detail__content');
+      const tabs = document.querySelectorAll('.list-details li');
+
+      const tabsDell = document.querySelectorAll('.list-details li:not([class])');
+      console.log('tabsDell = ', tabsDell);
+
+      contentTabs.forEach((item) => {
+        item.classList.remove('d-block');
+        item.classList.add('d-none');
+      });
+
+      if (document.getElementById(currentClass)) {
+
+        document.getElementById(currentClass).classList.remove('d-none');
+        document.getElementById(currentClass).classList.add('d-block');
+
+        tabs.forEach((item) => {
+          item.style.display = "flex";
+        });
+
+        e.target.style.display = "none";
+
+      } else {
+
+        const parent = e.target.parentNode;
+        const currentClass = parent.getAttribute('class');
+
+        document.getElementById(currentClass).classList.remove('d-none');
+        document.getElementById(currentClass).classList.add('d-block');
+
+        tabs.forEach((item) => {
+          item.style.display = "flex";
+        });
+
+        parent.style.display = "none";
+
+
+      }
+
+      // tabs.forEach((item) => {
+      //   item.style.display = "flex";
+      // });
+
+      // e.target.style.display = "none";
 
     }
-
 
     for (let key in obj) {
       if (Number(obj[key]) < 7) {
@@ -153,36 +196,25 @@ const StepYourPriorities = (prop) => {
           // console.log('condition = ', (key === interview[i]))
 
           if (key === interview[i]) {
-            // console.log('key = ', key)
+            console.log('key = ', key)
             rez.push(key)
           }
         }
+
       }
+      console.log('Less7: rez = ', rez);
+      console.log('Less7: rez.length = ', rez.length);
     }
 
     return (<div className='list-details'>
       <ul className={classes.less7Ul}>
-        <li className={rez[0]} onClick={handleCardClick}>
-          <span className={classes.detailTitle}>{rez[0]}</span>
-        </li>
-        <li className={rez[1]} onClick={handleCardClick}>
-          <span className={classes.detailTitle}>{rez[1]}</span>
-        </li>
-        <li className={rez[2]} onClick={handleCardClick}>
-          <span className={classes.detailTitle}>{rez[2]}</span>
-        </li>
-        <li className={rez[3]} onClick={handleCardClick}>
-          <span className={classes.detailTitle}>{rez[3]}</span>
-        </li>
-        <li className={rez[4]} onClick={handleCardClick}>
-          <span className={classes.detailTitle}>{rez[4]}</span>
-        </li>
-        <li className={rez[5]} onClick={handleCardClick}>
-          <span className={classes.detailTitle}>{rez[5]}</span>
-        </li>
-        <li className={rez[6]} onClick={handleCardClick}>
-          <span className={classes.detailTitle}>{rez[6]}</span>
-        </li>
+        {rez.map((key, i, all) => (
+          <li className={key} onClick={handleCardClick}>
+            <span className={classes.detailTitle}>
+              {key}
+            </span>
+          </li>
+        ))}
       </ul>
     </div>)
 
@@ -192,7 +224,7 @@ const StepYourPriorities = (prop) => {
   const data = [
     {
       Health: (state.data.health / 10),
-      friend: (state.data.freand / 10),
+      friend: (state.data.friend / 10),
       love: (state.data.love / 10),
       career: (state.data.career / 10),
       money: (state.data.money / 10),
@@ -291,9 +323,9 @@ const StepYourPriorities = (prop) => {
           </div>
           <div className='radar-info'>
             <h1 className={classes.h1Color}>
-            [NAME]’s Wheel of Life
+              [NAME]’s Wheel of Life
               {/* Time to re-assess your priorities */}
-              </h1>
+            </h1>
             <CurentDate />
           </div>
           <WeelListIcon />
@@ -301,7 +333,7 @@ const StepYourPriorities = (prop) => {
         <div className='txt'>
           <div className={classes.root}>
             <Typography variant="h1" component="h2">
-            Time to re-assess your priorities
+              Time to re-assess your priorities
             </Typography>
           </div>
           {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
@@ -313,8 +345,8 @@ const StepYourPriorities = (prop) => {
       <div id='health' className='detail__content content--health'>
         health
       </div>
-      <div id='freand' className='detail__content content--freand'>
-        Freand
+      <div id='friend' className='detail__content content--friend'>
+        friend
       </div>
       <div id='love' className='detail__content content--love'>
         love
