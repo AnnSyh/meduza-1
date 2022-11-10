@@ -1,9 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
-import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
+
+import TextBlock from "./TextBlock";
 
 import '../scss/style.css';
 import classes from './StepYourPriorities.module.css';
@@ -17,12 +17,15 @@ import ListItem from '@material-ui/core/ListItem';
 
 import Typography from '@material-ui/core/Typography';
 
-import careerImg from './../../images/Career.svg';
-import healthImg from './../../images/Health.svg';
+// import careerImg from './../../images/Career.svg';
+// import healthImg from './../../images/Health.svg';
+
+import Health from './Health';
 
 
 // ------------------------------------
 const chartSize = 450;
+// const chartSize = 250; -для экрана < 500px
 const numberOfScales = 10;
 const scale = value => (
   <circle
@@ -100,31 +103,7 @@ const StepYourPriorities = (prop) => {
   const { state } = useStateMachine(updateAction);
   const interview = ["health", "friend", "love", "career", "money", "fun", "growth"];
 
-  //выбрать данные из диаграммы с оценкой > 7
-  function More7() {
-    const rez = [];
-    const obj = state.data;
 
-    for (let key in obj) {
-      if (Number(obj[key]) >= 7) {
-        // console.log('interview.length = ', interview.length)
-        // console.log('key = ', key)
-
-        for (let i = 0; i < interview.length; i++) {
-          // console.log('interview[i] = ', interview[i])
-          // console.log('condition = ', (key === interview[i]))
-
-          if (key === interview[i]) {
-            // console.log('key = ', key)
-            rez.push(key)
-          }
-        }
-      }
-    }
-    console.log('rez = ', rez)
-
-    return (rez.join(', '))
-  }
 
   //выбрать данные из диаграммы с оценкой < 7
   function Less7() {
@@ -208,10 +187,10 @@ const StepYourPriorities = (prop) => {
 
     return (<div className='list-details'>
       <ul className={classes.less7Ul}>
-        {rez.map((key, i, all) => (
-          <li className={key} onClick={handleCardClick}>
+        {rez.map((item, index) => (
+          <li key={index} className={item} onClick={handleCardClick}>
             <span className={classes.detailTitle}>
-              {key}
+              {item}
             </span>
           </li>
         ))}
@@ -252,32 +231,6 @@ const StepYourPriorities = (prop) => {
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
   groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
-  const TextBlock = () => {
-    return (
-      <>
-        <p>
-          {state.data.name}, let’s start by acknowledging what’s going right in your life.
-          It sounds like:
-          <span className='uppercase'>
-            <More7 />
-          </span>
-          {/* [AREA 1=SCORE 7+], [AREA 2=SCORE 7+], [AREA 1=SCORE 7+]  */}
-          have scored
-          quite high. You should give yourself credit.
-        </p>
-        <p>
-          Most people struggle to maintain their life in balance at all times, so it’s completely normal that some areas of your life scored a little lower.
-        </p>
-        <p>
-          The good news is that you now have clarity of what needs your attention. Sometimes we feel down or not quite fulfilled without even understanding what needs fixing.
-          When you know what to focus on, it is a lot easier to fix it.
-        </p>
-        <h3>Let’s look at each area in more detail</h3>
-
-      </>
-    )
-  }
-
   const WeelListIcon = (props) => {
     return (
       <List className={classes.radarIcons}>
@@ -315,7 +268,7 @@ const StepYourPriorities = (prop) => {
               version="1"
               xmlns="http://www.w3.org/2000/svg"
               width={chartSize}
-              height={chartSize}
+              height={chartSize}  
               viewBox={`0 0 ${chartSize} ${chartSize}`}
             >
               <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
@@ -338,12 +291,13 @@ const StepYourPriorities = (prop) => {
           </div>
           {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
           <TextBlock />
+          <h3>Let’s look at each area in more detail</h3>
           <Less7 />
         </div>
       </div>
 
       <div id='health' className='detail__content content--health'>
-        health
+        <Health />
       </div>
       <div id='friend' className='detail__content content--friend'>
         friend

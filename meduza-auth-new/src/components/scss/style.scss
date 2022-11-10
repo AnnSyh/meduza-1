@@ -22,8 +22,8 @@ li.health::after,
 li.love::after{
   position: absolute;
   content: '';
-  width:150px;
-  height:150px;
+  width:100px;
+  height:100px;
   background-image: url(../../images/Health.svg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -50,11 +50,38 @@ li.career::after{
 }   
 li.growth::after{
   background-image: url(../../images/Growth.svg);
-} 
+}
+
+li.growth::before,
+li.career::before,
+li.friend::before,
+li.fun::before,
+li.money::before,
+li.health::before,
+li.love::before{
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 40px;
+  background-color: #3E809D;
+  background-image: url(../../images/arrowBottom.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  bottom: 0px;
+  color: #fff;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
 
 .detail__content {
-  border: 1px solid red;
   display: none;
+  overflow: hidden;
+  border-top-left-radius: 37px;
+  border-bottom-left-radius: 37px;
 }
 
 .d-block {     
