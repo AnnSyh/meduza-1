@@ -39,6 +39,9 @@ body,
 .App__container:has(.container__two-columns) {
   background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
 }
+.App__container:has(.stratege-quest) {
+  background: url("/src/images/quest-bg.svg") top/cover no-repeat;
+}
 .App__container h2 {
   color: #215C75;
   font-size: 56px;

@@ -1,0 +1,137 @@
+.strategeQuest {
+  border: 1px solid red;
+  color: #fff;
+
+  position: relative;
+  min-height: 100vh;
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.title {
+  color: #fff !important;
+}
+
+.textBlock {
+  max-width: 830px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.img {
+  width: 100%;
+}
+
+/* --------------------------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, calc(100% / 3 - 12px));
+  gap: 24px;
+}
+
+.galleryItem {
+  width: 100%;
+}
+
+.galleryItemTwoFirstColls {
+  grid-column: 1/3;
+  grid-row: 1;
+}
+
+.galleryItemTwoLastColls {
+  grid-column: 2/4;
+  grid-row: 1;
+}
+
+/* ----------------------------------- */
+.block {
+  margin-left: -24px;
+  margin-right: -24px;
+
+  border: 1px solid violet;
+  background-image: url(../../images/quest-img-right.svg),
+    url(../../images/quest-img-left.svg);
+  background-repeat: no-repeat;
+  background-position: top right, bottom left;
+  background-size: 70%;
+  /* height: 100vh; */
+  height: 100%;
+}
+
+.block img {
+  display: block;
+  max-width: 70%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.imgRight {
+  margin-left: auto;
+}
+
+.imgLeft {
+  margin-right: auto;
+}
+
+.itemLeft,
+.itemRight {
+  position: relative;
+  display: block;
+  max-width: 43%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: left;
+  background-color: rgba(239, 239, 239, 0.3);
+  border: 1px solid #fff;
+}
+
+.itemLeft {
+  margin-right: auto;
+  padding: 60px 60px 60px 100px;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+  margin-top: 180px;
+}
+
+.itemLeft::after {
+  position: absolute;
+  content: "";
+  width: 227px;
+  height: 187px;
+  background-image: url(../../images/artboard-center-celebration.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: -188px;
+  left: calc(50% - 199px);
+}
+
+.itemRight {
+  margin-left: auto;
+  padding: 60px 100px 60px 60px;
+  border-top-left-radius: 17px;
+  border-bottom-left-radius: 17px;
+  margin-bottom: 233px;
+}
+
+.itemRight::after {
+  position: absolute;
+  content: "";
+  width: 360px;
+  height: 239px;
+  background-image: url(../../images/artboard-login.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: -234px;
+  left: calc(50% - 130px);
+}
+
+.itemTitle {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.itemText {
+  font-size: 15px;
+  line-height: 1.5;
+}

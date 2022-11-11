@@ -42,6 +42,9 @@ body,
     &:has(.container__two-columns) {
       background: url("/src/images/Fon-inner.svg") top/cover no-repeat;
     }
+    &:has(.stratege-quest) {
+      background: url("/src/images/quest-bg.svg") top/cover no-repeat; 
+    }
 
     h2 {
       color: $color-blue-three; 
