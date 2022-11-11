@@ -276,8 +276,7 @@ const StepYourPriorities = (prop) => {
           </div>
           <div className='radar-info'>
             <h1 className={classes.h1Color}>
-              [NAME]’s Wheel of Life
-              {/* Time to re-assess your priorities */}
+            {state.data.name}’s Wheel of Life
             </h1>
             <CurentDate />
           </div>

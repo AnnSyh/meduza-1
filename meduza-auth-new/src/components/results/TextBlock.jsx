@@ -35,7 +35,7 @@ const TextBlock =  (prop) => {
 
 
   return (
-    <>
+    <div className='text-block'>
       <p>
         {state.data.name}, let’s start by acknowledging what’s going right in your life.
         It sounds like:
@@ -55,7 +55,7 @@ const TextBlock =  (prop) => {
       </p>
       {/* <h3>Let’s look at each area in more detail</h3> */}
 
-    </>
+    </div>
   )
 }
 

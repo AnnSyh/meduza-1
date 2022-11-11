@@ -1,16 +1,16 @@
 @import url(../../fonts/fonts.css);
-@import './variables';  
+@import './variables';
 
-@import './App';  
+@import './App';
 @import './Card';
 @import './CardList';
 @import './Health';
 @import './InfoBar';
 @import './Login';
 @import './MyProfile';
-@import './personal-area';   
-@import './Register';        
-@import './Step2';        
+@import './personal-area';
+@import './Register';
+@import './Step2';
 @import './TopBar';
 
 li.growth::after,
@@ -19,36 +19,42 @@ li.friend::after,
 li.fun::after,
 li.money::after,
 li.health::after,
-li.love::after{
+li.love::after {
   position: absolute;
   content: '';
-  width:100px;
-  height:100px;
+  width: 100px;
+  height: 100px;
   background-image: url(../../images/Health.svg);
   background-repeat: no-repeat;
   background-size: cover;
   top: calc(50% - 92px);
-}   
+}
 
-li.health::after{
+li.health::after {
   background-image: url(../../images/Health.svg);
-}   
-li.love::after{
+}
+
+li.love::after {
   background-image: url(../../images/Love.svg);
-}   
-li.money::after{
+}
+
+li.money::after {
   background-image: url(../../images/Money.svg);
-}   
-li.fun::after{
+}
+
+li.fun::after {
   background-image: url(../../images/Fun.svg);
-}   
-li.friend::after{
+}
+
+li.friend::after {
   background-image: url(../../images/Friend.svg);
-}   
-li.career::after{
+}
+
+li.career::after {
   background-image: url(../../images/Career.svg);
-}   
-li.growth::after{
+}
+
+li.growth::after {
   background-image: url(../../images/Growth.svg);
 }
 
@@ -58,7 +64,7 @@ li.friend::before,
 li.fun::before,
 li.money::before,
 li.health::before,
-li.love::before{
+li.love::before {
   position: absolute;
   content: " ";
   width: 100%;
@@ -84,11 +90,65 @@ li.love::before{
   border-bottom-left-radius: 37px;
 }
 
-.d-block {     
+.d-block {
   display: block !important;
 }
+
 .d-flex {
   display: flex !important;
 }
 
-     
+// ---------
+
+
+.text-two-col {
+  display: grid;
+  grid-template-columns: repeat(2, calc(100% / 2 - 12px));
+  gap: 24px;
+
+  @media screen and (max-width:850px) {
+    grid-template-columns: repeat(1, 100%);
+  }
+}
+
+
+.text-col {
+  position: relative;
+}
+
+.text-col:nth-child(2)::before {
+  content: "";
+  width: 2px;
+  height: calc(100% - 30px);
+  background-color: #707070;
+  position: absolute;
+  left: -24px;
+  top: 25px;
+
+  @media screen and (max-width:850px) {
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: -10px;
+  }
+}
+
+ul.blue-dot {
+  list-style-type: disc;
+
+  li::marker {
+    color: #215C75;
+  }
+}
+
+h3 {
+  color: #215C75;
+}
+
+.hidden-xs  { 
+  display: block;
+
+  @media screen and (max-width: 678px) {
+    display: none;
+  }
+} 

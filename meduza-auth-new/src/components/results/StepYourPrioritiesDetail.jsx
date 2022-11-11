@@ -99,7 +99,7 @@ const StepYourPrioritiesDetail = props => {
   // данные для круговоой диаграммы
   const data = [
     {
-      Health: (state.data.health / 10),
+      health: (state.data.health / 10),
       friend: (state.data.friend / 10),
       love: (state.data.love / 10),
       career: (state.data.career / 10),

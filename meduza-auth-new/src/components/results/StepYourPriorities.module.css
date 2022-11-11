@@ -55,7 +55,8 @@ h1.h1Color {
   gap: 20px;
   position: relative;
   box-shadow: -7px -7px 26px 0 rgb(255 255 255), 
-              3px 4px 9px rgb(0 0 0 / 34%)
+              3px 4px 9px rgb(0 0 0 / 34%);
+  cursor: pointer;              
 }
 
 .detailImg {

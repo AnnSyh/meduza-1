@@ -1,13 +1,15 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import '../scss/style.css';
 import classes from './Health.module.css';
 
-// import healthIcon from './../../images/Health.svg';
 import healthIcon from './../../images/interviewIcons/health.svg';
 import healthImg from './../../images/health-content.png';
 
 import Grid from '@material-ui/core/Grid';
+// import  Hidden  from '@material-ui/core/Hidden';
+// import Hidden from '@mui/material/Hidden';
 
 import TextBlock from "./TextBlock";
 
@@ -18,22 +20,58 @@ const Health = props => {
     <div className={classes.root}>
 
       <Grid container spacing={3}>
-        <Grid item xs={3}>
-
-            <img className={classes.img} src={healthImg} alt="" />
-
+        <Grid item className="hidden-xs" sm={3}>
+          <img className={classes.img} src={healthImg} alt="" />
         </Grid>
-        <Grid item xs={9}>
-
-            <div className={classes.info}>
-              <div className={classes.title}>
-                <img className={classes.titleIcon} src={healthIcon} alt='' />
-                <h2>Health &gt;</h2>
-              </div>
-              <TextBlock />
-
+        <Grid item xs={12} sm={9}>
+          <div className={classes.info}>
+            <div className={classes.title}>
+              <img className={classes.titleIcon} src={healthIcon} alt='' />
+              <h2>Health &gt;</h2>
             </div>
+            <TextBlock />
 
+            <div className='text-two-col'>
+              <div className='text-col'>
+                <h3>Start with the basics:</h3>
+                <ul className="blue-dot">
+                  <li>Are there any health issues you </li>
+                  <li>Need to attend to? </li>
+                  <li>Do you eat healthily? </li>
+                  <li>Do you exercise enough? </li>
+                  <li>How is your sleep? </li>
+                  <li>Are you emotionally stable? </li>
+                </ul>
+                <p>
+                  Small tweaks to your diet and exercise routine might make an enormous difference.
+                </p>
+              </div>
+              <div className='text-col'>
+                <h3>Look at a bigger picture</h3>
+                <p>
+                  If you eat well, exercise and don’t have any chronic illnesses, but are still not satisfied with your health, you might need to take an honest look at your life.
+                </p>
+                <ul className="blue-dot">
+                  <li>Are there any health issues you </li>
+                  <li>Need to attend to? </li>
+                  <li>Do you eat healthily? </li>
+                  <li>Do you exercise enough? </li>
+                  <li>How is your sleep? </li>
+                  <li>Are you emotionally stable? </li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              Often, health-related symptoms occur when we ignore our inner voice. Sometimes we need time to realise that something isn’t serving us anymore, find courage to make the change or simply don’t know where to start.
+            </p>
+            <p>
+              All of that is ok, because that’s exactly why we have created Life Strategy Quest — to help you find clarity and realign with your essence.
+            </p>
+            <Link to='/' type="submit" className="btn-big-round-blue btn-big-round-blue--link">
+              Embark On a Quest
+            </Link>
+
+          </div>
         </Grid>
       </Grid>
 

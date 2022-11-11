@@ -29,11 +29,11 @@
   }
 }
 
-.health-buttons button:first-child {
+.health-checks .form_radio_btn:first-child {
   position: relative;
 
   &::after {
-    content: attr(data-text);
+    content: attr(data-text-first);
     position: absolute;
     top: 77px;
     left: -19px;
@@ -49,11 +49,11 @@
   }
 }
 
-.health-buttons button:last-child {
+.health-checks .form_radio_btn:last-child {
   position: relative;
 
   &::after {
-    content: attr(data-text);
+    content: attr(data-text-last);
     position: absolute;
     top: 77px;
     left: -19px;
