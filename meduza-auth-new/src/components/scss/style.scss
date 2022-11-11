@@ -11,9 +11,9 @@
 @import './personal-area';
 @import './Register';
 @import './Step2';
-@import './TopBar';
+@import './TopBar';    
 
-li.growth::after,
+li.growth::after, 
 li.career::after,
 li.friend::after,
 li.fun::after,
@@ -83,15 +83,21 @@ li.love::before {
   cursor: pointer;
 }
 
-.detail__content {
+.detail__content {  
   display: none;
   overflow: hidden;
-  border-top-left-radius: 37px;
-  border-bottom-left-radius: 37px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+
+  @media screen and (max-width: 960px) { 
+    overflow: inherit;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }  
 }
 
 .d-block {
-  display: block !important;
+  display: block !important; 
 }
 
 .d-flex {
@@ -148,7 +154,15 @@ h3 {
 .hidden-xs  { 
   display: block;
 
-  @media screen and (max-width: 678px) {
+  @media screen and (max-width: 960px) {
     display: none;
   }   
 } 
+
+.username {
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}

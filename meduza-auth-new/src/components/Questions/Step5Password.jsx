@@ -32,7 +32,7 @@ const Step5Password = (props) => {
     >
       <div className='form-img--wrapper' style={{marginTop: '310px'}}>
         <h1>
-          Thanks, {state.data.name}!<br />
+          Thanks, <span className='username'>{state.data.name}</span>!<br />
           Please create a 52 character password
         </h1>
         <div className="lid">He-he, just kidding! A simple 7-character password would do, or you can sign-in with Google if you like. It will help us save your progress!</div>

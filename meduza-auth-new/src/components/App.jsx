@@ -33,6 +33,7 @@ import Step7ReadySeeRezalts from "./Questions/Step7ReadySeeRezalts";
 // стр результатов
 import StepYourPriorities from "./results/StepYourPriorities";
 import StepYourPrioritiesDetail from "./results/StepYourPrioritiesDetail";
+import StrategyQuest from "./results/StrategyQuest";
 
 
 createStore({
@@ -163,6 +164,7 @@ const App = () => {
             <Route path="/ready-see-rezalts" component={Step7ReadySeeRezalts} />
             <Route path="/your-priorities" component={StepYourPriorities} />
             <Route path="/your-priorities-detail" component={StepYourPrioritiesDetail} />
+            <Route path="/strategy-quest" component={StrategyQuest} />
         </StateMachineProvider>
 
 

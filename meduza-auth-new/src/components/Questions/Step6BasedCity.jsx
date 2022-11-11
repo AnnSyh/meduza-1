@@ -31,7 +31,7 @@ const Step6BasedCity = (props) => {
       <div className='form-img--wrapper' style={{marginTop: '310px'}}>
         <h1>
           Great! I won’t tell anyone.<br />
-          By the way, where are you based, {state.data.name}?
+          By the way, where are you based, <span className='username'>{state.data.name}</span>?
         </h1>
         {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
         <form

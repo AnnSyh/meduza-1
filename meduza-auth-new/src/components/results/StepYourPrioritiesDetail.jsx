@@ -132,7 +132,7 @@ const StepYourPrioritiesDetail = props => {
     return (
       <>
         <p>
-        {state.data.name}, let’s start by acknowledging what’s going right in your life. 
+        <span className='username'>{state.data.name}</span>, let’s start by acknowledging what’s going right in your life. 
         It sounds like [AREA 1=SCORE 7+], [AREA 2=SCORE 7+], [AREA 1=SCORE 7+] have scored 
         quite high. You should give yourself credit.
         </p>
@@ -172,7 +172,7 @@ When you know what to focus on, it is a lot easier to fix it.
     const Day = Data.getDate();
 
     return (
-      <p className={classes.date}>Date: {Day}.{Month}.{Year}</p>
+      <p className={classes.date}>Date: {Day}.{Month + 1}.{Year}</p>
     )
   }
 

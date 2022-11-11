@@ -344,3 +344,8 @@ body {
     margin-top: 30px;
   }
 }
+
+.btn-right { 
+  margin-left: calc(100% - 370px);
+  white-space: nowrap;
+}

@@ -53,7 +53,7 @@ const Step2 = (props) => {
     <Container className='container__form-img container__form-img--right'>
       <div className='form-img--wrapper' style={{paddingTop:'240px'}}>
         <h1>
-          That’s a beautiful name, {state.data.name}!<br />
+          That’s a beautiful name, <span className='username'>{state.data.name}</span>!<br />
           I am [GUIDE]. How old are you?
         </h1>
         <div className='form-img'>

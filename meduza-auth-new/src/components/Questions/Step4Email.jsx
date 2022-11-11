@@ -32,7 +32,7 @@ const Step4Email = (props) => {
     >
       <div className='form-img--wrapper' style={{marginTop: '310px'}}>
         <h1>
-          Great job, {state.data.name}!<br />
+          Great job, <span className='username'>{state.data.name}</span>!<br />
           How can we stay in touch?
         </h1>
         <div className="lid">We will send you your Wheel of Life results in case you want to come back to it.</div>

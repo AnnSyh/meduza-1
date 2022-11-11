@@ -20,6 +20,7 @@ body,
     background: url('/src/images/background-lg-img.jpg') top/cover no-repeat;
     justify-content: center;
     align-items: center;
+    
 
     &:has(.loginContainer) {
       background: url("/src/images/Fon-inner.svg") top/cover no-repeat;

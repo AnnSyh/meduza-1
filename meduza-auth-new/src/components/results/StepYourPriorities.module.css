@@ -22,7 +22,13 @@
 h1.h1Color { 
   color: #fff;
   margin-bottom: 0;
+  /* max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+  margin: auto;
 }
+
+
 
 .less7Ul {
   list-style: none;

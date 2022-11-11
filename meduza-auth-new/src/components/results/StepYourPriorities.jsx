@@ -21,6 +21,12 @@ import Typography from '@material-ui/core/Typography';
 // import healthImg from './../../images/Health.svg';
 
 import Health from './Health';
+import Friend from './Friend';
+import Love from './Love';
+import Career from './Career';
+import Money from './Money';
+import Fun from './Fun';
+import Growth from './Growth';
 
 
 // ------------------------------------
@@ -268,7 +274,7 @@ const StepYourPriorities = (prop) => {
               version="1"
               xmlns="http://www.w3.org/2000/svg"
               width={chartSize}
-              height={chartSize}  
+              height={chartSize}
               viewBox={`0 0 ${chartSize} ${chartSize}`}
             >
               <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
@@ -276,7 +282,7 @@ const StepYourPriorities = (prop) => {
           </div>
           <div className='radar-info'>
             <h1 className={classes.h1Color}>
-            {state.data.name}’s Wheel of Life
+              <span className='username'>{state.data.name}</span>’s Wheel of Life
             </h1>
             <CurentDate />
           </div>
@@ -299,22 +305,22 @@ const StepYourPriorities = (prop) => {
         <Health />
       </div>
       <div id='friend' className='detail__content content--friend'>
-        friend
+        <Friend />
       </div>
       <div id='love' className='detail__content content--love'>
-        love
+        <Love />
       </div>
       <div id='career' className='detail__content content--career'>
-        career
+        <Career/>
       </div>
       <div id="money" className='detail__content content--money'>
-        money
+        <Money />
       </div>
       <div id="fun" className='detail__content content--fun'>
-        Fun
+        <Fun />
       </div>
       <div id="growth" className='detail__content content--growth'>
-        Growth
+        <Growth />
       </div>
 
     </div>

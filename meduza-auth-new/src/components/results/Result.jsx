@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
@@ -132,7 +132,7 @@ const Result = props => {
     return (
       <>
         <p>
-          Congratulations, {state.data.name}! Your wheel is nice and round, with all areas of your life in balance.
+          Congratulations, <span className='username'>{state.data.name}</span>! Your wheel is nice and round, with all areas of your life in balance.
         </p>
         <p>
           Most people struggle to maintain such balance, which is completely normal. While you are in a great place, think about what helped you to achieve that.
@@ -145,14 +145,14 @@ const Result = props => {
           While you are in a good place right now, we recommend checking in with yourself regularly to see if anything needs re-calibrating. You can come back to this tool and do the test again, or simply do a mental check-in.
         </p>
         <p>
-          {state.data.name}, you strike me as a person who likes to grow and improve, and probably wondering, how can you make your scores even higher? The best way to do it is by mindfully and intentionally designing your life.
+        <span className='username'>{state.data.name}</span>, you strike me as a person who likes to grow and improve, and probably wondering, how can you make your scores even higher? The best way to do it is by mindfully and intentionally designing your life.
         </p>
         <p>
           Don’t worry, we have designed a powerful tool to help you do that — Life Strategy Quest. It is an interactive online quest to help you understand yourself even better and gain clarity of thought in a simple and structured way.
         </p>
         <h3>Your next step</h3>
         <p>
-          {state.data.name}, you took the assessment, which was the first step of your journey. In the next step, you will define your personal values, which are the foundation for designing life on your terms.
+        <span className='username'>{state.data.name}</span>, you took the assessment, which was the first step of your journey. In the next step, you will define your personal values, which are the foundation for designing life on your terms.
         </p>
       </>
     )
@@ -192,7 +192,7 @@ const Result = props => {
     const Day = Data.getDate();
 
     return (
-      <p className={classes.date}>Date: {Day}.{Month}.{Year}</p>
+      <p className={classes.date}>Date: {Day}.{Month + 1}.{Year}</p>
     )
   }
 
@@ -213,7 +213,7 @@ const Result = props => {
           </svg>
         </div>
         <div className='radar-info'>
-          <h1 className={classes.h1Color}> {state.data.name}’s Wheel of Life</h1>
+          <h1 className={classes.h1Color}> <span className="username">{state.data.name}</span>’s Wheel of Life</h1>
           <CurentDate />
         </div>
         <WeelListIcon />

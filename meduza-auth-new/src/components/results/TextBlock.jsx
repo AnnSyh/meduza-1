@@ -37,7 +37,7 @@ const TextBlock =  (prop) => {
   return (
     <div className='text-block'>
       <p>
-        {state.data.name}, let’s start by acknowledging what’s going right in your life.
+      <span className='username'>{state.data.name}</span>, let’s start by acknowledging what’s going right in your life.
         It sounds like:
         <span className='uppercase'>
           <More7 />

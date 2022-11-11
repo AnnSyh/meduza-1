@@ -4,28 +4,28 @@ import { Link } from "react-router-dom";
 import '../scss/style.css';
 import classes from './Health.module.css';
 
-import healthIcon from './../../images/interviewIcons/health.svg';
-import healthImg from './../../images/health-content.png';
+import FriendIcon from './../../images/interviewIcons/friend.svg';
+import FriendImg from './../../images/health-content.png';
 
 import Grid from '@material-ui/core/Grid';
 
 import TextBlock from "./TextBlock";
 
 
-const Health = props => {
+const Friend = props => {
 
   return (
     <div className={classes.root}>
 
       <Grid container spacing={3}>
         <Grid item className="hidden-xs" md={3}>
-          <img className={classes.img} src={healthImg} alt="" />
+          <img className={classes.img} src={FriendImg} alt="" />
         </Grid>
         <Grid item sm={12} md={9}>
           <div className={classes.info}>
             <div className={classes.title}>
-              <img className={classes.titleIcon} src={healthIcon} alt='' />
-              <h2>Health &gt;</h2>
+              <img className={classes.titleIcon} src={FriendIcon} alt='' />
+              <h2>Friend &gt;</h2>
             </div>
             <TextBlock />
 
@@ -78,4 +78,4 @@ const Health = props => {
   );
 };
 
-export default Health;
+export default Friend;

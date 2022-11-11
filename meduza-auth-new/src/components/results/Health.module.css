@@ -3,21 +3,31 @@
   background-color: rgba(239, 239, 239, 0.8);
 
 }
+
+@media screen and (max-width: 960px) {
+  .root>div {
+    margin: 0;
+  }
+}
+
 .container {
   border: 2px solid red;
   display: flex;
   padding: 0;
   border-radius: 50px;
 }
+
 .img {
   width: 100%;
   height: 100%;
 }
+
 .info {
   text-align: left;
   padding: 24px 100px 24px 0;
   position: relative;
 }
+
 .info::after {
   position: absolute;
   content: "";
@@ -30,6 +40,12 @@
   right: 0;
 }
 
+@media screen and (max-width: 960px) {
+  .info {
+    padding: 24px;
+  }
+}
+
 
 .title {
   display: flex;
@@ -37,6 +53,7 @@
   gap: 15px;
 
 }
+
 .titleIcon {
   width: 120px;
   height: 120px;

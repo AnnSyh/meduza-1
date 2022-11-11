@@ -29,7 +29,7 @@ const Step3 = (props) => {
     >
       <div className='form-img--wrapper' style={{paddingTop:'240px'}}>
         <h1>
-          That’s the best age, {state.data.name}!<br />
+          That’s the best age, <span className='username'>{state.data.name}</span>!<br />
           Are you ready?
         </h1>
         <form

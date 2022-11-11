@@ -707,6 +707,11 @@ body {
   margin-top: 30px;
 }
 
+.btn-right {
+  margin-left: calc(100% - 370px);
+  white-space: nowrap;
+}
+
 .beautiful-button {
   color: #215C75;
   width: 100%;
@@ -884,8 +889,15 @@ li.love::before {
 .detail__content {
   display: none;
   overflow: hidden;
-  border-top-left-radius: 37px;
-  border-bottom-left-radius: 37px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+@media screen and (max-width: 960px) {
+  .detail__content {
+    overflow: inherit;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
 .d-block {
@@ -943,8 +955,16 @@ h3 {
 .hidden-xs {
   display: block;
 }
-@media screen and (max-width: 678px) {
+@media screen and (max-width: 960px) {
   .hidden-xs {
     display: none;
   }
+}
+
+.username {
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
 }
