@@ -7,21 +7,21 @@ import updateAction from "../updateAction";
 
 import Container from '@material-ui/core/Container';
 
-const Login = ({ handleLogin }) => {
-// const Login = (props) => {
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  //   reset
-  // } = useForm();
-  // const onSubmit = async (data) => {
-  //   actions.updateAction(data);
-  //   props.history.push("./ready-see-rezalts");
-  //   // alert(JSON.stringify(data));
-  //   reset();
-  // };
-  // const { actions, state } = useStateMachine({ updateAction });
+// const Login = ({ handleLogin }) => {
+const Login = (props) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm();
+  const onSubmit = async (data) => {
+    actions.updateAction(data);
+    props.history.push("./ready-see-rezalts");
+    // alert(JSON.stringify(data));
+    reset();
+  };
+  const { actions, state } = useStateMachine({ updateAction });
 
 
   const [userData, setUserState] = useState({
@@ -37,14 +37,14 @@ const Login = ({ handleLogin }) => {
       [name]: value
     });
   }
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (!username || !password) {
-      return;
-    }
-    handleLogin(username, password)
-      .catch((e) => this.setState({ message: e.message }))
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   if (!username || !password) {
+  //     return;
+  //   }
+  //   handleLogin(username, password)
+  //     .catch((e) => this.setState({ message: e.message }))
+  // }
 
   return (
 
@@ -57,8 +57,8 @@ const Login = ({ handleLogin }) => {
         </p>
         {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
         <form className="form-img login__form"
-              onSubmit={handleSubmit}
-              // onSubmit={handleSubmit(onSubmit)}
+              // onSubmit={handleSubmit}
+              onSubmit={handleSubmit(onSubmit)}
               noValidate
               autoComplete='off'
         >
@@ -68,16 +68,16 @@ const Login = ({ handleLogin }) => {
               placeholder='Email'
               name="username"
               type="text"
-              // defaultValue={state.data.email}
-              // {...register("email", {
-              //   required: 'Required field',
-              //   pattern: {
-              //     value: /^[A-zА-яЁё]+$/,
-              //     message: "Entered value does not match email format"
-              //   }
-              // })}              
-              value={username}
-              onChange={handleChange}
+              defaultValue={state.data.email}
+              {...register("email", {
+                required: 'Required field',
+                pattern: {
+                  value: /^[A-zА-яЁё]+$/,
+                  message: "Entered value does not match email format"
+                }
+              })}              
+              // value={username}
+              // onChange={handleChange}
             />
           </label>
           <label htmlFor="password">
@@ -86,16 +86,16 @@ const Login = ({ handleLogin }) => {
               placeholder='Password'
               name="password"
               type="password"
-              // defaultValue={state.data.password}
-              // {...register("password", {
-              //   required: 'Required field',
-              //   pattern: {
-              //     value: /^[A-zА-яЁё]+$/,
-              //     message: "Entered value does not match password format"
-              //   } 
-              // })}              
-              value={password}
-              onChange={handleChange}
+              defaultValue={state.data.password}
+              {...register("password", {
+                required: 'Required field',
+                pattern: {
+                  value: /^[A-zА-яЁё]+$/,
+                  message: "Entered value does not match password format"
+                } 
+              })}              
+              // value={password}
+              // onChange={handleChange}
             />
           </label>
 

@@ -8,10 +8,10 @@ import TopBar from '../TopBar/TopBar';
 
 function Cards() {
   return (
-    <div className='personal-area'>
+    <div className='personal-area 111'>
       <TopBar />
       <NavBar />
-      <div className='personal-area__content'>
+      <div className='personal-area__content 111'>
         <div className="top-bar__content">
           <InfoBar />
           <CardList />

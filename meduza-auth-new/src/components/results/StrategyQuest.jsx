@@ -1,4 +1,6 @@
 import React from 'react';
+import { useForm } from "react-hook-form";
+import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
@@ -10,9 +12,19 @@ import Container from '@material-ui/core/Container';
 // import imgLeft from '../../images/quest-img-left.svg';
 // import imgRight from '../../images/quest-img-right.svg';
 
-const StrategyQuest = (prop) => {
+const StrategyQuest = (props) => {
+  const {
+    handleSubmit,
+    reset
+  } = useForm();
+  const onSubmit = async (data) => {
+    actions.updateAction(data);
+    props.history.push("./by-the-way");
+    // alert(JSON.stringify(data));
+    reset();
+  };
 
-  const { state } = useStateMachine(updateAction);
+  const { actions, state } = useStateMachine({ updateAction });
 
 
   return (
@@ -53,53 +65,61 @@ const StrategyQuest = (prop) => {
       <p>
         Get access to the full quest and all life management tools with a payment plan that works best for you:
       </p>
-      <div className={styles.items}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+        autoComplete='off'
+      >
+        <div className={styles.items}>
 
-        <div>
-          <div className={styles.item}>
-            <div className={styles.itemTitle}>Monthly subscription</div>
-            <div>
-              <div className={styles.itemPrice}>€29.99</div>
-              <div className={styles.itemPriceText}>cancel any time</div>
+
+          <div>
+            <div className={styles.item}>
+              <div className={styles.itemTitle}>Monthly subscription</div>
+              <div>
+                <div className={styles.itemPrice}>€29.99</div>
+                <div className={styles.itemPriceText}>cancel any time</div>
+              </div>
             </div>
+            <button type="submit" className={styles.btnBlue}>Subscribe Monthly</button>
           </div>
-          <button type="submit" className={styles.btnBlue}>Subscribe Monthly</button>
-        </div>
-        <div>
-          <div className={styles.item}>
-            <div className={styles.itemTitle}>Yearly subscription</div>
-            <div>
-              <div className={styles.itemPrice}>€229.99</div>
-              <div className={styles.itemPriceText}>cancel any time</div>
+          <div>
+            <div className={styles.item}>
+              <div className={styles.itemTitle}>Yearly subscription</div>
+              <div>
+                <div className={styles.itemPrice}>€229.99</div>
+                <div className={styles.itemPriceText}>cancel any time</div>
+              </div>
             </div>
+            <button type="submit" className={styles.btnBlue}>Subscribe Monthly</button>
           </div>
-          <button type="submit" className={styles.btnBlue}>Subscribe Monthly</button>
-        </div>
-        <div>
-          <div className={styles.item}>
-            <div>
-              <div className={styles.itemTitle}>Lifetime access</div>
-              <p>to the quest and all the tools</p>
+          <div>
+            <div className={styles.item}>
+              <div>
+                <div className={styles.itemTitle}>Lifetime access</div>
+                <p>to the quest and all the tools</p>
+              </div>
+              <div>
+                <div className={styles.itemPrice}>€399.99</div>
+                <div className={styles.itemPriceText}>cancel any time</div>
+              </div>
             </div>
-            <div>
-              <div className={styles.itemPrice}>€399.99</div>
-              <div className={styles.itemPriceText}>cancel any time</div>
+            <button type="submit" className={styles.btnBlue}>Subscribe Monthly</button>
+          </div>
+          <div>
+            <div className={styles.item}>
+              <div className={styles.itemTitle}>Decide later</div>
+              <div className={styles.itemPrice}>€0</div>
             </div>
-          </div>
-          <button type="submit" className={styles.btnBlue}>Subscribe Monthly</button>
-        </div>
-        <div>
-          <div className={styles.item}>
-            <div className={styles.itemTitle}>Decide later</div>
-            <div className={styles.itemPrice}>€0</div>
-          </div>
             <button type="submit" className={styles.btn}>Try for Free</button>
-        </div>
+          </div>
 
-      </div>
+
+        </div>
+      </form>
 
     </Container>
   )
 }
 
-export default StrategyQuest;
+export default withRouter(StrategyQuest);

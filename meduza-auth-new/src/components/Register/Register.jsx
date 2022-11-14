@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-// import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { useStateMachine } from "little-state-machine";
+import updateAction from "../updateAction";
 
 import '../scss/style.css';
 
@@ -9,6 +11,18 @@ import Container from '@material-ui/core/Container';
 
 
 const Register = ({ handleRegister }) => {
+
+  const {
+    register,
+    // handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm();
+
+  const { actions, state } = useStateMachine({ updateAction });
+
+  console.log('handleRegister = ', handleRegister);
+
   const [registerData, setRegisterData] = useState({
     username: '',
     email: '',
@@ -38,6 +52,10 @@ const Register = ({ handleRegister }) => {
       <p className="register__error">
         {message}
       </p>
+
+      {/* <p>handleRegister = {handleRegister}</p> */}
+        <pre>{JSON.stringify(state, null, 2)}</pre>
+      
       <div className="login">
         <form
           className="form-img register__form"
@@ -51,8 +69,9 @@ const Register = ({ handleRegister }) => {
               id="username"
               name="username"
               type="text"
-              value={username}
-              onChange={handleChange}
+              defaultValue={state.data.name}
+              // value={username}
+              // onChange={handleChange}
             />
           </label>
           <label htmlFor="email">
@@ -61,8 +80,9 @@ const Register = ({ handleRegister }) => {
               id="email"
               name="email"
               type="email"
-              value={email}
-              onChange={handleChange}
+              defaultValue={state.data.email}
+              // value={email}
+              // onChange={handleChange}
             />
           </label>
           <label htmlFor="password">
@@ -71,8 +91,9 @@ const Register = ({ handleRegister }) => {
               id="password"
               name="password"
               type="password"
-              value={password}
-              onChange={handleChange}
+              defaultValue={state.data.password}
+              // value={password}
+              // onChange={handleChange}
             />
           </label>
           <label htmlFor="confirmPassword">
@@ -81,8 +102,9 @@ const Register = ({ handleRegister }) => {
               id="confirmPassword"
               name="confirmPassword"
               type="password"
-              value={confirmPassword}
-              onChange={handleChange}
+              defaultValue={state.data.password}
+              // value={confirmPassword}
+              // onChange={handleChange}
             />
           </label>
           <div className="register__button-container">

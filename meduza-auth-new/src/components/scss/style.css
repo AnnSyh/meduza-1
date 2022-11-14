@@ -987,9 +987,15 @@ h3 {
 }
 
 .username {
-  max-width: 50%;
+  max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   display: inline-block;
+  position: relative;
+  bottom: -4px;
+}
+
+h1 .username {
+  bottom: -17px;
 }

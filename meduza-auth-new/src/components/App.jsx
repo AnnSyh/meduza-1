@@ -34,6 +34,8 @@ import Step7ReadySeeRezalts from "./Questions/Step7ReadySeeRezalts";
 import StepYourPriorities from "./results/StepYourPriorities";
 import StepYourPrioritiesDetail from "./results/StepYourPrioritiesDetail";
 import StrategyQuest from "./results/StrategyQuest";
+import ByTheWay from "./results/ByTheWay";
+import PageNotFound from "./results/PageNotFound";
 
 
 createStore({
@@ -54,6 +56,10 @@ const App = () => {
       history.push('/cards');
     }
   }, [history, loggedIn])
+
+  function goBack() {
+    history.goBack();
+  }
 
   function handleLogin(username, password) {
     return auth.authorize(username, password)
@@ -130,25 +136,24 @@ const App = () => {
             userData={userData}
             component={MyProfile}
           />
-          <Route path="/login">
-            <div className="loginContainer">
-              <Login handleLogin={handleLogin} />
-            </div>
-          </Route>
+          <StateMachineProvider>
           <Route path="/register">
             <div className="registerContainer">
               <Register handleRegister={handleRegister} />
             </div>
           </Route>
 
-          <StateMachineProvider>
+          <Route path="/login">
+            <div className="loginContainer">
+              <Login handleLogin={handleLogin} />
+            </div>
+          </Route>
             <Route exact path="/" component={Step1} />
             <Route path="/step2" component={Step2} />
-            {/* <Route path="/step2" render={ () => <Step2 /> } /> */}
             {/* <Route path="/step2"><Step2 name='step2' /></Route> */}
             <Route path="/step3" component={Step3} />
             <Route path="/result" component={Result} />
-            
+
             <Route path="/health" component={Health} />
             <Route path="/family-friends" component={Familyfriends} />
             <Route path="/love" component={Love} />
@@ -159,18 +164,24 @@ const App = () => {
 
             <Route path="/celebration" component={Celebration} />
             <Route path="/your-email" component={Step4Email} />
-            <Route path="/password" component={Step5Password} />
+            
+            <Route path="/password" component={Step5Password} handleRegister={handleRegister}/>
+
             <Route path="/based-city" component={Step6BasedCity} />
             <Route path="/ready-see-rezalts" component={Step7ReadySeeRezalts} />
             <Route path="/your-priorities" component={StepYourPriorities} />
             <Route path="/your-priorities-detail" component={StepYourPrioritiesDetail} />
             <Route path="/strategy-quest" component={StrategyQuest} />
-        </StateMachineProvider>
+            <Route path="/by-the-way" component={ByTheWay} />
 
+
+          </StateMachineProvider>
 
           <Route>
-            {loggedIn ? <Redirect to="/cards" /> : <Redirect to="/register" />}
+            {loggedIn ? <Redirect to="/cards" /> : <Redirect to="/step1" />}
           </Route>
+
+          <Route path='*' component={PageNotFound} />
         </Switch>
       </Container>
 
