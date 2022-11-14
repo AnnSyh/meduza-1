@@ -65,7 +65,7 @@ const Money = props => {
             <p>
               All of that is ok, because that’s exactly why we have created Life Strategy Quest — to help you find clarity and realign with your essence.
             </p>
-            <Link to='/strategy-quest' type="submit" className="btn-big-round-blue btn-big-round-blue--link btn-right">
+            <Link to='/strategy-quest' type="submit" className="btn-round-blue btn-round-blue--link btn-right">
               Embark On a Quest
             </Link>
 

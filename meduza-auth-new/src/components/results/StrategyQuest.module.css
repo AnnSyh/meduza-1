@@ -1,7 +1,5 @@
 .strategeQuest {
-  border: 1px solid red;
   color: #fff;
-
   position: relative;
   min-height: 100vh;
   display: flex !important;
@@ -48,14 +46,11 @@
 .block {
   margin-left: -24px;
   margin-right: -24px;
-
-  border: 1px solid violet;
   background-image: url(../../images/quest-img-right.svg),
     url(../../images/quest-img-left.svg);
   background-repeat: no-repeat;
   background-position: top right, bottom left;
   background-size: 70%;
-  /* height: 100vh; */
   height: 100%;
 }
 
@@ -74,6 +69,39 @@
   margin-right: auto;
 }
 
+.items {
+  display: grid;
+  grid-template-columns: repeat(4, calc(100% / 4 - 18px));
+  gap: 24px;
+  margin-bottom: 30px;
+}
+@media screen and (max-width:1000px) {
+  .items {
+    grid-template-columns: repeat(2, calc(100% / 2 - 18px));
+    gap: 24px;
+  } 
+  
+}
+@media screen and (max-width:768px) {
+  .items {
+    grid-template-columns: repeat(1, 100% );
+    gap: 24px;
+  } 
+  
+}
+
+.item {
+  background-color: rgba(239, 239, 239, 0.5);
+  border: 1px solid #fff;
+  border-radius: 17px;
+  padding: 30px;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-image: url(../../images/item-fon.svg); */
+}
+
 .itemLeft,
 .itemRight {
   position: relative;
@@ -82,8 +110,15 @@
   margin-top: 60px;
   margin-bottom: 60px;
   text-align: left;
-  background-color: rgba(239, 239, 239, 0.3);
+  background-color: rgba(239, 239, 239, 0.5);
   border: 1px solid #fff;
+}
+
+@media screen and (max-width:768px) {
+  .itemLeft,
+  .itemRight {
+    max-width: 100%;
+  }
 }
 
 .itemLeft {
@@ -126,12 +161,56 @@
   left: calc(50% - 130px);
 }
 
+.item p {
+  margin: 0;
+}
+
+.itemPrice,
+.itemPriceText {
+  text-align: right;
+}
+.itemPrice {
+  font-size: 27px;
+}
+.itemPriceText {
+  font-size:12px;
+}
+
 .itemTitle {
+  text-align: left;
   font-size: 30px;
-  margin-bottom: 10px;
+  line-height: 1;
 }
 
 .itemText {
   font-size: 15px;
   line-height: 1.5;
+}
+
+.btn {
+  width: 80%;
+  margin-top: 20px;
+  padding: 15px 35px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 44px;
+  text-transform: none;
+  color:#fff;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #fff;
+  background-color: transparent;
+}
+.btnBlue {
+  width: 80%;
+  margin-top: 20px;
+  padding: 15px 35px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 44px;
+  text-transform: none;
+  color:#fff;
+  background-color: #3E809D;
+  border: none;
+  cursor: pointer;
 }

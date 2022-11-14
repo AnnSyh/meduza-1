@@ -228,7 +228,7 @@ const Result = props => {
         </div>
         {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
         <TextBlock />
-        <Link to='/your-priorities' type="submit" className="btn-big-round-blue btn-big-round-blue--link">
+        <Link to='/your-priorities' type="submit" className="btn-round-blue btn-round-blue--link">
           Let’s do it!
         </Link>
       </div>

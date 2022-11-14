@@ -208,7 +208,7 @@ When you know what to focus on, it is a lot easier to fix it.
         </div>
         {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
         <TextBlock />
-        <Link to='/your-priorities-detail' type="submit" className="btn-big-round-blue btn-big-round-blue--link">
+        <Link to='/your-priorities-detail' type="submit" className="btn-round-blue btn-round-blue--link">
           Let’s do it!
         </Link>
       </div>

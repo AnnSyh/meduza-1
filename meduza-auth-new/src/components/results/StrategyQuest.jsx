@@ -35,15 +35,65 @@ const StrategyQuest = (prop) => {
         <div className={styles.itemLeft}>
           <div className={styles.itemTitle}>You don’t have to decide just yet</div>
           <div className={styles.itemText}>
-            Enjoy the first steps of the quest for free. Even if you decide to do just that, you will already feel a lot clearer about your life. We hope you will have fun!
+            Enjoy the first steps of the quest for free. Even if you decide to do just that,
+            you will already feel a lot clearer about your life. We hope you will have fun!
           </div>
         </div>
 
         <div className={styles.itemRight}>
-          <div className={styles.itemTitle}>You don’t have to decide just yet</div>
+          <div className={styles.itemTitle}>We are a small, self-funded team. We don’t believe in ads or selling your data</div>
           <div className={styles.itemText}>
-            Enjoy the first steps of the quest for free. Even if you decide to do just that, you will already feel a lot clearer about your life. We hope you will have fun!
+            his is why we are offering a full quest as a premium subscription, so that
+            you can enjoy your personal growth journey in a peaceful and serene way.
           </div>
+        </div>
+
+      </div>
+      <h1 className={styles.title} >Our packages</h1>
+      <p>
+        Get access to the full quest and all life management tools with a payment plan that works best for you:
+      </p>
+      <div className={styles.items}>
+
+        <div>
+          <div className={styles.item}>
+            <div className={styles.itemTitle}>Monthly subscription</div>
+            <div>
+              <div className={styles.itemPrice}>€29.99</div>
+              <div className={styles.itemPriceText}>cancel any time</div>
+            </div>
+          </div>
+          <button type="submit" className={styles.btnBlue}>Subscribe Monthly</button>
+        </div>
+        <div>
+          <div className={styles.item}>
+            <div className={styles.itemTitle}>Yearly subscription</div>
+            <div>
+              <div className={styles.itemPrice}>€229.99</div>
+              <div className={styles.itemPriceText}>cancel any time</div>
+            </div>
+          </div>
+          <button type="submit" className={styles.btnBlue}>Subscribe Monthly</button>
+        </div>
+        <div>
+          <div className={styles.item}>
+            <div>
+              <div className={styles.itemTitle}>Lifetime access</div>
+              <p>to the quest and all the tools</p>
+            </div>
+            <div>
+              <div className={styles.itemPrice}>€399.99</div>
+              <div className={styles.itemPriceText}>cancel any time</div>
+            </div>
+          </div>
+          <button type="submit" className={styles.btnBlue}>Subscribe Monthly</button>
+        </div>
+        <div>
+          <div className={styles.item}>
+            <div className={styles.itemTitle}>Decide later</div>
+            <div className={styles.itemPrice}>€0</div>
+          </div>
+            <button type="submit" className={styles.btn}>Try for Free</button>
         </div>
 
       </div>
