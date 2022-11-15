@@ -4,29 +4,30 @@ import { Link, } from 'react-router-dom';
 import '../scss/style.css';
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
+import * as auth from '../../auth';
 
 import Container from '@material-ui/core/Container';
 
-const Login = ({ handleLogin }) => {
+const Login = ({ props, handleLogin }) => {
 // const Login = (props) => {
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  //   reset
-  // } = useForm();
-  // const onSubmit = async (data) => {
-  //   actions.updateAction(data);
-  //   props.history.push("./ready-see-rezalts");
-  //   // alert(JSON.stringify(data));
-  //   reset();
-  // };
-  // const { actions, state } = useStateMachine({ updateAction });
+  const {
+    // register,
+    // handleSubmit,
+    // formState: { errors },
+    reset
+  } = useForm();
+  const onSubmit = async (data) => {
+    actions.updateAction(data);
+    props.history.push("./ready-see-rezalts");
+    // alert(JSON.stringify(data));
+    reset();
+  };
+  const { actions, state } = useStateMachine({ updateAction });
 
 
   const [userData, setUserState] = useState({
-    username: '',
-    password: ''
+    username: state.data.name,
+    password: state.data.password
   });
   const { username, password } = userData
   const [message, setMessage] = useState('')
@@ -42,8 +43,16 @@ const Login = ({ handleLogin }) => {
     if (!username || !password) {
       return;
     }
-    handleLogin(username, password)
-      .catch((e) => this.setState({ message: e.message }))
+    auth.authorize(username, password)
+    .then((data) => {
+      if (data.jwt){
+        this.setUserState({username: state.data.name, password: state.data.password} ,() => {
+          this.props.handleLogin();
+          this.props.history.push('/cards');
+        })
+      }  
+    })
+    .catch((e) => this.setUserState({ message: e.message }))
   }
 
   return (
@@ -55,7 +64,7 @@ const Login = ({ handleLogin }) => {
         <p className="login__error">
           {message}
         </p>
-        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+        <pre>{JSON.stringify(state, null, 2)}</pre>
         <form className="form-img login__form"
               onSubmit={handleSubmit}
               // onSubmit={handleSubmit(onSubmit)}

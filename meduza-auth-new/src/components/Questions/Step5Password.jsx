@@ -31,15 +31,16 @@ const Step5Password = ({ props, handleRegister }) => {
     console.log('{state.data.email} = ', state.data.email);
     console.log('{state.data.password} = ', state.data.password);
 
-    // function handleSubmit(e) {
+    function handleSubmit(e) {
       e.preventDefault();
-      // if (true) {
-        handleRegister(state.data.name, state.data.password, state.data.email)
+      if (true) {
+        handleRegister( state.data.name, state.data.email, state.data.password)
           .catch((e) => setMessage(e.message))
-      // }
-    // }
+      }
+    }
 
-    props.history.push("./based-city");
+
+    // props.history.push("./based-city");
     // alert(JSON.stringify(data));
     reset();
   };

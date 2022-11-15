@@ -24,13 +24,14 @@ const Register = ({ handleRegister }) => {
   console.log('handleRegister = ', handleRegister);
 
   const [registerData, setRegisterData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    username: state.data.name,
+    email: state.data.email,
+    password: state.data.password,
+    confirmPassword: state.data.password,
   });
+
   const [message, setMessage] = useState('')
-  const { username, email, password, confirmPassword } = registerData;
+  const { username,  password, email, confirmPassword } = registerData;
   function handleChange(e) {
     const { name, value } = e.target;
     setRegisterData({
@@ -42,19 +43,20 @@ const Register = ({ handleRegister }) => {
     e.preventDefault();
     if (password === confirmPassword) {
       handleRegister(username, password, email)
-        .catch((e) => setMessage(e.message))
+        // .catch((e) => setMessage(e.message))
     }
   }
 
   return (
     <Container className='container__form-login'>
       <h1>Create an account</h1>
-      <p className="register__error">
-        {message}
-      </p>
 
       {/* <p>handleRegister = {handleRegister}</p> */}
         <pre>{JSON.stringify(state, null, 2)}</pre>
+      <p className="register__error">
+      register__error:
+      { message }
+      </p>
       
       <div className="login">
         <form
@@ -71,7 +73,7 @@ const Register = ({ handleRegister }) => {
               type="text"
               defaultValue={state.data.name}
               // value={username}
-              // onChange={handleChange}
+              onChange={handleChange}
             />
           </label>
           <label htmlFor="email">
@@ -82,7 +84,7 @@ const Register = ({ handleRegister }) => {
               type="email"
               defaultValue={state.data.email}
               // value={email}
-              // onChange={handleChange}
+              onChange={handleChange}
             />
           </label>
           <label htmlFor="password">
@@ -93,7 +95,7 @@ const Register = ({ handleRegister }) => {
               type="password"
               defaultValue={state.data.password}
               // value={password}
-              // onChange={handleChange}
+              onChange={handleChange}
             />
           </label>
           <label htmlFor="confirmPassword">
@@ -104,7 +106,7 @@ const Register = ({ handleRegister }) => {
               type="password"
               defaultValue={state.data.password}
               // value={confirmPassword}
-              // onChange={handleChange}
+              onChange={handleChange}
             />
           </label>
           <div className="register__button-container">

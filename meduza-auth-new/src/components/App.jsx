@@ -62,7 +62,8 @@ const App = () => {
   }
 
   function handleLogin(username, password) {
-    return auth.authorize(username, password)
+     auth
+      .authorize(username, password)
       .then((data) => {
 
         console.log('handleLogin: data = ', data);
@@ -81,20 +82,27 @@ const App = () => {
         }
       })
   }
-  function handleRegister(username, password, email) {
-    return auth
-      .register(username, password, email)
+  function handleRegister(username, email, password) {
+   auth
+      .register(username, email, password)
       .then((res) => {
-        console.log('handleRegister: res = ', res);
-
         const { statusCode, jwt } = res;
-        if (jwt) {
+
+        console.log('handleRegister: 111 jwt = ', jwt);
+        console.log('handleRegister: statusCode = ', statusCode);
+        console.log('handleRegister: res = ', res);
+        console.log('handleRegister: res.message = ', res.message);
+        // console.log('handleRegister: res.data._id = ', res.data._id );
+        // console.log('handleRegister: res.data.email = ', res.data.email);
+
+        // if (jwt) {
+        if (res.data._id || jwt) {
           history.push('/login');
         } else if (statusCode === 400) {
-          const { message } = res.message[0].messages[0]
+          const { message } = res.message
           throw new Error(message)
         } else {
-          throw new Error('Что-то пошло не так!')
+          throw new Error('что-то пошло не так')
         }
       });
   }
@@ -165,7 +173,10 @@ const App = () => {
             <Route path="/celebration" component={Celebration} />
             <Route path="/your-email" component={Step4Email} />
             
-            <Route path="/password" component={Step5Password} handleRegister={handleRegister}/>
+            {/* <Route path="/password" component={Step5Password} handleRegister={handleRegister}/> */}
+            <Route path="/password">
+              <Step5Password handleRegister={handleRegister} />
+            </Route>
 
             <Route path="/based-city" component={Step6BasedCity} />
             <Route path="/ready-see-rezalts" component={Step7ReadySeeRezalts} />
