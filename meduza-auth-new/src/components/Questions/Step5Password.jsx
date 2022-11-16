@@ -8,11 +8,7 @@ import styles from './Step5Password.module.css';
 
 import Container from '@material-ui/core/Container';
 
-const Step5Password = ({ props, handleRegister }) => {
-
-  console.log('props = ', props);
-  console.log('handleRegister = ', handleRegister);
-
+const Step5Password = (props) => {
   const [message, setMessage] = useState('');
   const {
     register,
@@ -25,22 +21,7 @@ const Step5Password = ({ props, handleRegister }) => {
     console.log('onSubmit step5');
     actions.updateAction(data);
 
-    // регистрация 
-    // данные для регистрации: {state.data.name},{state.data.email},{state.data.password}
-    console.log('{state.data.name} = ', state.data.name);
-    console.log('{state.data.email} = ', state.data.email);
-    console.log('{state.data.password} = ', state.data.password);
-
-    function handleSubmit(e) {
-      e.preventDefault();
-      if (true) {
-        handleRegister( state.data.name, state.data.email, state.data.password)
-          .catch((e) => setMessage(e.message))
-      }
-    }
-
-
-    // props.history.push("./based-city");
+    props.history.push("./based-city");
     // alert(JSON.stringify(data));
     reset();
   };
@@ -62,7 +43,6 @@ const Step5Password = ({ props, handleRegister }) => {
           RegisterError: {message}
         </p>
 
-        <p>handleRegister = {handleRegister}</p>
         <pre>{JSON.stringify(state, null, 2)}</pre>
 
         <form

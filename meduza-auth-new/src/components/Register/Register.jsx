@@ -54,7 +54,6 @@ const Register = ({ handleRegister }) => {
       {/* <p>handleRegister = {handleRegister}</p> */}
         <pre>{JSON.stringify(state, null, 2)}</pre>
       <p className="register__error">
-      register__error:
       { message }
       </p>
       

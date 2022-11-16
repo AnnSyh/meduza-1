@@ -17,7 +17,9 @@ const ByTheWay = (props) => {
   } = useForm();
   const onSubmit = async (data) => {
     actions.updateAction(data);
-    props.history.push("./login");
+
+    props.history.push("./register");
+    // props.history.push("./login");
     // alert(JSON.stringify(data));
     reset();
   };

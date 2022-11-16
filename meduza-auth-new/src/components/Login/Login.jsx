@@ -4,12 +4,13 @@ import { Link, } from 'react-router-dom';
 import '../scss/style.css';
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
-import * as auth from '../../auth';
 
 import Container from '@material-ui/core/Container';
 
 const Login = ({ props, handleLogin }) => {
-  // const Login = (props) => {
+
+console.log('props = ',props)
+
   const {
     // register,
     // handleSubmit,
@@ -69,7 +70,7 @@ const Login = ({ props, handleLogin }) => {
               placeholder='Email'
               name="username"
               type="text"
-              // defaultValue={state.data.email}
+              defaultValue={state.data.email}
               // {...register("email", {
               //   required: 'Required field',
               //   pattern: {
@@ -77,7 +78,7 @@ const Login = ({ props, handleLogin }) => {
               //     message: "Entered value does not match email format"
               //   }
               // })}              
-              value={username}
+              // value={username}
               onChange={handleChange}
             />
           </label>
@@ -87,7 +88,7 @@ const Login = ({ props, handleLogin }) => {
               placeholder='Password'
               name="password"
               type="password"
-              // defaultValue={state.data.password}
+              defaultValue={state.data.password}
               // {...register("password", {
               //   required: 'Required field',
               //   pattern: {
@@ -95,7 +96,7 @@ const Login = ({ props, handleLogin }) => {
               //     message: "Entered value does not match password format"
               //   } 
               // })}              
-              value={password}
+              // value={password}
               onChange={handleChange}
             />
           </label>

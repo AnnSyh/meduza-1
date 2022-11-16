@@ -170,10 +170,10 @@ const App = () => {
             <Route path="/celebration" component={Celebration} />
             <Route path="/your-email" component={Step4Email} />
             
-            {/* <Route path="/password" component={Step5Password} handleRegister={handleRegister}/> */}
-            <Route path="/password">
+            <Route path="/password" component={Step5Password} />
+            {/* <Route path="/password">
               <Step5Password handleRegister={handleRegister} />
-            </Route>
+            </Route> */}
 
             <Route path="/based-city" component={Step6BasedCity} />
             <Route path="/ready-see-rezalts" component={Step7ReadySeeRezalts} />
