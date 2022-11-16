@@ -62,28 +62,24 @@ const App = () => {
   }
 
   function handleLogin(username, password) {
-     auth
+    return auth
       .authorize(username, password)
       .then((data) => {
-
-        console.log('handleLogin: data = ', data);
-        console.log('handleLogin: data.jwt = ', data.jwt);
-
         if (!data) {
           throw new Error('Что-то пошло не так!');
         }
         if (data.jwt) {
+          localStorage.setItem('jwt', data.jwt);
           const { user: { username, email } } = data;
           const userData = { username, email }
-          // test: "hello"
-          localStorage.setItem('jwt', data.jwt);
           setUserData(userData)
-          setLoggedIn(true)
+          setLoggedIn(true);
+          history.push('/cards')
         }
       })
   }
   function handleRegister(username, email, password) {
-   auth
+    return auth
       .register(username, email, password)
       .then((res) => {
         const { statusCode, jwt } = res;
@@ -107,25 +103,24 @@ const App = () => {
       });
   }
   const tokenCheck = () => {
-    // debugger
-    console.log('tokenCheck: setLoggedIn = ', setLoggedIn);
-
     if (localStorage.getItem('jwt')) {
       let jwt = localStorage.getItem('jwt');
       auth.getContent(jwt).then((res) => {
-        // debugger
-        console.log('tokenCheck: res = ', res);
-
         if (res) {
           const { username, email } = res;
           const userData = { username, email }
           localStorage.setItem('jwt', res.jwt);
           setUserData(userData)
           setLoggedIn(true)
-          history.push('/cards');
         }
       });
     }
+  }
+
+  function signOut(){
+    localStorage.removeItem('jwt');
+    history.push('/register');
+    setLoggedIn(false);
   }
 
   return (
@@ -137,6 +132,7 @@ const App = () => {
             path="/cards"
             loggedIn={loggedIn}
             component={Cards}
+            signOut={signOut} 
           />
           <ProtectedRoute
             path="/my-profile"
@@ -145,17 +141,18 @@ const App = () => {
             component={MyProfile}
           />
           <StateMachineProvider>
+          <Route path="/login">
+            <div className="loginContainer">
+              <Login handleLogin={handleLogin} />
+            </div>
+          </Route>
+
           <Route path="/register">
             <div className="registerContainer">
               <Register handleRegister={handleRegister} />
             </div>
           </Route>
 
-          <Route path="/login">
-            <div className="loginContainer">
-              <Login handleLogin={handleLogin} />
-            </div>
-          </Route>
             <Route exact path="/" component={Step1} />
             <Route path="/step2" component={Step2} />
             {/* <Route path="/step2"><Step2 name='step2' /></Route> */}
@@ -189,7 +186,7 @@ const App = () => {
           </StateMachineProvider>
 
           <Route>
-            {loggedIn ? <Redirect to="/cards" /> : <Redirect to="/step1" />}
+            {loggedIn ? <Redirect to="/cards" /> : <Redirect to="/login" />}
           </Route>
 
           <Route path='*' component={PageNotFound} />

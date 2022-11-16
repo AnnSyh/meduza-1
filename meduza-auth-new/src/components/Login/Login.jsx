@@ -9,7 +9,7 @@ import * as auth from '../../auth';
 import Container from '@material-ui/core/Container';
 
 const Login = ({ props, handleLogin }) => {
-// const Login = (props) => {
+  // const Login = (props) => {
   const {
     // register,
     // handleSubmit,
@@ -26,11 +26,11 @@ const Login = ({ props, handleLogin }) => {
 
 
   const [userData, setUserState] = useState({
-    username: state.data.name,
-    password: state.data.password
+    username: state.data.email,
+    password: state.data.password,
+    message: ''
   });
-  const { username, password } = userData
-  const [message, setMessage] = useState('')
+  const { username, password, message } = userData
   function handleChange(e) {
     const { name, value } = e.target;
     setUserState({
@@ -43,16 +43,8 @@ const Login = ({ props, handleLogin }) => {
     if (!username || !password) {
       return;
     }
-    auth.authorize(username, password)
-    .then((data) => {
-      if (data.jwt){
-        this.setUserState({username: state.data.name, password: state.data.password} ,() => {
-          this.props.handleLogin();
-          this.props.history.push('/cards');
-        })
-      }  
-    })
-    .catch((e) => this.setUserState({ message: e.message }))
+    handleLogin(username, password)
+        .catch((err) => setUserState({ ...userData, message: err.message }))
   }
 
   return (
@@ -66,10 +58,10 @@ const Login = ({ props, handleLogin }) => {
         </p>
         <pre>{JSON.stringify(state, null, 2)}</pre>
         <form className="form-img login__form"
-              onSubmit={handleSubmit}
-              // onSubmit={handleSubmit(onSubmit)}
-              noValidate
-              autoComplete='off'
+          onSubmit={handleSubmit}
+          // onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          autoComplete='off'
         >
           <label htmlFor="username">
             <input id="username"

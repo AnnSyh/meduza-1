@@ -28,10 +28,10 @@ const Register = ({ handleRegister }) => {
     email: state.data.email,
     password: state.data.password,
     confirmPassword: state.data.password,
+    message: ''
   });
 
-  const [message, setMessage] = useState('')
-  const { username,  password, email, confirmPassword } = registerData;
+  const { username,  password, email, confirmPassword, message } = registerData;
   function handleChange(e) {
     const { name, value } = e.target;
     setRegisterData({
@@ -43,7 +43,7 @@ const Register = ({ handleRegister }) => {
     e.preventDefault();
     if (password === confirmPassword) {
       handleRegister(username, password, email)
-        // .catch((e) => setMessage(e.message))
+      .catch((err) => setRegisterData({...registerData,  message: err.message }))
     }
   }
 

@@ -1,13 +1,21 @@
 export const BASE_URL = 'https://api.nomoreparties.co';
-// https://auth.nomoreparties.co
-// https://api.nomoreparties.co
+
+const checkResponse = (response) => {
+  // const data = await response.json();
+  if (response.ok) {
+    return response.json()
+  }
+  return response.json().then((data) => {
+    const { statusCode } = data;
+    const { message } = data.message[0].messages[0]
+    const error = new Error(message || 'Что-то пошло не так');
+    error.status = statusCode;
+    throw error;
+  })
+}
 
 export const register = ( username,  password, email) => {
-  console.log('register: username = ', username);
-  console.log('register: email = ', email);
-  console.log('register: password = ', password);
-
-  return fetch(`https://auth.nomoreparties.co/signup`, {
+  return fetch(`${BASE_URL}/auth/local/register`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -15,12 +23,7 @@ export const register = ( username,  password, email) => {
     },
     body: JSON.stringify({username,  password, email})
   })
-  .then((response) => response.json())
-  .then((res) => {
-    return res;
-  })
-  .catch((err) => console.log(err));
-
+  .then(checkResponse)
 };
 export const authorize = (identifier, password) => {
   return fetch(`${BASE_URL}/auth/local`, {
@@ -31,15 +34,7 @@ export const authorize = (identifier, password) => {
     },
     body: JSON.stringify({identifier, password})
   })
-  .then((response => response.json()))
-  .then((data) => {
-    if (data.user){
-      localStorage.setItem('jwt', data.jwt);
-      return data;
-    } else {
-      return;
-    }
-  })
+  .then(checkResponse)
 };
 export const getContent = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
