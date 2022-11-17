@@ -122,22 +122,22 @@ const App = () => {
 
   return (
 
-    <div className='App'>
-      <Container className='App__container' >
-        <Switch>
-          <ProtectedRoute
-            path="/cards"
-            loggedIn={loggedIn}
-            component={Cards}
-            signOut={signOut}
-          />
-          <ProtectedRoute
-            path="/my-profile"
-            loggedIn={loggedIn}
-            userData={userData}
-            component={MyProfile}
-          />
-          <StateMachineProvider>
+    <StateMachineProvider>
+      <div className='App'>
+        <Container className='App__container' >
+          <Switch>
+            <ProtectedRoute
+              path="/cards"
+              loggedIn={loggedIn}
+              component={Cards}
+              signOut={signOut}
+            />
+            <ProtectedRoute
+              path="/my-profile"
+              loggedIn={loggedIn}
+              userData={userData}
+              component={MyProfile}
+            />
             <Route path="/login">
               <div className="loginContainer">
                 <Login handleLogin={handleLogin} />
@@ -179,23 +179,16 @@ const App = () => {
             <Route path="/strategy-quest" component={StrategyQuest} />
             <Route path="/by-the-way" component={ByTheWay} />
 
+            <Route path='/cards' >
+              {loggedIn && <Redirect to='/login' />}
+            </Route>
 
+            <Route path='*' component={PageNotFound} />
+          </Switch>
+        </Container>
 
-          <Route path='/cards' >
-            {loggedIn && <Redirect to='/login' />}
-          </Route>
-
-          <Route path="/404" component={PageNotFound} />
-          {/* <Redirect to="/404" /> */}
-
-          </StateMachineProvider>
-
-          {/* <Route path='/not-found' component={PageNotFound} goBack={goBack}/> */}
-          {/* <Route path='*' component={PageNotFound} /> */}
-        </Switch>
-      </Container>
-
-    </div >
+      </div >
+    </StateMachineProvider>
   )
 }
 
