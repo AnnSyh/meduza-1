@@ -5,11 +5,10 @@
 - npm run start - запуск поекта
 
 ##### Структура проекта:
-- /step1,/step2,/step3 - нач вход
-- /health, /health, /family-freands, /love, /career, /money, /fun, /growth  - стр опроса с диаграмой (красивые кнопочки работают :) )
-- /Celebration, .....  - стр опроса без диаграмы
-- /login, /register  - авторизация/регистрация
+- /, /step2,/step3 - нач вход
+- /health, /family-freands, /love, /career,  /money, /fun, /growth  - стр опроса с диаграмой 
+- /Celebration, /your-email, /password, /based-city, /ready-see-rezalts - стр после опроса перед результатом опроса
+- /result, /your-priorities, /strategy-quest  - стр результата опроса
+- /by-the-way  -стр перед авторизацией
+- /login, /register  - авторизация/регистрация - сделанны на случай ввода уже существующего логина/майла
 - /cards, /my-profile - стр личного кабинета
-
-- авторизация/регистрация - работает но без галочки 'Remember me'
-- опрос - не работает (не доделаны иконки покругу(?), как данные из формы на стр /Step2 положить в массив ?)
