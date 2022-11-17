@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+// import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
@@ -9,7 +10,7 @@ import styles from './Step5Password.module.css';
 import Container from '@material-ui/core/Container';
 
 const Step5Password = (props) => {
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
   const {
     register,
     handleSubmit,
@@ -39,11 +40,11 @@ const Step5Password = (props) => {
         </h1>
         <div className="lid">He-he, just kidding! A simple 7-character password would do, or you can sign-in with Google if you like. It will help us save your progress!</div>
 
-        <p className="register__error">
+        {/* <p className="register__error">
           RegisterError: {message}
-        </p>
+        </p> */}
 
-        <pre>{JSON.stringify(state, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
 
         <form
           onSubmit={handleSubmit(onSubmit)}

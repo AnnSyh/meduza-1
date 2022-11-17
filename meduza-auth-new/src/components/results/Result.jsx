@@ -11,6 +11,14 @@ import imgDownload from '../../images/Download.svg';
 import imgShare from '../../images/Share.svg';
 import imgPrint from '../../images/Print.svg';
 // ------------------------------------------------
+import growthImg from './../../images/Growth.svg';
+import healthIcon from './../../images/Health.svg';
+import friendIcon from './../../images/Friend.svg';
+import funIcon from './../../images/Fun.svg';
+import growthIcon from './../../images/Growth.svg';
+import careerIcon from './../../images/Career.svg';
+import moneyIcon from './../../images/Money.svg';
+import loveIcon from './../../images/Love.svg';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -126,7 +134,7 @@ const Result = props => {
   });
   groups.push(<g key={`group-axes`}>{columns.map(axis())}</g>); // лучи
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
-  groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
+  // groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
   const TextBlock = () => {
     return (
@@ -145,23 +153,23 @@ const Result = props => {
           While you are in a good place right now, we recommend checking in with yourself regularly to see if anything needs re-calibrating. You can come back to this tool and do the test again, or simply do a mental check-in.
         </p>
         <p>
-        <span className='username'>{state.data.name}</span>, you strike me as a person who likes to grow and improve, and probably wondering, how can you make your scores even higher? The best way to do it is by mindfully and intentionally designing your life.
+          <span className='username'>{state.data.name}</span>, you strike me as a person who likes to grow and improve, and probably wondering, how can you make your scores even higher? The best way to do it is by mindfully and intentionally designing your life.
         </p>
         <p>
           Don’t worry, we have designed a powerful tool to help you do that — Life Strategy Quest. It is an interactive online quest to help you understand yourself even better and gain clarity of thought in a simple and structured way.
         </p>
         <h3>Your next step</h3>
         <p>
-        <span className='username'>{state.data.name}</span>, you took the assessment, which was the first step of your journey. In the next step, you will define your personal values, which are the foundation for designing life on your terms.
+          <span className='username'>{state.data.name}</span>, you took the assessment, which was the first step of your journey. In the next step, you will define your personal values, which are the foundation for designing life on your terms.
         </p>
       </>
     )
   }
 
-//   var pathToFile = "....";
-//   downloadFile(file) {
-//     location.href = pathToFile + file;
-// }
+  //   var pathToFile = "....";
+  //   downloadFile(file) {
+  //     location.href = pathToFile + file;
+  // }
 
   const WeelListIcon = (props) => {
     return (
@@ -201,16 +209,26 @@ const Result = props => {
 
       <div className='img'>
         {/* // диаграма */}
-        <div className='radar'>
-          <svg
-            version="1"
-            xmlns="http://www.w3.org/2000/svg"
-            width={chartSize}
-            height={chartSize}
-            viewBox={`0 0 ${chartSize} ${chartSize}`}
-          >
-            <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
-          </svg>
+        <div className='radarWraper'>
+          <img className='radarIcon radarIconHealth' src={healthIcon} alt='' />
+          <img className='radarIcon radarIconFriend' src={friendIcon} alt='' />
+          <img className='radarIcon radarIconLove' src={loveIcon} alt='' />
+          <img className='radarIcon radarIconMoney' src={moneyIcon} alt='' />
+          <img className='radarIcon radarIconFun' src={funIcon} alt='' />
+          <img className='radarIcon radarIconCareer' src={careerIcon} alt='' />
+          <img className='radarIcon radarIconGrowth' src={growthIcon} alt='' />
+
+          <div className='radar'>
+            <svg
+              version="1"
+              xmlns="http://www.w3.org/2000/svg"
+              width={chartSize}
+              height={chartSize}
+              viewBox={`0 0 ${chartSize} ${chartSize}`}
+            >
+              <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
+            </svg>
+          </div>
         </div>
         <div className='radar-info'>
           <h1 className={classes.h1Color}> <span className="username">{state.data.name}</span>’s Wheel of Life</h1>

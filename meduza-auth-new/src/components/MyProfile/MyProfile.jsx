@@ -32,7 +32,7 @@ function MyProfile(props) {
   // let { username, email } = props.userData;
 
   return (
-    <div className='personal-area 22'>
+    <div className='personal-area'>
       <TopBar />
       <NavBar />
       <div className='personal-area__content'>

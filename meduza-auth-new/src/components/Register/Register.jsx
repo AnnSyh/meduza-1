@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
@@ -12,12 +12,12 @@ import Container from '@material-ui/core/Container';
 
 const Register = ({ handleRegister }) => {
 
-  const {
-    register,
-    // handleSubmit,
-    formState: { errors },
-    reset
-  } = useForm();
+  // const {
+  //   // register,
+  //   // handleSubmit,
+  //   // formState: { errors },
+  //   reset
+  // } = useForm();
 
   const { actions, state } = useStateMachine({ updateAction });
 
@@ -31,19 +31,21 @@ const Register = ({ handleRegister }) => {
     message: ''
   });
 
-  const { username,  password, email, confirmPassword, message } = registerData;
+  const { username, password, email, confirmPassword, message } = registerData;
   function handleChange(e) {
     const { name, value } = e.target;
     setRegisterData({
       ...registerData,
       [name]: value
     });
+
+    console.log('registerData = ', registerData)
   }
   function handleSubmit(e) {
     e.preventDefault();
     if (password === confirmPassword) {
       handleRegister(username, password, email)
-      .catch((err) => setRegisterData({...registerData,  message: err.message }))
+        .catch((err) => setRegisterData({ ...registerData, message: err.message }))
     }
   }
 
@@ -52,11 +54,11 @@ const Register = ({ handleRegister }) => {
       <h1>Create an account</h1>
 
       {/* <p>handleRegister = {handleRegister}</p> */}
-        <pre>{JSON.stringify(state, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
       <p className="register__error">
-      { message }
+        {message}
       </p>
-      
+
       <div className="login">
         <form
           className="form-img register__form"
@@ -73,6 +75,7 @@ const Register = ({ handleRegister }) => {
               defaultValue={state.data.name}
               // value={username}
               onChange={handleChange}
+              // {...register("username")}
             />
           </label>
           <label htmlFor="email">

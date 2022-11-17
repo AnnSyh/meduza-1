@@ -1,34 +1,16 @@
 import React, { useState } from 'react';
-import { useForm } from "react-hook-form";
 import { Link, } from 'react-router-dom';
 import '../scss/style.css';
-import { useStateMachine } from "little-state-machine";
-import updateAction from "../updateAction";
 
 import Container from '@material-ui/core/Container';
 
 const Login = ({ props, handleLogin }) => {
 
-console.log('props = ',props)
-
-  const {
-    // register,
-    // handleSubmit,
-    // formState: { errors },
-    reset
-  } = useForm();
-  const onSubmit = async (data) => {
-    actions.updateAction(data);
-    props.history.push("./ready-see-rezalts");
-    // alert(JSON.stringify(data));
-    reset();
-  };
-  const { actions, state } = useStateMachine({ updateAction });
-
+// console.log('props = ',props)
 
   const [userData, setUserState] = useState({
-    username: state.data.email,
-    password: state.data.password,
+    username: 'sssss@ss.ss',
+    password: '111',
     message: ''
   });
   const { username, password, message } = userData
@@ -57,10 +39,9 @@ console.log('props = ',props)
         <p className="login__error">
           {message}
         </p>
-        <pre>{JSON.stringify(state, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
         <form className="form-img login__form"
           onSubmit={handleSubmit}
-          // onSubmit={handleSubmit(onSubmit)}
           noValidate
           autoComplete='off'
         >
@@ -70,15 +51,7 @@ console.log('props = ',props)
               placeholder='Email'
               name="username"
               type="text"
-              defaultValue={state.data.email}
-              // {...register("email", {
-              //   required: 'Required field',
-              //   pattern: {
-              //     value: /^[A-zА-яЁё]+$/,
-              //     message: "Entered value does not match email format"
-              //   }
-              // })}              
-              // value={username}
+              value={username}
               onChange={handleChange}
             />
           </label>
@@ -88,15 +61,7 @@ console.log('props = ',props)
               placeholder='Password'
               name="password"
               type="password"
-              defaultValue={state.data.password}
-              // {...register("password", {
-              //   required: 'Required field',
-              //   pattern: {
-              //     value: /^[A-zА-яЁё]+$/,
-              //     message: "Entered value does not match password format"
-              //   } 
-              // })}              
-              // value={password}
+              value={password}
               onChange={handleChange}
             />
           </label>

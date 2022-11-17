@@ -11,7 +11,7 @@ function NavBar() {
   const history = useHistory();
   function signOut() {
     localStorage.removeItem('jwt');
-    history.push('/register');
+    history.push('/');
   }
 
   const [value, setValue] = React.useState(0);

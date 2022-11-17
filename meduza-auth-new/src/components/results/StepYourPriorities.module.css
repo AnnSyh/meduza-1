@@ -42,7 +42,7 @@ h1.h1Color {
 }
 
 @media screen and (max-width: 500px) {
-  .less7Ul { border: 1px solid green;
+  .less7Ul { 
     grid-template-columns: repeat(1, 215px);
     width: 215px;
   }

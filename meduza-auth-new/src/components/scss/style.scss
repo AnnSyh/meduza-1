@@ -1,6 +1,6 @@
 @import url(../../fonts/fonts.css);
 @import './variables';  
-
+    
 @import './App';
 @import './Card';
 @import './CardList';
@@ -11,7 +11,8 @@
 @import './personal-area'; 
 @import './Register';
 @import './Step2';
-@import './TopBar';  
+@import './TopBar';         
+@import './Radar';     
 
 li.growth::after, 
 li.career::after,
@@ -158,19 +159,3 @@ h3 {
     display: none;
   }   
 } 
-
-.username {
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: inline-block;
-  position: relative;
-  bottom: -4px;
-} 
-
-h1 .username {
-  bottom: -17px;
-
-}
-

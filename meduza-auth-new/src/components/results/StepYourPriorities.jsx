@@ -11,6 +11,13 @@ import classes from './StepYourPriorities.module.css';
 import imgDownload from '../../images/Download.svg';
 import imgShare from '../../images/Share.svg';
 import imgPrint from '../../images/Print.svg';
+import healthIcon from './../../images/Health.svg';
+import friendIcon from './../../images/Friend.svg';
+import funIcon from './../../images/Fun.svg';
+import growthIcon from './../../images/Growth.svg';
+import careerIcon from './../../images/Career.svg';
+import moneyIcon from './../../images/Money.svg';
+import loveIcon from './../../images/Love.svg';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -116,19 +123,18 @@ const StepYourPriorities = (prop) => {
     const rez = [];
     const obj = state.data;
 
-    console.log('obj = ', obj);
+    // console.log('obj = ', obj);
 
     function handleCardClick(e) {
-      console.log('card click!!!!');
-
-      console.log('e.target = ', e.target);
+      // console.log('card click!!!!');
+      // console.log('e.target = ', e.target);
 
       const currentClass = e.target.getAttribute('class')
       const contentTabs = document.querySelectorAll('.detail__content');
       const tabs = document.querySelectorAll('.list-details li');
 
       const tabsDell = document.querySelectorAll('.list-details li:not([class])');
-      console.log('tabsDell = ', tabsDell);
+      // console.log('tabsDell = ', tabsDell);
 
       contentTabs.forEach((item) => {
         item.classList.remove('d-block');
@@ -160,14 +166,7 @@ const StepYourPriorities = (prop) => {
 
         parent.style.display = "none";
 
-
       }
-
-      // tabs.forEach((item) => {
-      //   item.style.display = "flex";
-      // });
-
-      // e.target.style.display = "none";
 
     }
 
@@ -187,8 +186,8 @@ const StepYourPriorities = (prop) => {
         }
 
       }
-      console.log('Less7: rez = ', rez);
-      console.log('Less7: rez.length = ', rez.length);
+      // console.log('Less7: rez = ', rez);
+      // console.log('Less7: rez.length = ', rez.length);
     }
 
     return (<div className='list-details'>
@@ -235,7 +234,7 @@ const StepYourPriorities = (prop) => {
   });
   groups.push(<g key={`group-axes`}>{columns.map(axis())}</g>); // лучи
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
-  groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
+  // groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
   const WeelListIcon = (props) => {
     return (
@@ -269,16 +268,26 @@ const StepYourPriorities = (prop) => {
       <div className='container__two-columns'>
         <div className='img'>
           {/* // диаграма */}
-          <div className='radar'>
-            <svg
-              version="1"
-              xmlns="http://www.w3.org/2000/svg"
-              width={chartSize}
-              height={chartSize}
-              viewBox={`0 0 ${chartSize} ${chartSize}`}
-            >
-              <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
-            </svg>
+          <div className='radarWraper'>
+            <img className='radarIcon radarIconHealth' src={healthIcon} alt='' />
+            <img className='radarIcon radarIconFriend' src={friendIcon} alt='' />
+            <img className='radarIcon radarIconLove' src={loveIcon} alt='' />
+            <img className='radarIcon radarIconMoney' src={moneyIcon} alt='' />
+            <img className='radarIcon radarIconFun' src={funIcon} alt='' />
+            <img className='radarIcon radarIconCareer' src={careerIcon} alt='' />
+            <img className='radarIcon radarIconGrowth' src={growthIcon} alt='' />
+
+            <div className='radar'>
+              <svg
+                version="1"
+                xmlns="http://www.w3.org/2000/svg"
+                width={chartSize}
+                height={chartSize}
+                viewBox={`0 0 ${chartSize} ${chartSize}`}
+              >
+                <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
+              </svg>
+            </div>
           </div>
           <div className='radar-info'>
             <h1 className={classes.h1Color}>
@@ -311,7 +320,7 @@ const StepYourPriorities = (prop) => {
         <Love />
       </div>
       <div id='career' className='detail__content content--career'>
-        <Career/>
+        <Career />
       </div>
       <div id="money" className='detail__content content--money'>
         <Money />

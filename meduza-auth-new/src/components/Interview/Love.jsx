@@ -1,18 +1,20 @@
 import React from 'react';
-// import radarChart from "react-svg-radar-chart";
 import { useForm } from "react-hook-form";
-// import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 import '../scss/style.css';
 
 import Container from '@material-ui/core/Container';
-// import { withStyles, makeStyles } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
-// import healthIcon from './../../images/Health.svg';
+
 import loveImg from './../../images/Love.svg';
-// import IconFamilyfriends from './icons/IconFamilyfriends';
+import healthIcon from './../../images/Health.svg';
+import friendIcon from './../../images/Friend.svg';
+import funIcon from './../../images/Fun.svg';
+import growthIcon from './../../images/Growth.svg';
+import careerIcon from './../../images/Career.svg';
+import moneyIcon from './../../images/Money.svg';
+import loveIcon from './../../images/Love.svg';
 
 const chartSize = 450;
 const numberOfScales = 10;
@@ -128,7 +130,7 @@ const Love = props => {
   });
   groups.push(<g key={`group-axes`}>{columns.map(axis())}</g>); // лучи
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
-  groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
+  // groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
   const CheckboxRadio = (props) => {
     return (
@@ -180,16 +182,26 @@ const Love = props => {
           <CheckboxRadio id='10' />
         </div>
         {/* // диаграма */}
-        <div className='radar'>
-          <svg
-            version="1"
-            xmlns="http://www.w3.org/2000/svg"
-            width={chartSize}
-            height={chartSize}
-            viewBox={`0 0 ${chartSize} ${chartSize}`}
-          >
-            <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
-          </svg>
+        <div className='radarWraper'>
+          <img className='radarIcon radarIconHealth' src={healthIcon} alt='' />
+          <img className='radarIcon radarIconFriend' src={friendIcon} alt='' />
+          <img className='radarIcon radarIconLove' src={loveIcon} alt='' />
+          <img className='radarIcon radarIconMoney' src={moneyIcon} alt='' />
+          <img className='radarIcon radarIconFun' src={funIcon} alt='' />
+          <img className='radarIcon radarIconCareer' src={careerIcon} alt='' />
+          <img className='radarIcon radarIconGrowth' src={growthIcon} alt='' />
+          
+          <div className='radar'>
+            <svg
+              version="1"
+              xmlns="http://www.w3.org/2000/svg"
+              width={chartSize}
+              height={chartSize}
+              viewBox={`0 0 ${chartSize} ${chartSize}`}
+            >
+              <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
+            </svg>
+          </div>
         </div>
       </form>
 

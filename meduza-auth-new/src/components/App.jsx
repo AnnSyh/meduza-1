@@ -88,11 +88,8 @@ const App = () => {
         console.log('handleRegister: statusCode = ', statusCode);
         console.log('handleRegister: res = ', res);
         console.log('handleRegister: res.message = ', res.message);
-        // console.log('handleRegister: res.data._id = ', res.data._id );
-        // console.log('handleRegister: res.data.email = ', res.data.email);
 
-        // if (jwt) {
-        if (res.data._id || jwt) {
+        if (jwt) {
           history.push('/login');
         } else if (statusCode === 400) {
           const { message } = res.message
@@ -117,7 +114,7 @@ const App = () => {
     }
   }
 
-  function signOut(){
+  function signOut() {
     localStorage.removeItem('jwt');
     history.push('/register');
     setLoggedIn(false);
@@ -132,7 +129,7 @@ const App = () => {
             path="/cards"
             loggedIn={loggedIn}
             component={Cards}
-            signOut={signOut} 
+            signOut={signOut}
           />
           <ProtectedRoute
             path="/my-profile"
@@ -141,17 +138,17 @@ const App = () => {
             component={MyProfile}
           />
           <StateMachineProvider>
-          <Route path="/login">
-            <div className="loginContainer">
-              <Login handleLogin={handleLogin} />
-            </div>
-          </Route>
+            <Route path="/login">
+              <div className="loginContainer">
+                <Login handleLogin={handleLogin} />
+              </div>
+            </Route>
 
-          <Route path="/register">
-            <div className="registerContainer">
-              <Register handleRegister={handleRegister} />
-            </div>
-          </Route>
+            <Route path="/register">
+              <div className="registerContainer">
+                <Register handleRegister={handleRegister} />
+              </div>
+            </Route>
 
             <Route exact path="/" component={Step1} />
             <Route path="/step2" component={Step2} />
@@ -169,7 +166,7 @@ const App = () => {
 
             <Route path="/celebration" component={Celebration} />
             <Route path="/your-email" component={Step4Email} />
-            
+
             <Route path="/password" component={Step5Password} />
             {/* <Route path="/password">
               <Step5Password handleRegister={handleRegister} />
@@ -183,17 +180,22 @@ const App = () => {
             <Route path="/by-the-way" component={ByTheWay} />
 
 
-          </StateMachineProvider>
 
-          <Route>
-            {loggedIn ? <Redirect to="/cards" /> : <Redirect to="/login" />}
+          <Route path='/cards' >
+            {loggedIn && <Redirect to='/login' />}
           </Route>
 
-          <Route path='*' component={PageNotFound} />
+          <Route path="/404" component={PageNotFound} />
+          {/* <Redirect to="/404" /> */}
+
+          </StateMachineProvider>
+
+          {/* <Route path='/not-found' component={PageNotFound} goBack={goBack}/> */}
+          {/* <Route path='*' component={PageNotFound} /> */}
         </Switch>
       </Container>
 
-    </div>
+    </div >
   )
 }
 

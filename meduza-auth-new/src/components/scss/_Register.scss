@@ -18,7 +18,7 @@ body {
     align-items: stretch;
     justify-content: center;
 
-    & h1 {
+    & h1 { 
       font-family: $Lora-bold;
       font-size: $font-size-lg-42pt;
       font-weight: 600;
@@ -35,6 +35,10 @@ body {
       color: $color-blue-three;
       font-size: $font-size-lg-22pt;
       margin-bottom: 80px;
+
+      @media screen and(max-width:768px) {
+        font-size: 18px;
+      }
     }
 
     & form::after {
@@ -248,9 +252,12 @@ body {
   .checkbox-text {
     color: $color-blue-three;
     font-size: $font-size-xs-16pt;
+    display: flex;
 
     input {
       margin-right: 15px;
+      margin: 0 15px 0 0;
+    width: 15px;
     }
   }
 

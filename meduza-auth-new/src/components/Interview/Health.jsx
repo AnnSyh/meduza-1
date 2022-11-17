@@ -5,9 +5,17 @@ import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
 import '../scss/style.css';
+import styles from './Health.module.css';
 
 import Container from '@material-ui/core/Container';
+
 import healthIcon from './../../images/Health.svg';
+import friendIcon from './../../images/Friend.svg';
+import funIcon from './../../images/Fun.svg';
+import growthIcon from './../../images/Growth.svg';
+import careerIcon from './../../images/Career.svg';
+import moneyIcon from './../../images/Money.svg';
+import loveIcon from './../../images/Love.svg';
 
 //нач данные круговоой диаграммы
 import data from '../../data-radar';
@@ -127,7 +135,7 @@ const Health = props => {
   });
   groups.push(<g key={`group-axes`}>{columns.map(axis())}</g>); // лучи
   groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>); // выделенная область
-  groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
+  // groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>); // заголовки
 
 
   const CheckboxRadio = (props) => {
@@ -175,16 +183,26 @@ const Health = props => {
           <CheckboxRadio id='10' />
         </div>
         {/* // диаграма */}
-        <div className='radar'>
-          <svg
-            version="1"
-            xmlns="http://www.w3.org/2000/svg"
-            width={chartSize}
-            height={chartSize}
-            viewBox={`0 0 ${chartSize} ${chartSize}`}
-          >
-            <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
-          </svg>
+        <div className={styles.radarWraper}>
+          <img className={styles.radarIcon + ' ' + styles.radarIconHealth} src={healthIcon} alt='' />
+          <img className={styles.radarIcon + ' ' + styles.radarIconFriend} src={friendIcon} alt='' />
+          <img className={styles.radarIcon + ' ' + styles.radarIconLove} src={loveIcon} alt='' />
+          <img className={styles.radarIcon + ' ' + styles.radarIconMoney} src={moneyIcon} alt='' />
+          <img className={styles.radarIcon + ' ' + styles.radarIconFun} src={funIcon} alt='' />
+          <img className={styles.radarIcon + ' ' + styles.radarIconCareer} src={careerIcon} alt='' />
+          <img className={styles.radarIcon + ' ' + styles.radarIconGrowth} src={growthIcon} alt='' />
+
+          <div className='radar'>
+            <svg
+              version="1"
+              xmlns="http://www.w3.org/2000/svg"
+              width={chartSize}
+              height={chartSize}
+              viewBox={`0 0 ${chartSize} ${chartSize}`}
+            >
+              <g transform={`translate(${middleOfChart},${middleOfChart})`}>{groups}</g>
+            </svg>
+          </div>
         </div>
       </form>
 

@@ -19,10 +19,8 @@ const Step1 = (props) => {
   const { actions, state } = useStateMachine({ updateAction });
 
   const onSubmit = (data) => {
-    actions.updateAction(data);
-    // props.history.push("./Step2Right");
+    // actions.updateAction(data);
     props.history.push("./Step2");
-    // alert(JSON.stringify(data));
     reset();
   };
 

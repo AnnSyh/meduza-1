@@ -1,0 +1,126 @@
+.radarWraper {
+  padding: 100px;
+  position: relative;
+  width: fit-content;
+  margin: auto;
+}
+
+.radarIcon {
+  position: absolute;
+  top: 90px;
+  right: 48px;
+  width: 100px;
+  height: 100px;
+}
+
+
+
+
+.radarIconHealth {
+  top: -8px;
+  left: calc(50% - 50px);
+}
+
+.radarIconFriend,
+.radarIconGrowth {
+  top: 18%;
+}
+
+.radarIconFriend {
+  right: 5%;
+}
+
+.radarIconGrowth {
+  left: 5%;
+}
+
+.radarIconLove,
+.radarIconCareer {
+  bottom: 36%;
+  top: auto;
+}
+
+.radarIconLove {
+  right: -6px;
+}
+
+.radarIconCareer {
+  left: -6px;
+}
+
+.radarIconMoney,
+.radarIconFun {
+  top: auto;
+  bottom: 0;
+}
+
+.radarIconMoney {
+  right: 25%;
+}
+
+.radarIconFun {
+  left: 25%;
+}
+
+.container__two-columns {
+
+  .radarWraper {
+    padding: 50px;
+    position: relative;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .radarIcon { 
+    width: 50px;
+    height: 50px;
+  }
+
+  .radarIconHealth {
+    left: calc(50% - 25px);
+  }
+
+}
+
+@media screen and (max-width:745px) {
+  .radarWraper {
+    padding: 50px;
+    position: relative;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .radarIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .radarIconHealth {
+    left: calc(50% - 25px);
+  }
+
+}
+
+@media screen and (max-width:400px) {
+  .radarWraper {
+    padding: 30px;
+    position: relative;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .radarIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .radarIconHealth {
+    left: calc(50% - 15px);
+  }
+
+  .radarIconFriend {
+    top: 42px;
+    right: 15px;
+  }
+
+}

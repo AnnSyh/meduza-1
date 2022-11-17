@@ -14,21 +14,16 @@ const TextBlock =  (prop) => {
 
     for (let key in obj) {
       if (Number(obj[key]) >= 7) {
-        // console.log('interview.length = ', interview.length)
-        // console.log('key = ', key)
 
         for (let i = 0; i < interview.length; i++) {
-          // console.log('interview[i] = ', interview[i])
-          // console.log('condition = ', (key === interview[i]))
 
           if (key === interview[i]) {
-            // console.log('key = ', key)
             rez.push(key)
           }
         }
       }
     }
-    console.log('rez = ', rez)
+    // console.log('rez = ', rez)
 
     return (rez.join(', '))
   }

@@ -5,6 +5,7 @@
 
 .radar svg {
   width: 100%;
+  height: auto;
 }
 
 .container__form-question {
@@ -74,6 +75,13 @@
   display: flex;
   max-width: 640px;
   margin: 30px auto;
+  
+  @media screen and (max-width:690px) {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+  }
 }
 
 // Radio в виде кнопок

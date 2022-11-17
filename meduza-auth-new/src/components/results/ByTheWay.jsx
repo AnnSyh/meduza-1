@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../updateAction";
 
-// import styles from './ByTheWay.module.css';
+import styles from './ByTheWay.module.css';
 
 import Container from '@material-ui/core/Container';
 
@@ -28,15 +28,15 @@ const ByTheWay = (props) => {
 
   return (
     <Container
-      // className={'container__form-img ' + styles.formImg}
-      className='container__form-img'
+      className={'container__form-img ' + styles.formImg}
+      // className='container__form-img'
     >
       <div className='form-img--wrapper' style={{marginTop: '310px'}}>
         <h1>
         By the way, <span className='username'>{state.data.name}</span>,<br />
         Where did you hear about us?
         </h1>
-        <pre>{JSON.stringify(state, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className='form-img'

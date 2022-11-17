@@ -6,7 +6,10 @@ import styles from './PageNotFound.module.css';
 
 import Container from '@material-ui/core/Container';
 
-const PageNotFound = (props) => {
+const PageNotFound = (props, goBack) => {
+
+  console.log('props = ', props);
+  console.log('goBack = ', goBack);
 
   return (
     <Container className='container__form-img'

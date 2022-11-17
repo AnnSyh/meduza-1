@@ -61,6 +61,12 @@ body,
   .formContainer {
     width: 100%;
   }
+  h2 {
+    font-size: 30px !important;
+  }
+  h3 {
+    font-size: 20px !important;
+  }
 }
 .uppercase {
   display: block;
@@ -173,6 +179,7 @@ body,
 }
 .radar svg {
   width: 100%;
+  height: auto;
 }
 
 .container__form-question {
@@ -238,6 +245,14 @@ body,
   display: flex;
   max-width: 640px;
   margin: 30px auto;
+}
+@media screen and (max-width: 690px) {
+  .health-checks {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+  }
 }
 
 .form_radio_btn {
@@ -434,6 +449,11 @@ body {
   font-size: 30px;
   margin-bottom: 80px;
 }
+@media screen and (max-width: 768px) {
+  .container__two-columns .lid, .container__form-img .lid {
+    font-size: 18px;
+  }
+}
 .container__two-columns form::after, .container__form-img form::after {
   position: absolute;
   left: 0;
@@ -625,9 +645,12 @@ body {
 .form-img .checkbox-text {
   color: #215C75;
   font-size: 21px;
+  display: flex;
 }
 .form-img .checkbox-text input {
   margin-right: 15px;
+  margin: 0 15px 0 0;
+  width: 15px;
 }
 
 .gallery {
@@ -841,6 +864,123 @@ body {
   flex-direction: row;
 }
 
+.radarWraper {
+  padding: 100px;
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
+.radarIcon {
+  position: absolute;
+  top: 90px;
+  right: 48px;
+  width: 100px;
+  height: 100px;
+}
+
+.radarIconHealth {
+  top: -8px;
+  left: calc(50% - 50px);
+}
+
+.radarIconFriend,
+.radarIconGrowth {
+  top: 18%;
+}
+
+.radarIconFriend {
+  right: 5%;
+}
+
+.radarIconGrowth {
+  left: 5%;
+}
+
+.radarIconLove,
+.radarIconCareer {
+  bottom: 36%;
+  top: auto;
+}
+
+.radarIconLove {
+  right: -6px;
+}
+
+.radarIconCareer {
+  left: -6px;
+}
+
+.radarIconMoney,
+.radarIconFun {
+  top: auto;
+  bottom: 0;
+}
+
+.radarIconMoney {
+  right: 25%;
+}
+
+.radarIconFun {
+  left: 25%;
+}
+
+.container__two-columns .radarWraper {
+  padding: 50px;
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+.container__two-columns .radarIcon {
+  width: 50px;
+  height: 50px;
+}
+.container__two-columns .radarIconHealth {
+  left: calc(50% - 25px);
+}
+
+@media screen and (max-width: 745px) {
+  .radarWraper {
+    padding: 50px;
+    position: relative;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+  }
+  .radarIcon {
+    width: 50px;
+    height: 50px;
+  }
+  .radarIconHealth {
+    left: calc(50% - 25px);
+  }
+}
+@media screen and (max-width: 400px) {
+  .radarWraper {
+    padding: 30px;
+    position: relative;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+  }
+  .radarIcon {
+    width: 30px;
+    height: 30px;
+  }
+  .radarIconHealth {
+    left: calc(50% - 15px);
+  }
+  .radarIconFriend {
+    top: 42px;
+    right: 15px;
+  }
+}
 li.growth::after,
 li.career::after,
 li.friend::after,
@@ -984,18 +1124,4 @@ h3 {
   .hidden-xs {
     display: none;
   }
-}
-
-.username {
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: inline-block;
-  position: relative;
-  bottom: -4px;
-}
-
-h1 .username {
-  bottom: -17px;
 }
