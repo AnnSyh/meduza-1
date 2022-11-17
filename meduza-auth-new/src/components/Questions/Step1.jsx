@@ -19,7 +19,8 @@ const Step1 = (props) => {
   const { actions, state } = useStateMachine({ updateAction });
 
   const onSubmit = (data) => {
-    // actions.updateAction(data);
+    console.log('data = ', data);
+    actions.updateAction(data);
     props.history.push("./Step2");
     reset();
   };
@@ -31,7 +32,7 @@ const Step1 = (props) => {
       <div className='form-img--wrapper' style={{paddingTop:'320px'}}>
         <h1>Hey, good looking, first things <br/>first, how should I call you?</h1>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onChange={handleSubmit(onSubmit)}
           className='form-img'
           noValidate
           autoComplete='off'

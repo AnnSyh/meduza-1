@@ -56,6 +56,7 @@ const Step2 = (props) => {
           That’s a beautiful name, <span className='username'>{state.data.name}</span>!<br />
           I am [GUIDE]. How old are you?
         </h1>
+        <pre>{JSON.stringify(state, null, 2)}</pre>
         <div className='form-img'>
           <form
             onChange={handleSubmit(onSubmit)}

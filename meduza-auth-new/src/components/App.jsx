@@ -57,9 +57,9 @@ const App = () => {
     }
   }, [history, loggedIn])
 
-  function goBack() {
-    history.goBack();
-  }
+  // function goBack() {
+  //   history.goBack();
+  // }
 
   function handleLogin(username, password) {
     return auth
