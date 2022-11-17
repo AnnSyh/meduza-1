@@ -32,7 +32,7 @@ const Step1 = (props) => {
       <div className='form-img--wrapper' style={{paddingTop:'320px'}}>
         <h1>Hey, good looking, first things <br/>first, how should I call you?</h1>
         <form
-          onChange={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit)}
           className='form-img'
           noValidate
           autoComplete='off'

@@ -32,7 +32,7 @@ const Step3 = (props) => {
           That’s the best age, <span className='username'>{state.data.name}</span>!<br />
           Are you ready?
         </h1>
-        <pre>{JSON.stringify(state, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
         <form
           className='form-img'
           onSubmit={handleSubmit(onSubmit)}
